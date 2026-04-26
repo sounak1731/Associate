@@ -354,6 +354,7 @@
   .suggestions-scroll { display: flex; gap: 12px; overflow-x: auto; padding-bottom: 8px; }
   .suggestions-scroll::-webkit-scrollbar { height: 4px; }
   .suggestions-scroll::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 2px; }
+  .sugg-grid { display: flex; flex-wrap: wrap; gap: 12px; }
   .sugg-card { flex-shrink: 0; width: 220px; padding: 14px 16px; background: var(--paper-warm); border: 1px solid var(--rule); border-radius: 8px; cursor: pointer; transition: all 0.15s; display: flex; flex-direction: column; gap: 6px; animation: suggIn 0.3s ease-out backwards; }
   .sugg-card:hover { background: var(--paper-deep); border-color: var(--ink-4); }
   .sugg-card.applied { background: var(--paper-deep); border-color: var(--rule); }
@@ -2752,7 +2753,6 @@ const matters = {
     files: '7 files',
     docLabel: 'Varma MSA v3 (CloudServ redlines)',
     docCrumb: 'Varma Industries MSA',
-    depthCounter: '47 linked documents · 312 timeline events · 8 months of matter history\n3 prior deals cross-referenced · 14 redlines accepted → playbook updated',
     narrative: `The matter took a significant turn overnight. CloudServ's counsel sent <span class="doc-inline-ref" onclick="openDocument('varma'); closeDrawer()"><span class="doc-inline-ref-icon"></span>Varma MSA v3 · 38pp · 24 Apr</span> at 11:47 PM – the agent read it before you woke up. <span class="highlight">The most consequential change: the mutual, capped indemnity at Clause 8.2 (agreed in v2 at 1.5× annual contract value) has been removed entirely.</span> No replacement, no explanation. Yesterday's Supreme Court judgment <span class="citation-chip" onclick="openCitationCard('c1', event)">Tata Consultancy v. Satyam Holdings<sup>1</sup></span> (SC, 23 Apr 2026) directly strengthens your position. A counter-draft is ready at Clause 8.2. The DPDP counter-clause at <span class="doc-inline-ref" onclick="openWaitlistFor('DPDP counter-clause \u2013 Clause 14.3')"><span class="doc-inline-ref-icon"></span>Clause 14.3 Draft</span> was drafted overnight, grounded in <span class="citation-chip" onclick="openCitationCard('c2', event)">§16 DPDP Act 2023<sup>2</sup></span> and your <span class="cross-matter-chip" onclick="openWaitlistFor('Razorpay MSA matter')">from Razorpay MSA</span> accepted position.<span class="narrative-action" onclick="openDocument('varma'); closeDrawer()">Open document →</span>`,
     chronology: [
       { date: '24 Apr 2026 11:47 PM', text: '<strong>v3 received from CloudServ – indemnity cap removed</strong>', fresh: true, oxblood: true, agentInserted: true, agentNote: 'v3 read in full · 4 changes flagged · indemnity cap removed without fresh consideration · SC judgment of 23 Apr applied' },
