@@ -29,6 +29,14 @@
     --amber-soft: #f7efdc;
     --sage: #4a6b42;
     --sage-soft: #eff2e8;
+    
+    /* Priority Colors - Unified Across App */
+    --priority-high: #dc2626;
+    --priority-high-soft: rgba(220, 38, 38, 0.12);
+    --priority-medium: #f97316;
+    --priority-medium-soft: rgba(249, 115, 22, 0.12);
+    --priority-low: #eab308;
+    --priority-low-soft: rgba(234, 179, 8, 0.12);
   }
 
   html, body { height: 100%; background: var(--paper); font-family: 'Inter Tight', -apple-system, sans-serif; color: var(--ink); overflow: hidden; }
@@ -67,9 +75,57 @@
   }
   .matter-dot.new-glow { animation: newDotIn 0.4s ease-out; }
   @keyframes newDotIn { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+  /* Phase 2: Matter Type Color Coding - SLEEK UNIFIED DESIGN */
+  .matter-dot {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+  }
+  .matter-dot:hover,
+  .matter-dot.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .matter-dot.type-litigation,
+  .matter-dot.type-transactional,
+  .matter-dot.type-ma,
+  .matter-dot.type-ip,
+  .matter-dot.type-new {
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    color: var(--ink-2);
+  }
+  .matter-dot.type-litigation:hover,
+  .matter-dot.type-transactional:hover,
+  .matter-dot.type-ma:hover,
+  .matter-dot.type-ip:hover,
+  .matter-dot.type-new:hover,
+  .matter-dot.type-litigation.active,
+  .matter-dot.type-transactional.active,
+  .matter-dot.type-ma.active,
+  .matter-dot.type-ip.active,
+  .matter-dot.type-new.active {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: var(--paper);
+  }
+  .matter-dot.urgent::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--oxblood);
+    border: 1.5px solid var(--paper);
+  }
+
   /* Rail tooltip — single fixed element, positioned via JS */
   #railTooltip {
-    position: fixed; left: 54px;
+    position: fixed; left: 240px;
     background: var(--ink); color: var(--paper); border-radius: 8px;
     padding: 11px 14px; width: 220px; pointer-events: none;
     opacity: 0; transition: opacity 0.12s;
@@ -310,7 +366,7 @@
   @keyframes suggIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
 
   /* ═══ DOCUMENT EDITOR ═══ */
-  .doc-editor { display: none; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: var(--paper); z-index: 40; flex-direction: column; }
+  .doc-editor { display: none; position: absolute; top: 0; left: 220px; right: 0; bottom: 0; background: var(--paper); z-index: 40; flex-direction: column; }
   .doc-editor.open { display: flex; animation: fadeSlide 0.3s ease-out; }
   .doc-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 28px; border-bottom: 1px solid var(--rule); background: var(--paper); }
   .doc-top-left { display: flex; align-items: center; gap: 14px; }
@@ -343,6 +399,15 @@
   .doc-body-area::-webkit-scrollbar { width: 8px; }
   .doc-body-area::-webkit-scrollbar-thumb { background: #c8c4b8; border-radius: 4px; }
   .doc-pages-wrap { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 260px; gap: 24px; padding: 0 24px; }
+  .doc-pages-wrap.compare { 
+    max-width: 100%; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 32px; 
+    padding: 0 32px;
+  }
+  .doc-pages-wrap.compare .doc-page { 
+    min-width: 0;
+  }
   .doc-page { background: var(--paper-bright); box-shadow: 0 2px 12px rgba(28,26,21,0.08); padding: 64px 76px; border-radius: 4px; font-family: 'Fraunces', serif; color: var(--ink); min-height: 900px; }
   .doc-page-label { font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 1.2px; text-transform: uppercase; color: var(--ink-3); margin-bottom: 24px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); display: flex; justify-content: space-between; }
   .doc-page-label .version { color: var(--oxblood); font-weight: 500; }
@@ -809,6 +874,873 @@
   .form-doc-value.pending { color: var(--amber); font-style: italic; }
   .form-doc-note { font-family: 'Fraunces', serif; font-size: 12px; font-style: italic; color: var(--ink-3); margin-top: 16px; padding: 10px 14px; background: var(--paper-deep); border-radius: 6px; line-height: 1.55; }
 
+  /* ═══════════════════════════════════════════════════════
+     PHASE 1: AI TRANSPARENCY & WARNING STYLES
+     ═══════════════════════════════════════════════════════ */
+
+  /* AI Transparency Mode Toggle Overlay */
+  .ai-transparency-overlay {
+    position: fixed;
+    top: 0; right: 0;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 16px;
+    border-radius: 0 0 0 12px;
+    z-index: 9998;
+    cursor: pointer;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  }
+  .ai-transparency-overlay:hover { opacity: 0.95; }
+  .ai-transparency-overlay.inactive { background: var(--ink-3); }
+  .ai-transparency-overlay.inactive .ai-dot { background: var(--ink-4); }
+  .ai-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #fde047;
+    box-shadow: 0 0 6px rgba(253, 224, 71, 0.6);
+  }
+
+  /* AI Content Highlighting */
+  .ai-highlight {
+    background: linear-gradient(180deg, rgba(253, 224, 71, 0.25) 0%, rgba(253, 224, 71, 0.25) 100%);
+    border-bottom: 2px solid rgba(253, 224, 71, 0.5);
+    padding: 2px 4px;
+    margin: -2px -4px;
+    border-radius: 3px;
+    cursor: help;
+    position: relative;
+  }
+  .ai-highlight:hover {
+    background: linear-gradient(180deg, rgba(253, 224, 71, 0.4) 0%, rgba(253, 224, 71, 0.4) 100%);
+  }
+  .ai-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+    opacity: 0.7;
+    transition: opacity 0.15s;
+  }
+  .ai-highlight:hover .ai-badge { opacity: 1; }
+
+  /* AI Warning Banner */
+  .ai-warning-banner {
+    background: linear-gradient(135deg, #fef9c3 0%, #fef3c7 100%);
+    border-left: 3px solid #eab308;
+    padding: 14px 18px;
+    margin: 0 0 24px 0;
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    animation: slideInBanner 0.4s ease-out;
+  }
+  @keyframes slideInBanner {
+    from { opacity: 0; transform: translateX(-20px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  .ai-warning-icon {
+    width: 22px;
+    height: 22px;
+    background: #eab308;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-weight: 700;
+    font-size: 13px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .ai-warning-text { flex: 1; }
+  .ai-warning-title {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    color: #854d0e;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 5px;
+  }
+  .ai-warning-body {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    color: #713f12;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  .ai-warning-action {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    color: #a16207;
+    margin-top: 8px;
+    cursor: pointer;
+    border-bottom: 1px dotted #a16207;
+    display: inline-block;
+    transition: all 0.12s;
+  }
+  .ai-warning-action:hover {
+    color: #854d0e;
+    border-bottom-style: solid;
+  }
+
+  /* Demo Mode Banner */
+  .demo-banner {
+    position: fixed;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 20px;
+    border-radius: 999px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    z-index: 9999;
+    opacity: 0.8;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .demo-banner:hover {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+  }
+  .demo-dot {
+    width: 7px;
+    height: 7px;
+    background: #fbbf24;
+    border-radius: 50%;
+    animation: demoPulse 2s infinite;
+  }
+  @keyframes demoPulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.4); }
+    50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(251, 191, 36, 0); }
+  }
+
+  /* Privacy Notice Styles */
+  .privacy-notice {
+    background: var(--paper-warm);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin-bottom: 20px;
+  }
+  .privacy-notice-header {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--oxblood);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .privacy-notice-body {
+    font-family: 'Fraunces', serif;
+    font-size: 13px;
+    color: var(--ink-2);
+    line-height: 1.5;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .privacy-bullet {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 8px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    color: var(--ink-2);
+    padding-left: 4px;
+  }
+  .privacy-bullet::before {
+    content: '•';
+    color: var(--sage);
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1;
+  }
+  .privacy-checkbox-wrap {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .privacy-checkbox-wrap input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--ink);
+    cursor: pointer;
+  }
+  .privacy-checkbox-wrap label {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    color: var(--ink);
+    cursor: pointer;
+    font-weight: 500;
+  }
+
+  /* Chat Header AI Indicator */
+  .chat-head-title-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .ai-indicator-pill {
+    background: var(--sage-soft);
+    color: var(--sage);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--sage);
+  }
+
+  /* Onboarding Tooltip */
+  .onboarding-tooltip {
+    position: absolute;
+    background: var(--ink);
+    color: var(--paper);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    max-width: 280px;
+    z-index: 1000;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+    animation: tooltipIn 0.3s ease-out;
+  }
+  @keyframes tooltipIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .onboarding-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 24px;
+    border: 10px solid transparent;
+    border-bottom-color: var(--ink);
+  }
+  .onboarding-tooltip-title {
+    font-weight: 600;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .onboarding-tooltip-body {
+    opacity: 0.9;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    font-style: italic;
+  }
+  .onboarding-tooltip-dismiss {
+    background: rgba(255,255,255,0.15);
+    border: none;
+    color: var(--paper);
+    padding: 6px 14px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .onboarding-tooltip-dismiss:hover {
+    background: rgba(255,255,255,0.25);
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     PRIORITY COLOR SYSTEM - Phase 2
+     ═══════════════════════════════════════════════════════ */
+
+  /* Priority Badge Base Classes */
+  .priority-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border: 1px solid transparent;
+  }
+
+  .priority-high {
+    background: var(--priority-high-soft);
+    color: var(--priority-high);
+    border-color: rgba(220, 38, 38, 0.25);
+  }
+
+  .priority-medium {
+    background: var(--priority-medium-soft);
+    color: #c2410c;
+    border-color: rgba(249, 115, 22, 0.25);
+  }
+
+  .priority-low {
+    background: var(--priority-low-soft);
+    color: #a16207;
+    border-color: rgba(234, 179, 8, 0.25);
+  }
+
+  /* Priority Dot Indicators */
+  .priority-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+  .priority-dot.high { background: var(--priority-high); }
+  .priority-dot.medium { background: var(--priority-medium); }
+  .priority-dot.low { background: var(--priority-low); }
+
+  /* Priority Borders for Matter Rows */
+  .matter-row.priority-high { border-left: 3px solid var(--priority-high); }
+  .matter-row.priority-medium { border-left: 3px solid var(--priority-medium); }
+  .matter-row.priority-low { border-left: 3px solid var(--priority-low); }
+
+  /* Update Issue Tags to use Priority Colors */
+  .issue-tag.critical {
+    background: var(--priority-high-soft);
+    color: var(--priority-high);
+    border-color: rgba(220, 38, 38, 0.3);
+  }
+  .issue-tag.active-tag,
+  .issue-tag.warning {
+    background: var(--priority-medium-soft);
+    color: #c2410c;
+    border-color: rgba(249, 115, 22, 0.3);
+  }
+  .issue-tag.monitor {
+    background: var(--priority-low-soft);
+    color: #a16207;
+    border-color: rgba(234, 179, 8, 0.3);
+  }
+
+  /* Redline Severity using Priority Colors */
+  .rl-severity.critical {
+    background: var(--priority-high-soft);
+    color: var(--priority-high);
+    border: 1px solid rgba(220, 38, 38, 0.3);
+  }
+  .rl-severity.amber {
+    background: var(--priority-medium-soft);
+    color: #c2410c;
+    border: 1px solid rgba(249, 115, 22, 0.3);
+  }
+  .rl-severity.monitor {
+    background: var(--priority-low-soft);
+    color: #a16207;
+    border: 1px solid rgba(234, 179, 8, 0.3);
+  }
+
+  /* Sidebar Urgency Indicators using Priority Colors */
+  .matter-dot.urgent-high::after { background: var(--priority-high); }
+  .matter-dot.urgent-medium::after { background: var(--priority-medium); }
+  .matter-dot.urgent-low::after { background: var(--priority-low); }
+
+  /* Priority Legend */
+  .priority-legend {
+    position: fixed;
+    bottom: 70px;
+    right: 24px;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 14px 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    z-index: 100;
+  }
+  .priority-legend-title {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--ink-3);
+    margin-bottom: 10px;
+  }
+  .priority-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    color: var(--ink-2);
+    margin-bottom: 6px;
+  }
+  .priority-legend-item:last-child { margin-bottom: 0; }
+
+  /* ═══════════════════════════════════════════════════════
+     EXPANDABLE SIDEBAR - Phase 2
+     ═══════════════════════════════════════════════════════ */
+
+  /* Collapse Button */
+  .rail-collapse-btn {
+    width: 22px;
+    height: 22px;
+    border-radius: 5px;
+    background: var(--paper-deep);
+    border: 1px solid var(--rule);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 8px auto;
+    transition: all 0.15s;
+    color: var(--ink-3);
+  }
+  .rail-collapse-btn:hover {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .rail-collapse-btn svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.2s;
+  }
+
+  /* Expanded State (220px) */
+  .matters-rail.expanded {
+    width: 220px;
+    min-width: 220px;
+    align-items: stretch;
+    padding: 12px 10px;
+  }
+  .matters-rail.expanded .rail-collapse-btn {
+    width: 100%;
+    height: 28px;
+    margin: 0 0 8px 0;
+    border-radius: 6px;
+  }
+  .matters-rail.expanded .rail-collapse-btn svg {
+    transform: rotate(180deg);
+    width: 14px;
+    height: 14px;
+  }
+  .matters-rail.expanded .brand-mark {
+    width: auto;
+    height: auto;
+    padding: 6px 10px;
+    justify-content: flex-start;
+    gap: 0;
+    margin-bottom: 8px;
+  }
+  .matters-rail.expanded .brand-mark::after {
+    content: 'ssociate';
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .matters-rail.expanded .rail-separator {
+    width: 100%;
+    margin: 8px 0;
+  }
+  .matters-rail.expanded .matter-dot {
+    width: 100%;
+    height: auto;
+    padding: 8px 10px;
+    justify-content: flex-start;
+    gap: 10px;
+    font-size: 11px;
+    margin-bottom: 2px;
+    border-radius: 6px;
+  }
+  .matters-rail.expanded .matter-dot .dot-initials {
+    font-weight: 700;
+    min-width: 20px;
+    text-align: center;
+  }
+  .matters-rail.expanded .matter-dot .matter-name {
+    font-weight: 400;
+    opacity: 0.9;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 11px;
+  }
+  .matters-rail.expanded .new-matter-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+  }
+  .matters-rail.expanded .rail-spacer {
+    min-height: 20px;
+  }
+  .matters-rail.expanded .rail-playbook {
+    align-self: flex-start;
+    margin-left: 10px;
+  }
+  .matters-rail.expanded .rail-user {
+    align-self: flex-start;
+    margin-left: 10px;
+  }
+
+  /* Compact State (48px) - Default */
+  .matters-rail.compact {
+    width: 48px;
+    min-width: 48px;
+    padding: 14px 0;
+  }
+  .matters-rail.compact .matter-dot .matter-name,
+  .matters-rail.compact .matter-dot .matter-status,
+  .matters-rail.compact .brand-mark::after {
+    display: none;
+  }
+
+  /* ═══════════════════════════════════════════════════════
+     DOCUMENT MODE DROPDOWN - Phase 2
+     ═══════════════════════════════════════════════════════ */
+
+  .doc-mode-dropdown {
+    position: relative;
+  }
+  .doc-mode-trigger {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--paper);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink-2);
+    cursor: pointer;
+    transition: all 0.12s;
+  }
+  .doc-mode-trigger:hover {
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
+  .doc-mode-trigger svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.15s;
+  }
+  .doc-mode-trigger.open svg {
+    transform: rotate(180deg);
+  }
+  .doc-mode-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    min-width: 200px;
+    display: none;
+    z-index: 100;
+    overflow: hidden;
+  }
+  .doc-mode-menu.open {
+    display: block;
+    animation: menuIn 0.2s ease-out;
+  }
+  @keyframes menuIn {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .doc-mode-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    cursor: pointer;
+    transition: background 0.12s;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .doc-mode-option:last-child {
+    border-bottom: none;
+  }
+  .doc-mode-option:hover {
+    background: var(--paper-deep);
+  }
+  .doc-mode-option.active {
+    background: var(--sage-soft);
+  }
+  .doc-mode-option svg {
+    width: 16px;
+    height: 16px;
+    color: var(--ink-3);
+    flex-shrink: 0;
+  }
+  .doc-mode-option.active svg {
+    color: var(--sage);
+  }
+  .doc-mode-option-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .doc-mode-option-text span {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .doc-mode-option-text small {
+    font-size: 10px;
+    color: var(--ink-3);
+    font-weight: 400;
+  }
+
+  /* AI Comments Toggle */
+  .ai-comments-toggle {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: opacity 0.2s;
+  }
+  .ai-comments-toggle.inactive {
+    opacity: 0.5;
+  }
+  .ai-comments-toggle.inactive svg {
+    color: var(--ink-4);
+  }
+
+  /* Margin Notes - AI vs Human */
+  .margin-note.ai-comment {
+    border-left: 3px solid var(--sage);
+    position: relative;
+  }
+  .margin-note.ai-comment::before {
+    content: 'AI';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: var(--sage);
+    color: var(--paper);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 0 8px 0 4px;
+    letter-spacing: 0.5px;
+  }
+  .margin-note.ai-comment.hidden {
+    display: none;
+  }
+
+  /* Comment Input Box (for Commenting Mode) */
+  .comment-input-box {
+    position: absolute;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    padding: 12px;
+    min-width: 280px;
+    z-index: 50;
+    animation: commentBoxIn 0.2s ease-out;
+  }
+  @keyframes commentBoxIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  .comment-input-box textarea {
+    width: 100%;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    resize: vertical;
+    min-height: 60px;
+    outline: none;
+  }
+  .comment-input-box textarea:focus {
+    border-color: var(--ink-3);
+  }
+  .comment-input-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    margin-top: 10px;
+  }
+  .commenter-dropdown {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    padding: 5px 8px;
+    border: 1px solid var(--rule);
+    border-radius: 5px;
+    background: var(--paper);
+    color: var(--ink);
+    cursor: pointer;
+    outline: none;
+  }
+  .commenter-dropdown:focus {
+    border-color: var(--ink-3);
+  }
+  .commenter-dropdown option {
+    font-size: 11px;
+  }
+
+  /* Commenting Mode Styles */
+  .doc-page.mode-commenting {
+    cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%238b2e2a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z'/%3E%3C/svg%3E") 0 20, text;
+  }
+  .doc-page.mode-commenting ::selection {
+    background: rgba(253, 224, 71, 0.5);
+  }
+  .doc-page.mode-commenting ::selection {
+    background: rgba(253, 224, 71, 0.4);
+  }
+  
+  /* Comment Highlights in Document */
+  .has-comment {
+    background: linear-gradient(180deg, rgba(253, 224, 71, 0.3) 0%, rgba(253, 224, 71, 0.3) 100%);
+    border-bottom: 2px solid var(--priority-high);
+    cursor: pointer;
+  }
+  .has-comment:hover {
+    background: linear-gradient(180deg, rgba(253, 224, 71, 0.5) 0%, rgba(253, 224, 71, 0.5) 100%);
+  }
+  
+  /* User Comment Style */
+  .margin-note.user-comment {
+    border-left: 3px solid var(--priority-medium);
+    position: relative;
+  }
+  .margin-note.user-comment::before {
+    content: 'You';
+    position: absolute;
+    top: -1px;
+    right: -1px;
+    background: var(--priority-medium);
+    color: var(--paper);
+    font-size: 8px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 0 8px 0 4px;
+    letter-spacing: 0.5px;
+  }
+
+  /* Accept/Reject Buttons */
+  .comment-actions {
+    display: flex;
+    gap: 6px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .comment-action-btn {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    font-weight: 500;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid;
+    transition: all 0.12s;
+  }
+  .comment-action-btn.accept {
+    background: var(--sage);
+    color: var(--paper);
+    border-color: var(--sage);
+  }
+  .comment-action-btn.accept:hover {
+    background: #3a5a32;
+  }
+  .comment-action-btn.reject {
+    background: transparent;
+    color: var(--ink-3);
+    border-color: var(--rule);
+  }
+  .comment-action-btn.reject:hover {
+    background: var(--paper-deep);
+    color: var(--ink);
+    border-color: var(--ink-4);
+  }
+
+  /* Accepted Comment State */
+  .margin-note.user-comment.accepted {
+    border-left-color: var(--sage);
+    opacity: 0.7;
+  }
+  .margin-note.user-comment.accepted .comment-text {
+    text-decoration: line-through;
+    color: var(--ink-4);
+  }
+  .margin-note.user-comment.accepted .accepted-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--sage);
+    margin-top: 6px;
+  }
+
+  /* Rejected/Deleted Comment State */
+  .margin-note.user-comment.rejected {
+    border-left-color: var(--ink-4);
+    opacity: 0.5;
+  }
+  .margin-note.user-comment.rejected .comment-text {
+    text-decoration: line-through;
+    color: var(--ink-4);
+  }
+  .margin-note.user-comment.rejected .rejected-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 9px;
+    font-weight: 600;
+    color: var(--ink-4);
+    margin-top: 6px;
+  }
+
+  /* Has-comment text with strikethrough when accepted */
+  .has-comment.accepted {
+    text-decoration: line-through;
+    background: linear-gradient(180deg, rgba(74, 107, 66, 0.2) 0%, rgba(74, 107, 66, 0.2) 100%);
+    border-bottom-color: var(--sage);
+  }
+  .has-comment.rejected {
+    text-decoration: line-through;
+    background: linear-gradient(180deg, rgba(28, 26, 21, 0.1) 0%, rgba(28, 26, 21, 0.1) 100%);
+    border-bottom-color: var(--ink-4);
+  }
+
 </style>
 </head>
 <body>
@@ -817,34 +1749,57 @@
 <div class="layout">
 
   <!-- MATTER RAIL -->
-  <aside class="matters-rail">
-    <div class="brand-mark active" id="brandMark" onclick="goHome()" title="Home">A</div>
+  <aside class="matters-rail expanded" id="mattersRail">
+    <button class="rail-collapse-btn" onclick="toggleSidebar()" title="Toggle sidebar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/>
+      </svg>
+    </button>
+    
+    <div class="brand-mark active" id="brandMark" onclick="goHome()" title="Home">
+      <span class="dot-initials">A</span>
+    </div>
     <div class="rail-separator"></div>
 
-    <div class="matter-dot urgent" id="dot-krishnamurthy" onclick="openMatter('krishnamurthy')"
+    <div class="matter-dot type-litigation urgent-high" id="dot-krishnamurthy" onclick="openMatter('krishnamurthy')"
       data-tip-name="Krishnamurthy v. Karnataka"
       data-tip-status="Litigation · Hearing 2 May 2026"
-      data-tip-note="Counter-affidavit received overnight. Two new limitation arguments. Contradiction with PW-2 identified.">KV</div>
+      data-tip-note="Counter-affidavit received overnight. Two new limitation arguments. Contradiction with PW-2 identified.">
+      <span class="dot-initials">KV</span>
+      <span class="matter-name">Krishnamurthy v. Karnataka</span>
+    </div>
 
-    <div class="matter-dot" id="dot-varma" onclick="openMatter('varma')"
+    <div class="matter-dot type-transactional urgent-medium" id="dot-varma" onclick="openMatter('varma')"
       data-tip-name="Varma Industries MSA"
       data-tip-status="Transactional · Negotiation call 10:30 AM"
-      data-tip-note="v3 received at 11:47 PM. Indemnity cap stripped. Counter-draft and DPDP clause ready.">VI</div>
+      data-tip-note="v3 received at 11:47 PM. Indemnity cap stripped. Counter-draft and DPDP clause ready.">
+      <span class="dot-initials">VI</span>
+      <span class="matter-name">Varma Industries MSA</span>
+    </div>
 
-    <div class="matter-dot" id="dot-sharma" onclick="openMatter('sharma')"
+    <div class="matter-dot type-ma" id="dot-sharma" onclick="openMatter('sharma')"
       data-tip-name="Sharma Family DD"
       data-tip-status="Due diligence · Report due 8 May 2026"
-      data-tip-note="SEBI circular affects 3 RPT items. 400-doc data room indexed. 65% complete.">SF</div>
+      data-tip-note="SEBI circular affects 3 RPT items. 400-doc data room indexed. 65% complete.">
+      <span class="dot-initials">SF</span>
+      <span class="matter-name">Sharma Family DD</span>
+    </div>
 
-    <div class="matter-dot" id="dot-ip" onclick="openMatter('ip')"
+    <div class="matter-dot type-ip" id="dot-ip" onclick="openMatter('ip')"
       data-tip-name="Arka Biosciences – Patents"
       data-tip-status="IP prosecution · PCT window Apr 2027"
-      data-tip-note="Application IN2026000481 filed. 2 inventor IDFs pending. Patentability report ready.">IP</div>
+      data-tip-note="Application IN2026000481 filed. 2 inventor IDFs pending. Patentability report ready.">
+      <span class="dot-initials">IP</span>
+      <span class="matter-name">Arka Biosciences</span>
+    </div>
 
-    <div class="matter-dot" id="dot-nit" style="display:none;" onclick="openMatter('nit')"
+    <div class="matter-dot type-transactional" id="dot-nit" style="display:none;" onclick="openMatter('nit')"
       data-tip-name="NIT Rourkela MoU"
       data-tip-status="Technology transfer · Drafted today"
-      data-tip-note="MoU drafted in English, Odia, Hindi. MHRD approval ~4–6 weeks.">NIT</div>
+      data-tip-note="MoU drafted in English, Odia, Hindi. MHRD approval ~4–6 weeks.">
+      <span class="dot-initials">NIT</span>
+      <span class="matter-name">NIT Rourkela MoU</span>
+    </div>
 
     <button class="new-matter-btn" onclick="openNewMatter()" title="New matter" style="font-size:18px; line-height:1;">+</button>
     <div class="rail-spacer"></div>
@@ -1079,6 +2034,23 @@
 
   </main>
 
+  <!-- Priority Legend - Floating Guide -->
+  <div class="priority-legend" id="priorityLegend">
+    <div class="priority-legend-title">Priority Guide</div>
+    <div class="priority-legend-item">
+      <span class="priority-dot high"></span>
+      <span>Critical / High</span>
+    </div>
+    <div class="priority-legend-item">
+      <span class="priority-dot medium"></span>
+      <span>Medium</span>
+    </div>
+    <div class="priority-legend-item">
+      <span class="priority-dot low"></span>
+      <span>Low / Monitor</span>
+    </div>
+  </div>
+
   <!-- ══════════ DOCUMENT EDITOR ══════════ -->
   <div class="doc-editor" id="docEditor">
     <div class="doc-top">
@@ -1101,6 +2073,60 @@
         </button>
         <button class="doc-tool" onclick="toast('Exporting document…')">Export</button>
         <button class="doc-tool" onclick="openDrawer('share')">Share</button>
+        
+        <!-- AI Comments Toggle -->
+        <button class="doc-tool ai-comments-toggle" id="aiCommentsToggle" onclick="toggleAIComments()">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+            <line x1="9" y1="9" x2="15" y2="9"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+          <span id="aiCommentsLabel">AI Comments</span>
+        </button>
+        
+        <!-- Document Mode Dropdown -->
+        <div class="doc-mode-dropdown">
+          <button class="doc-mode-trigger" id="docModeTrigger" onclick="toggleDocModeMenu()">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
+            </svg>
+            <span id="currentDocMode">Viewing</span>
+            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-left:2px;">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="doc-mode-menu" id="docModeMenu">
+            <div class="doc-mode-option" data-mode="viewing" onclick="setDocMode('viewing')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                <circle cx="12" cy="12" r="3"></circle>
+              </svg>
+              <div class="doc-mode-option-text">
+                <span>Viewing</span>
+                <small>Read only</small>
+              </div>
+            </div>
+            <div class="doc-mode-option" data-mode="editing" onclick="setDocMode('editing')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path>
+              </svg>
+              <div class="doc-mode-option-text">
+                <span>Editing</span>
+                <small>Make changes directly</small>
+              </div>
+            </div>
+            <div class="doc-mode-option" data-mode="commenting" onclick="setDocMode('commenting')">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+              </svg>
+              <div class="doc-mode-option-text">
+                <span>Commenting</span>
+                <small>Suggest changes as comments</small>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Form tab bar — shown in form mode only -->
@@ -1130,7 +2156,6 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
         Cite from library
       </button>
-      <button class="fmt-insert" id="trackChangesBtn" onclick="toggleTrackChanges()">Track changes</button>
       <div style="margin-left:auto; font-family:'Inter Tight',sans-serif; font-size:10px; color:var(--ink-3); letter-spacing:0.5px;">Auto-saving · all changes tracked</div>
     </div>
     <!-- Redline Summary Panel -->
@@ -1398,8 +2423,31 @@
     <h2 class="modal-title" style="font-size:30px; margin-bottom:6px;">What are we working on?</h2>
     <p style="font-family:'Fraunces',serif; font-size:14px; font-style:italic; color:var(--ink-3); margin-bottom:22px;">Speak or type &ndash; I'll parse the rest.</p>
 
+    <!-- Privacy Notice for Voice Recording -->
+    <div class="privacy-notice" id="privacyNotice">
+      <div class="privacy-notice-header">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        Voice Recording Privacy
+      </div>
+      <div class="privacy-notice-body">
+        Before using voice dictation, please note:
+      </div>
+      <div class="privacy-bullet">Audio is processed securely and transcribed using AI</div>
+      <div class="privacy-bullet">Recordings are stored temporarily and deleted after transcription</div>
+      <div class="privacy-bullet">Transcripts are saved to your matter for your reference</div>
+      <div class="privacy-bullet">All client information remains confidential per your retainer</div>
+      
+      <div class="privacy-checkbox-wrap">
+        <input type="checkbox" id="privacyConsent" onchange="handlePrivacyConsent()">
+        <label for="privacyConsent">I understand and consent to voice recording</label>
+      </div>
+    </div>
+
     <div class="voice-center">
-      <button class="mic-btn" id="micBtn" onclick="toggleMic()">
+      <button class="mic-btn" id="micBtn" onclick="toggleMicWithPrivacy()">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
       </button>
       <div class="voice-label" id="voiceLabel">Press to dictate. Or type below.</div>
@@ -1430,8 +2478,8 @@
 
 <!-- ══════════ FLOATING CHAT ══════════ -->
 <div class="chat-pill" id="chatPill" onclick="openChat()">
-  <div class="chat-icon">A</div>
-  <span class="chat-label">Ask Associate</span>
+  <div class="chat-icon">AI</div>
+  <span class="chat-label">Ask AI Assistant</span>
 </div>
 
 <div class="chat-window" id="chatWindow">
@@ -1439,8 +2487,11 @@
     <div class="chat-head-left">
       <div class="chat-head-dot"></div>
       <div>
-        <div class="chat-head-title">Associate</div>
-        <div class="chat-head-sub">With you across every matter · always on</div>
+        <div class="chat-head-title-wrap">
+          <span class="chat-head-title">Associate</span>
+          <span class="ai-indicator-pill">AI Assistant</span>
+        </div>
+        <div class="chat-head-sub">Legal research and drafting assistance · Always verify outputs</div>
       </div>
     </div>
     <div style="display:flex; align-items:center; gap:8px;">
@@ -1529,6 +2580,11 @@
   </div>
 </div>
 
+<!-- ══════════ DEMO MODE BANNER ══════════ -->
+<div class="demo-banner" id="demoBanner" onclick="showDemoInfo()">
+  <span class="demo-dot"></span>
+  <span>Demo Mode · Simulated Data Shown</span>
+</div>
 
 <!-- ══════════ TOAST ══════════ -->
 <div class="toast" id="toast">
@@ -2201,6 +3257,25 @@ function renderMatterView(m) {
         <div class="brief-meta-footer">Last updated by agent · 6:14 AM today · 4 events since yesterday</div>
       </section>
 
+      <!-- NEXT STEPS - Immediately after Agent Brief -->
+      <section class="section">
+        <div class="section-head"><span>Next steps</span></div>
+        <div class="sugg-grid" id="suggGrid">${suggCards}</div>
+      </section>
+
+      <!-- AI Warning Banner - After Next Steps -->
+      <div class="ai-warning-banner" id="aiWarningBanner">
+        <div class="ai-warning-icon">!</div>
+        <div class="ai-warning-text">
+          <div class="ai-warning-title">AI-Generated Content</div>
+          <div class="ai-warning-body">
+            This summary was generated by Associate AI based on documents in this matter. 
+            Please verify all facts against source documents before relying on them for client advice.
+          </div>
+          <span class="ai-warning-action" onclick="openDrawer('files')">View source documents →</span>
+        </div>
+      </div>
+
       <section class="section">
         <div class="section-head"><span>What's happened</span></div>
         <div id="chronList">${chronHTML}</div>
@@ -2216,11 +3291,6 @@ function renderMatterView(m) {
       <section class="section">
         <div class="section-head"><span>People</span></div>
         <div class="people-grid">${peopleHTML}</div>
-      </section>
-
-      <section class="section">
-        <div class="section-head"><span>Next steps</span></div>
-        <div class="sugg-grid" id="suggGrid">${suggCards}</div>
       </section>
     </article>
   `;
@@ -2674,6 +3744,10 @@ function openDocument(matterKey) {
     const wrap = document.getElementById('docPagesWrap');
     if (wrap) wrap.scrollTop = 0;
     if (editor) editor.scrollTop = 0;
+    // Apply current document mode after rendering
+    setTimeout(() => {
+      applyDocMode(currentDocMode);
+    }, 100);
   }, delay);
 }
 
@@ -2998,28 +4072,64 @@ function toggleCompare() {
   const wrap = document.getElementById('docPagesWrap');
   const margin = document.getElementById('docMarginNotes');
   const btn = document.getElementById('compareBtn');
+  const pageA = document.getElementById('docPageContent');
+  
   if (compareOn) {
     wrap.classList.add('compare');
     if (margin) margin.style.display = 'none';
+    
+    // Create comparison page B - clean version of current document without comments/edits
     const pageB = document.createElement('div');
     pageB.className = 'doc-page compare-b';
     pageB.id = 'docPageB';
-    pageB.innerHTML = `
-      <div class="doc-page-label"><span>Varma_MSA_v2_agreed.pdf</span><span class="version" style="color:var(--sage);">V2 · agreed</span></div>
-      <h1 class="doc-h1">Master Services Agreement</h1>
-      <p class="doc-h1-sub">between CloudServ Technologies Ltd. & Varma Industries Pvt. Ltd. · 18 April 2026</p>
-      <h2 class="doc-h2">8. Indemnification</h2>
-      <p class="doc-p"><span class="num">8.2</span> Each party shall indemnify, defend and hold harmless the other party from losses, claims, damages, liabilities and expenses, <span class="diff-add">in an amount not to exceed 1.5× the annual fees paid in the preceding 12 months</span>, arising from breach.</p>
-      <h2 class="doc-h2">12. Force Majeure</h2>
-      <p class="doc-p"><span class="diff-add"><span class="num">12.1</span> Neither party shall be liable for failure to perform due to causes beyond its reasonable control. The affected party shall provide written notice within 30 days.</span></p>
-      <h2 class="doc-h2">14. Data Processing</h2>
-      <p class="doc-p"><span class="num">14.3</span> Vendor may process, store and transfer Client Data <span class="diff-add">only to jurisdictions notified as DPDP-compliant by the Central Government, upon prior written notice to Client and with Client's express consent</span>.</p>
-      <h2 class="doc-h2">17. Assignment</h2>
-      <p class="doc-p"><span class="diff-add"><span class="num">17.1</span> Neither party may assign this Agreement without the prior written consent of the other party.</span></p>
-    `;
+    
+    // Clone the current document content
+    if (pageA) {
+      // Get the page label
+      const pageLabel = pageA.querySelector('.doc-page-label');
+      const labelHtml = pageLabel ? pageLabel.outerHTML : '';
+      
+      // Clone content and remove all comment highlights and edits
+      const contentClone = pageA.cloneNode(true);
+      
+      // Remove all comment spans (has-comment class elements)
+      const commentSpans = contentClone.querySelectorAll('.has-comment');
+      commentSpans.forEach(span => {
+        // Replace span with its text content (unwrap)
+        const textNode = document.createTextNode(span.textContent);
+        span.parentNode.replaceChild(textNode, span);
+      });
+      
+      // Remove the page label from clone (we'll use it separately)
+      const clonedLabel = contentClone.querySelector('.doc-page-label');
+      if (clonedLabel) clonedLabel.remove();
+      
+      // Get the clean inner HTML
+      const cleanContent = contentClone.innerHTML;
+      
+      pageB.innerHTML = `
+        <div class="doc-page-label"><span>Original Version</span><span class="version" style="color:var(--sage);">Before edits</span></div>
+        ${cleanContent}
+      `;
+    } else {
+      // Fallback if pageA not found
+      pageB.innerHTML = `
+        <div class="doc-page-label"><span>Original Version</span><span class="version" style="color:var(--sage);">Before edits</span></div>
+        <h1 class="doc-h1">Document</h1>
+        <p class="doc-p">Original version without comments or edits.</p>
+      `;
+    }
+    
     wrap.appendChild(pageB);
+    
+    // Scroll to show both pages
+    const docBodyArea = document.querySelector('.doc-body-area');
+    if (docBodyArea) {
+      docBodyArea.scrollLeft = 0;
+    }
+    
     if (btn) btn.classList.add('active');
-    toast('Comparing v3 vs v2 · your agreed positions shown in green');
+    toast('Comparing: Left = Current with edits, Right = Original');
   } else {
     resetCompare();
   }
@@ -3903,9 +5013,1013 @@ document.addEventListener('keydown', e => {
 });
 
 // ═══════════════════════════════════════════════════
+// PHASE 6: LAWYER UX IMPROVEMENTS
+// ═══════════════════════════════════════════════════
+
+// AI Transparency Mode
+let aiTransparencyMode = localStorage.getItem('aiTransparencyMode') !== 'false';
+let aiHighlightInterval = null;
+
+function initAITransparency() {
+  if (aiTransparencyMode) {
+    document.body.classList.add('ai-transparency-active');
+    highlightAIContent();
+    aiHighlightInterval = setInterval(highlightAIContent, 1000);
+  } else {
+    document.body.classList.remove('ai-transparency-active');
+    if (aiHighlightInterval) clearInterval(aiHighlightInterval);
+  }
+  updateAITransparencyUI();
+}
+
+function toggleAITransparency() {
+  aiTransparencyMode = !aiTransparencyMode;
+  localStorage.setItem('aiTransparencyMode', aiTransparencyMode);
+  initAITransparency();
+}
+
+function updateAITransparencyUI() {
+  const toggle = document.getElementById('aiTransparencyToggle');
+  const label = document.getElementById('aiTransparencyLabel');
+  if (!toggle || !label) return;
+  if (aiTransparencyMode) {
+    toggle.classList.remove('inactive');
+    label.textContent = 'AI Transparency: ON';
+  } else {
+    toggle.classList.add('inactive');
+    label.textContent = 'AI Transparency: OFF';
+  }
+}
+
+function highlightAIContent() {
+  if (!aiTransparencyMode) return;
+  
+  // Highlight narrative bodies
+  const narratives = document.querySelectorAll('.intro-body:not([data-ai-highlighted])');
+  narratives.forEach(el => {
+    if (el.textContent.includes('agent') || el.textContent.includes('Agent')) {
+      el.dataset.aiHighlighted = 'true';
+      const wrapper = document.createElement('span');
+      wrapper.className = 'ai-highlight';
+      wrapper.title = 'AI-generated summary - click to verify sources';
+      wrapper.innerHTML = el.innerHTML + '<span class="ai-badge">AI</span>';
+      el.innerHTML = '';
+      el.appendChild(wrapper);
+    }
+  });
+  
+  // Highlight agent notes
+  const agentNotes = document.querySelectorAll('.agent-aside:not([data-ai-highlighted])');
+  agentNotes.forEach(el => {
+    el.dataset.aiHighlighted = 'true';
+    el.classList.add('ai-highlight');
+    el.title = 'Agent-generated insight - verify before relying on for client advice';
+  });
+}
+
+// Privacy Consent for Voice Recording
+let privacyConsented = localStorage.getItem('voicePrivacyConsent') === 'true';
+
+function initPrivacyNotice() {
+  const notice = document.getElementById('privacyNotice');
+  const checkbox = document.getElementById('privacyConsent');
+  if (!notice || !checkbox) return;
+  
+  if (privacyConsented) {
+    notice.style.display = 'none';
+    checkbox.checked = true;
+  }
+}
+
+function handlePrivacyConsent() {
+  const checkbox = document.getElementById('privacyConsent');
+  if (!checkbox) return;
+  privacyConsented = checkbox.checked;
+  localStorage.setItem('voicePrivacyConsent', privacyConsented);
+  if (privacyConsented) {
+    const notice = document.getElementById('privacyNotice');
+    if (notice) {
+      notice.style.transition = 'opacity 0.3s';
+      notice.style.opacity = '0';
+      setTimeout(() => notice.style.display = 'none', 300);
+    }
+  }
+}
+
+function toggleMicWithPrivacy() {
+  if (!privacyConsented) {
+    const notice = document.getElementById('privacyNotice');
+    if (notice) {
+      notice.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      notice.style.boxShadow = '0 0 0 2px var(--oxblood)';
+      setTimeout(() => {
+        notice.style.boxShadow = '';
+      }, 1500);
+    }
+    toast('Please review and consent to voice recording privacy terms');
+    return;
+  }
+  toggleMic();
+}
+
+// Demo Mode
+function showDemoInfo() {
+  const info = `Associate Demo Environment
+
+This is a demonstration showing simulated data:
+• Mock matter data and documents
+• Sample calendar events
+• Simulated AI outputs
+
+Production version connects to:
+• eCourts for live case data
+• Gmail/Calendar for real schedules
+• MCA portal for actual filings`;
+  alert(info);
+}
+
+// Redlines Onboarding
+function showRedlinesOnboarding() {
+  if (localStorage.getItem('seenRedlinesOnboarding')) return;
+  
+  const btn = document.getElementById('redlinesBtn');
+  if (!btn || btn.style.display === 'none') return;
+  
+  const rect = btn.getBoundingClientRect();
+  const tooltip = document.createElement('div');
+  tooltip.className = 'onboarding-tooltip';
+  tooltip.id = 'redlinesOnboarding';
+  tooltip.style.top = (rect.bottom + 15) + 'px';
+  tooltip.style.left = Math.min(rect.left, window.innerWidth - 300) + 'px';
+  tooltip.innerHTML = `
+    <div class="onboarding-tooltip-title">What are "Redlines"?</div>
+    <div class="onboarding-tooltip-body">
+      Redlines are suggested changes to a document, similar to 
+      Microsoft Word's "Track Changes". You can accept or reject 
+      each suggestion individually.
+    </div>
+    <button class="onboarding-tooltip-dismiss" onclick="dismissRedlinesOnboarding()">Got it</button>
+  `;
+  
+  document.body.appendChild(tooltip);
+}
+
+function dismissRedlinesOnboarding() {
+  localStorage.setItem('seenRedlinesOnboarding', 'true');
+  const tooltip = document.getElementById('redlinesOnboarding');
+  if (tooltip) tooltip.remove();
+}
+
+// ═══════════════════════════════════════════════════
+// SIDEBAR FUNCTIONS
+// ═══════════════════════════════════════════════════
+function initSidebar() {
+  const rail = document.getElementById('mattersRail');
+  if (!rail) return;
+  
+  // Set initial state from localStorage or default to expanded
+  const isExpanded = localStorage.getItem('sidebarExpanded') !== 'false';
+  if (isExpanded) {
+    rail.classList.add('expanded');
+    rail.classList.remove('compact');
+  } else {
+    rail.classList.add('compact');
+    rail.classList.remove('expanded');
+  }
+}
+
+function toggleSidebar() {
+  const rail = document.getElementById('mattersRail');
+  if (!rail) return;
+  
+  const isExpanded = rail.classList.contains('expanded');
+  
+  if (isExpanded) {
+    // Collapse
+    rail.classList.remove('expanded');
+    rail.classList.add('compact');
+    localStorage.setItem('sidebarExpanded', 'false');
+    
+    // Adjust document editor position
+    const docEditor = document.getElementById('docEditor');
+    if (docEditor && docEditor.classList.contains('open')) {
+      docEditor.style.left = '48px';
+    }
+  } else {
+    // Expand
+    rail.classList.remove('compact');
+    rail.classList.add('expanded');
+    localStorage.setItem('sidebarExpanded', 'true');
+    
+    // Adjust document editor position
+    const docEditor = document.getElementById('docEditor');
+    if (docEditor && docEditor.classList.contains('open')) {
+      docEditor.style.left = '220px';
+    }
+  }
+}
+
+// Initialize on DOM ready
+document.addEventListener('DOMContentLoaded', () => {
+  initAITransparency();
+  initPrivacyNotice();
+  
+  // Show redlines onboarding when document editor opens
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.target.id === 'docEditor' && mutation.target.classList.contains('open')) {
+        setTimeout(showRedlinesOnboarding, 800);
+      }
+    });
+  });
+  
+  const docEditor = document.getElementById('docEditor');
+  if (docEditor) {
+    observer.observe(docEditor, { attributes: true, attributeFilter: ['class'] });
+  }
+});
+
+  // ═══════════════════════════════════════════════════
+  // DOCUMENT MODE & COMMENTING - Phase 2
+  // ═══════════════════════════════════════════════════
+  
+  let currentDocMode = localStorage.getItem('docMode') || 'viewing';
+  let docModeMenuOpen = false;
+  let commentingEnabled = false;
+  let userCommentCount = 0;
+  
+  function initDocMode() {
+    // Just set the UI, don't enable commenting yet
+    const label = document.getElementById('currentDocMode');
+    if (label) label.textContent = currentDocMode.charAt(0).toUpperCase() + currentDocMode.slice(1);
+    
+    document.querySelectorAll('.doc-mode-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.mode === currentDocMode);
+    });
+  }
+  
+  function toggleDocModeMenu() {
+    const menu = document.getElementById('docModeMenu');
+    const trigger = document.getElementById('docModeTrigger');
+    if (!menu) return;
+    
+    docModeMenuOpen = !docModeMenuOpen;
+    if (docModeMenuOpen) {
+      menu.classList.add('open');
+      trigger?.classList.add('open');
+    } else {
+      menu.classList.remove('open');
+      trigger?.classList.remove('open');
+    }
+  }
+  
+  function closeDocModeMenu() {
+    docModeMenuOpen = false;
+    document.getElementById('docModeMenu')?.classList.remove('open');
+    document.getElementById('docModeTrigger')?.classList.remove('open');
+  }
+  
+  function applyDocMode(mode) {
+    const docPage = document.getElementById('docPageContent');
+    if (!docPage) return;
+    
+    // Update classes
+    docPage.classList.remove('mode-viewing', 'mode-editing', 'mode-commenting');
+    docPage.classList.add('mode-' + mode);
+    
+    // Enable/disable editing
+    docPage.contentEditable = (mode === 'editing');
+    
+    // Setup commenting
+    if (mode === 'commenting') {
+      setupCommenting();
+    } else {
+      removeCommenting();
+    }
+  }
+  
+  function setDocMode(mode, save = true) {
+    currentDocMode = mode;
+    if (save) localStorage.setItem('docMode', mode);
+    
+    // Update UI label
+    const label = document.getElementById('currentDocMode');
+    if (label) label.textContent = mode.charAt(0).toUpperCase() + mode.slice(1);
+    
+    // Update active state in menu
+    document.querySelectorAll('.doc-mode-option').forEach(opt => {
+      opt.classList.toggle('active', opt.dataset.mode === mode);
+    });
+    
+    // Apply mode
+    applyDocMode(mode);
+    closeDocModeMenu();
+  }
+  
+  // Commenting System
+  function setupCommenting() {
+    const docPage = document.getElementById('docPageContent');
+    if (!docPage) {
+      console.error('setupCommenting: docPageContent not found');
+      return;
+    }
+    
+    // Remove any existing listeners first
+    removeCommenting();
+    
+    // Add mousedown to clear previous selection
+    docPage.addEventListener('mousedown', handleMouseDown);
+    // Add mouseup to detect selection
+    docPage.addEventListener('mouseup', handleTextSelection);
+    
+    // Set flag - cursor is controlled by CSS .mode-commenting class
+    commentingEnabled = true;
+    
+    console.log('Commenting mode enabled on:', docPage);
+  }
+  
+  function removeCommenting() {
+    const docPage = document.getElementById('docPageContent');
+    if (!docPage) return;
+    
+    docPage.removeEventListener('mousedown', handleMouseDown);
+    docPage.removeEventListener('mouseup', handleTextSelection);
+    // Cursor is reset by CSS when class .mode-commenting is removed
+    commentingEnabled = false;
+    
+    removeCommentInputBox();
+    console.log('Commenting mode disabled');
+  }
+  
+  function handleMouseDown(e) {
+    // Clear any existing selection when starting new selection
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges();
+    }
+    removeCommentInputBox();
+  }
+  
+  function handleTextSelection(e) {
+    console.log('handleTextSelection called, commentingEnabled:', commentingEnabled, 'currentDocMode:', currentDocMode);
+    
+    if (!commentingEnabled || currentDocMode !== 'commenting') {
+      console.log('Early return - commenting not enabled');
+      return;
+    }
+    
+    // Small delay to ensure selection completes
+    setTimeout(() => {
+      const selection = window.getSelection();
+      const selectedText = selection.toString().trim();
+      
+      console.log('Selected text length:', selectedText.length, 'text:', selectedText.substring(0, 50));
+      
+      if (selectedText.length === 0) {
+        console.log('No text selected');
+        return;
+      }
+      
+      if (selection.rangeCount === 0) {
+        console.log('No range in selection');
+        return;
+      }
+      
+      const range = selection.getRangeAt(0);
+      
+      // Simple check - just make sure we're in the doc page
+      const docPage = document.getElementById('docPageContent');
+      const selectedNode = range.startContainer;
+      
+      // Check if selection is actually in the document
+      let node = selectedNode;
+      let inDocPage = false;
+      while (node) {
+        if (node === docPage) {
+          inDocPage = true;
+          break;
+        }
+        node = node.parentNode;
+      }
+      
+      if (!inDocPage) {
+        console.log('Selection not in doc page');
+        return;
+      }
+      
+      console.log('Showing comment box for text:', selectedText.substring(0, 50));
+      showCommentBox(range, selectedText);
+      
+    }, 100);
+  }
+  
+  function showCommentBox(range, selectedText) {
+    // Remove existing comment box
+    removeCommentInputBox();
+    
+    // Get position
+    const rect = range.getBoundingClientRect();
+    
+    // Predefined commenters (can be expanded based on your app's user system)
+    const commenters = [
+      { id: 'rohan-mehta', name: 'Rohan Mehta', initials: 'RM', color: '#8b2e2a' },
+      { id: 'aditi-sharma', name: 'Aditi Sharma', initials: 'AS', color: '#4a6b42' },
+      { id: 'arjun-kumar', name: 'Arjun Kumar', initials: 'AK', color: '#9a6b0f' },
+      { id: 'priya-nair', name: 'Priya Nair', initials: 'PN', color: '#4a453c' }
+    ];
+    
+    // Create comment box
+    const box = document.createElement('div');
+    box.id = 'activeCommentBox';
+    box.style.cssText = `
+      position: fixed;
+      left: ${Math.min(rect.left + 20, window.innerWidth - 320)}px;
+      top: ${rect.bottom + 10}px;
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+      padding: 12px;
+      min-width: 300px;
+      z-index: 9999;
+      font-family: 'Inter Tight', sans-serif;
+    `;
+    
+    // Generate commenter options
+    const commenterOptions = commenters.map(c => 
+      `<option value="${c.id}" data-name="${c.name}" data-initials="${c.initials}" data-color="${c.color}">${c.name}</option>`
+    ).join('');
+    
+    box.innerHTML = `
+      <div style="font-size: 11px; color: var(--ink-3); margin-bottom: 6px; display: flex; align-items: center; gap: 6px;">
+        <span>Add comment as:</span>
+        <select id="commenterSelect" class="commenter-dropdown">
+          ${commenterOptions}
+        </select>
+      </div>
+      <textarea id="commentTextInput" style="
+        width: 100%;
+        min-height: 80px;
+        border: 1px solid var(--rule);
+        border-radius: 6px;
+        padding: 8px;
+        font-size: 13px;
+        font-family: 'Inter Tight', sans-serif;
+        resize: vertical;
+        outline: none;
+        box-sizing: border-box;
+        margin-top: 8px;
+      " placeholder="Type your comment..."></textarea>
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+        <div id="selectedCommenterDisplay" style="font-size: 11px; color: var(--ink-3); display: flex; align-items: center; gap: 6px;">
+          <span style="width: 20px; height: 20px; border-radius: 50%; background: ${commenters[0].color}; color: white; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600;">${commenters[0].initials}</span>
+          <span>${commenters[0].name}</span>
+        </div>
+        <div style="display: flex; gap: 8px;">
+          <button onclick="removeCommentInputBox()" style="
+            padding: 6px 12px;
+            border: 1px solid var(--rule);
+            background: transparent;
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            font-family: 'Inter Tight', sans-serif;
+          ">Cancel</button>
+          <button onclick="submitUserComment()" style="
+            padding: 6px 12px;
+            border: none;
+            background: var(--ink);
+            color: var(--paper);
+            border-radius: 5px;
+            font-size: 12px;
+            cursor: pointer;
+            font-family: 'Inter Tight', sans-serif;
+          ">Comment</button>
+        </div>
+      </div>
+    `;
+    
+    document.body.appendChild(box);
+    
+    // Add change handler for commenter dropdown
+    const commenterSelect = document.getElementById('commenterSelect');
+    const commenterDisplay = document.getElementById('selectedCommenterDisplay');
+    
+    if (commenterSelect && commenterDisplay) {
+      commenterSelect.addEventListener('change', function() {
+        const selectedOption = this.options[this.selectedIndex];
+        const name = selectedOption.getAttribute('data-name');
+        const initials = selectedOption.getAttribute('data-initials');
+        const color = selectedOption.getAttribute('data-color');
+        
+        commenterDisplay.innerHTML = `
+          <span style="width: 20px; height: 20px; border-radius: 50%; background: ${color}; color: white; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 600;">${initials}</span>
+          <span>${name}</span>
+        `;
+      });
+    }
+    
+    // Store for later
+    window._currentCommentRange = range.cloneRange();
+    window._currentCommentText = selectedText;
+    
+    // Focus textarea
+    const textarea = document.getElementById('commentTextInput');
+    if (textarea) {
+      textarea.focus();
+      textarea.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          removeCommentInputBox();
+        }
+        // Allow Ctrl/Cmd + Enter to submit
+        if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+          submitUserComment();
+        }
+      });
+    }
+  }
+  
+  function removeCommentInputBox() {
+    const box = document.getElementById('activeCommentBox');
+    if (box) box.remove();
+    window._currentCommentRange = null;
+    window._currentCommentText = null;
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges();
+    }
+  }
+  
+  function submitUserComment() {
+    const text = document.getElementById('commentTextInput')?.value?.trim();
+    if (!text) {
+      removeCommentInputBox();
+      return;
+    }
+    
+    const range = window._currentCommentRange;
+    if (!range) {
+      removeCommentInputBox();
+      return;
+    }
+    
+    // Get selected commenter
+    const commenterSelect = document.getElementById('commenterSelect');
+    let commenterName = 'You';
+    let commenterInitials = 'YO';
+    let commenterColor = '#f97316';
+    
+    if (commenterSelect) {
+      const selectedOption = commenterSelect.options[commenterSelect.selectedIndex];
+      commenterName = selectedOption.getAttribute('data-name') || 'You';
+      commenterInitials = selectedOption.getAttribute('data-initials') || 'YO';
+      commenterColor = selectedOption.getAttribute('data-color') || '#f97316';
+    }
+    
+    userCommentCount++;
+    const commentId = 'comment-' + Date.now();
+    
+    // Calculate document position for ordering (character offset from start of document)
+    const docPage = document.getElementById('docPageContent');
+    let documentPosition = 0;
+    if (docPage && range.startContainer) {
+      // Create a range from the start of docPage to the start of selection
+      const preCaretRange = range.cloneRange();
+      preCaretRange.selectNodeContents(docPage);
+      preCaretRange.setEnd(range.startContainer, range.startOffset);
+      documentPosition = preCaretRange.toString().length;
+    }
+    
+    // Try to highlight the text
+    try {
+      // Check if we can surround the contents
+      const span = document.createElement('span');
+      span.className = 'has-comment';
+      span.dataset.commentId = commentId;
+      span.dataset.commenter = commenterName;
+      span.dataset.commenterColor = commenterColor;
+      span.dataset.documentPosition = documentPosition.toString();
+      span.style.cssText = `
+        background: linear-gradient(180deg, rgba(253, 224, 71, 0.3) 0%, rgba(253, 224, 71, 0.3) 100%);
+        border-bottom: 2px solid ${commenterColor};
+        cursor: pointer;
+      `;
+      
+      range.surroundContents(span);
+      
+      // Add click handler
+      span.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        highlightCommentInMargin(commentId);
+      });
+      
+    } catch (err) {
+      // Complex selection spanning multiple elements
+      console.log('Could not highlight text (complex selection)');
+    }
+    
+    // Add to margin with position-based sorting
+    const margin = document.getElementById('docMarginNotes');
+    if (margin) {
+      const note = document.createElement('div');
+      note.className = 'margin-note user-comment';
+      note.id = commentId;
+      note.dataset.documentPosition = documentPosition.toString();
+      note.style.cssText = `
+        padding: 12px;
+        background: var(--paper-bright);
+        border: 1px solid var(--rule);
+        border-left: 3px solid ${commenterColor};
+        border-radius: 6px;
+        margin-bottom: 10px;
+        cursor: pointer;
+        position: relative;
+      `;
+      
+      note.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+          <span style="width: 24px; height: 24px; border-radius: 50%; background: ${commenterColor}; color: white; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 600; font-family: 'Inter Tight', sans-serif;">${commenterInitials}</span>
+          <div>
+            <div style="font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 600; color: var(--ink);">
+              ${escapeHtml(commenterName)}
+            </div>
+            <div style="font-family: 'Inter Tight', sans-serif; font-size: 9px; color: var(--ink-3);">
+              Just now
+            </div>
+          </div>
+        </div>
+        <div class="comment-text" style="font-family: 'Fraunces', serif; font-size: 13px; color: var(--ink); line-height: 1.5;">
+          ${escapeHtml(text)}
+        </div>
+        <div class="comment-actions">
+          <button class="comment-action-btn accept" onclick="acceptComment('${commentId}')">
+            <span>✓</span> Accept
+          </button>
+          <button class="comment-action-btn reject" onclick="rejectComment('${commentId}')">
+            <span>✕</span> Reject
+          </button>
+        </div>
+      `;
+      
+      note.addEventListener('click', function(e) {
+        // Don't trigger if clicking buttons
+        if (e.target.closest('.comment-action-btn')) return;
+        highlightCommentInText(commentId);
+      });
+      
+      // Insert comment in correct position based on document order
+      insertCommentInOrder(margin, note, documentPosition);
+    }
+    
+    toast(`Comment added by ${commenterName}`);
+    removeCommentInputBox();
+  }
+  
+  // Insert comment in the correct position based on document position
+  function insertCommentInOrder(marginContainer, newNote, newPosition) {
+    const existingComments = marginContainer.querySelectorAll('.margin-note.user-comment');
+    let inserted = false;
+    
+    for (const existingComment of existingComments) {
+      const existingPosition = parseInt(existingComment.dataset.documentPosition || '0');
+      if (newPosition < existingPosition) {
+        marginContainer.insertBefore(newNote, existingComment);
+        inserted = true;
+        break;
+      }
+    }
+    
+    // If not inserted (it's the last one), append to end
+    if (!inserted) {
+      marginContainer.appendChild(newNote);
+    }
+  }
+  
+  // Store accepted changes for undo functionality
+  const acceptedChanges = new Map();
+  
+  // Accept a comment - apply changes to document and mark as accepted
+  function acceptComment(commentId) {
+    const note = document.getElementById(commentId);
+    const span = document.querySelector(`[data-comment-id="${commentId}"]`);
+    
+    if (!note) return;
+    
+    // Get the original text and comment text
+    const originalText = span ? span.textContent : '';
+    const commentText = note.querySelector('.comment-text')?.textContent || '';
+    
+    // Store original state for undo
+    const changeData = {
+      originalText: originalText,
+      commentText: commentText,
+      parentNode: span?.parentNode,
+      nextSibling: span?.nextSibling,
+      spanElement: span
+    };
+    acceptedChanges.set(commentId, changeData);
+    
+    // Mark comment as accepted
+    note.classList.add('accepted');
+    
+    // Remove action buttons
+    const actionsDiv = note.querySelector('.comment-actions');
+    if (actionsDiv) {
+      actionsDiv.remove();
+    }
+    
+    // Replace Accept/Reject with Undo button
+    const undoDiv = document.createElement('div');
+    undoDiv.className = 'comment-actions';
+    undoDiv.innerHTML = `
+      <button class="comment-action-btn reject" onclick="undoAcceptComment('${commentId}')">
+        <span>↩</span> Undo
+      </button>
+    `;
+    note.appendChild(undoDiv);
+    
+    // Add accepted badge
+    const textDiv = note.querySelector('.comment-text');
+    if (textDiv) {
+      const badge = document.createElement('div');
+      badge.className = 'accepted-badge';
+      badge.innerHTML = '<span>✓</span> Changes accepted';
+      textDiv.parentNode.insertBefore(badge, textDiv.nextSibling);
+    }
+    
+    // ACTUALLY APPLY THE CHANGE: Replace the highlighted text with the comment text
+    if (span && span.parentNode) {
+      // Create text node with the comment text (applying the change)
+      const newTextNode = document.createTextNode(commentText);
+      
+      // Replace span with the new text
+      span.parentNode.replaceChild(newTextNode, span);
+      
+      // Store reference to the new text node for undo
+      changeData.newTextNode = newTextNode;
+    }
+    
+    // Mark document as edited (add visual indicator)
+    markDocumentAsEdited();
+    
+    toast('Changes applied to document');
+    
+    console.log(`Comment ${commentId} accepted - text changed from "${originalText}" to "${commentText}"`);
+  }
+  
+  // Undo an accepted comment - restore original text
+  function undoAcceptComment(commentId) {
+    const changeData = acceptedChanges.get(commentId);
+    if (!changeData) {
+      toast('Cannot undo - change data not found');
+      return;
+    }
+    
+    const note = document.getElementById(commentId);
+    
+    // Restore original text
+    if (changeData.newTextNode && changeData.newTextNode.parentNode) {
+      // Create a new span with the original text (restore highlighting)
+      const restoredSpan = document.createElement('span');
+      restoredSpan.className = 'has-comment';
+      restoredSpan.dataset.commentId = commentId;
+      restoredSpan.dataset.commenter = note?.dataset.commenter || 'You';
+      restoredSpan.textContent = changeData.originalText;
+      restoredSpan.style.cssText = `
+        background: linear-gradient(180deg, rgba(253, 224, 71, 0.3) 0%, rgba(253, 224, 71, 0.3) 100%);
+        border-bottom: 2px solid #f97316;
+        cursor: pointer;
+      `;
+      
+      // Add click handler
+      restoredSpan.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        highlightCommentInMargin(commentId);
+      });
+      
+      // Replace the applied text with the restored span
+      changeData.newTextNode.parentNode.replaceChild(restoredSpan, changeData.newTextNode);
+    }
+    
+    // Restore the note to its unaccepted state
+    if (note) {
+      note.classList.remove('accepted');
+      
+      // Remove undo button and accepted badge
+      const undoDiv = note.querySelector('.comment-actions');
+      if (undoDiv) undoDiv.remove();
+      
+      const badge = note.querySelector('.accepted-badge');
+      if (badge) badge.remove();
+      
+      // Re-add Accept/Reject buttons
+      const actionsDiv = document.createElement('div');
+      actionsDiv.className = 'comment-actions';
+      actionsDiv.innerHTML = `
+        <button class="comment-action-btn accept" onclick="acceptComment('${commentId}')">
+          <span>✓</span> Accept
+        </button>
+        <button class="comment-action-btn reject" onclick="rejectComment('${commentId}')">
+          <span>✕</span> Reject
+        </button>
+      `;
+      note.appendChild(actionsDiv);
+    }
+    
+    // Remove from accepted changes
+    acceptedChanges.delete(commentId);
+    
+    markDocumentAsEdited();
+    
+    toast('Changes undone - original text restored');
+    
+    console.log(`Comment ${commentId} undone - restored to "${changeData.originalText}"`);
+  }
+  
+  // Mark document as having unsaved changes
+  function markDocumentAsEdited() {
+    const docEditor = document.getElementById('docEditor');
+    if (docEditor) {
+      docEditor.classList.add('edited');
+    }
+    
+    // Add/edit indicator in the toolbar
+    let editIndicator = document.getElementById('docEditIndicator');
+    if (!editIndicator) {
+      const crumb = document.querySelector('.doc-crumb');
+      if (crumb) {
+        editIndicator = document.createElement('span');
+        editIndicator.id = 'docEditIndicator';
+        editIndicator.style.cssText = `
+          font-family: 'Inter Tight', sans-serif;
+          font-size: 10px;
+          color: var(--sage);
+          font-weight: 500;
+          margin-left: 8px;
+        `;
+        crumb.appendChild(editIndicator);
+      }
+    }
+    if (editIndicator) {
+      editIndicator.textContent = '• Edited';
+    }
+  }
+  
+  // Reject a comment - delete comment and restore text
+  function rejectComment(commentId) {
+    const note = document.getElementById(commentId);
+    const span = document.querySelector(`[data-comment-id="${commentId}"]`);
+    
+    if (!note) return;
+    
+    // Mark comment as rejected
+    note.classList.add('rejected');
+    
+    // Remove action buttons
+    const actionsDiv = note.querySelector('.comment-actions');
+    if (actionsDiv) {
+      actionsDiv.remove();
+    }
+    
+    // Add rejected badge
+    const textDiv = note.querySelector('.comment-text');
+    if (textDiv) {
+      const badge = document.createElement('div');
+      badge.className = 'rejected-badge';
+      badge.innerHTML = '<span>✕</span> Changes rejected';
+      textDiv.parentNode.insertBefore(badge, textDiv.nextSibling);
+    }
+    
+    // Mark the text in document as rejected with strikethrough
+    if (span) {
+      span.classList.add('rejected');
+    }
+    
+    // Schedule removal after animation/delay for UX
+    setTimeout(() => {
+      // Unwrap the span to restore original text
+      if (span && span.parentNode) {
+        const parent = span.parentNode;
+        while (span.firstChild) {
+          parent.insertBefore(span.firstChild, span);
+        }
+        parent.removeChild(span);
+      }
+      
+      // Remove the note from margin
+      if (note && note.parentNode) {
+        note.parentNode.removeChild(note);
+      }
+      
+      toast('Comment rejected and removed');
+    }, 2000);
+    
+    console.log(`Comment ${commentId} rejected`);
+  }
+  
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+  
+  function highlightCommentInMargin(commentId) {
+    const note = document.getElementById(commentId);
+    if (note) {
+      note.style.boxShadow = '0 0 0 2px #f97316';
+      note.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      setTimeout(() => {
+        note.style.boxShadow = '';
+      }, 1500);
+    }
+  }
+  
+  function highlightCommentInText(commentId) {
+    const span = document.querySelector(`[data-comment-id="${commentId}"]`);
+    if (span) {
+      span.style.boxShadow = '0 0 0 3px #f97316';
+      span.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      setTimeout(() => {
+        span.style.boxShadow = '';
+      }, 1500);
+    }
+  }
+  
+  // AI Comments Toggle
+  let aiCommentsVisible = localStorage.getItem('aiCommentsVisible') !== 'false';
+  
+  function initAICommentsToggle() {
+    updateAICommentsVisibility();
+  }
+  
+  function toggleAIComments() {
+    aiCommentsVisible = !aiCommentsVisible;
+    localStorage.setItem('aiCommentsVisible', aiCommentsVisible);
+    updateAICommentsVisibility();
+  }
+  
+  function updateAICommentsVisibility() {
+    const toggle = document.getElementById('aiCommentsToggle');
+    const label = document.getElementById('aiCommentsLabel');
+    const aiNotes = document.querySelectorAll('.margin-note.ai-comment');
+    
+    if (aiCommentsVisible) {
+      toggle?.classList.remove('inactive');
+      if (label) label.textContent = 'AI Comments';
+      // Show AI comments
+      aiNotes.forEach(note => {
+        note.style.display = '';
+        note.classList.remove('hidden');
+      });
+    } else {
+      toggle?.classList.add('inactive');
+      if (label) label.textContent = 'AI Comments: Off';
+      // Hide AI comments
+      aiNotes.forEach(note => {
+        note.style.display = 'none';
+        note.classList.add('hidden');
+      });
+    }
+  }
+  
+  // Mark AI comments on document render
+  function markAIComments() {
+    document.querySelectorAll('.margin-note').forEach(note => {
+      if (note.textContent.includes('Agent') || 
+          note.textContent.includes('agent') ||
+          note.classList.contains('ai-comment')) {
+        note.classList.add('ai-comment');
+        if (!aiCommentsVisible) {
+          note.classList.add('hidden');
+        }
+      }
+    });
+  }
+  
+  // Close doc mode menu when clicking outside
+  document.addEventListener('click', e => {
+    const dropdown = document.querySelector('.doc-mode-dropdown');
+    if (dropdown && !dropdown.contains(e.target)) {
+      closeDocModeMenu();
+    }
+  });
+
+// ═══════════════════════════════════════════════════
 // INIT
 // ═══════════════════════════════════════════════════
 renderTimeline();
+initSidebar();
+initDocMode();
+initAICommentsToggle();
+
+// Re-mark AI comments when document content changes
+const observer = new MutationObserver(() => {
+  markAIComments();
+});
+const docMargin = document.getElementById('docMarginNotes');
+if (docMargin) {
+  observer.observe(docMargin, { childList: true, subtree: true });
+}
 
 // Lang tabs CSS
 const langTabStyle = document.createElement('style');
