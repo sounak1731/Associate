@@ -44,6 +44,79 @@
   .app-shell { display: flex; flex-direction: column; flex: 1; overflow: hidden; }
   .layout { display: flex; flex: 1; overflow: hidden; position: relative; }
 
+  /* Mobile top bar */
+  .mobile-topbar {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    padding: 0 14px;
+    background: rgba(250, 247, 241, 0.96);
+    border-bottom: 1px solid var(--rule);
+    backdrop-filter: blur(8px);
+    z-index: 170;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mobile-menu-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--rule);
+    background: var(--paper-bright);
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+  }
+  .mobile-menu-btn span {
+    width: 14px;
+    height: 1.5px;
+    border-radius: 999px;
+    background: var(--ink);
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+  .mobile-topbar-brand {
+    border: none;
+    background: transparent;
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    color: var(--ink);
+    letter-spacing: -0.4px;
+    cursor: pointer;
+  }
+  .mobile-topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .mobile-topbar-action {
+    border: 1px solid var(--rule);
+    background: var(--paper-bright);
+    color: var(--ink-2);
+    border-radius: 999px;
+    padding: 7px 12px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .mobile-topbar-action:hover { color: var(--ink); background: var(--paper-deep); }
+  .mobile-nav-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(28,26,21,0.24);
+    backdrop-filter: blur(1px);
+    z-index: 125;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }
+
   /* ═══ Matter rail ═══ */
   .matters-rail {
     width: 48px; min-width: 48px; padding: 14px 0;
@@ -279,19 +352,70 @@
   .cal-item.featured .cal-tag { background: var(--ink); color: var(--paper); }
 
   /* ═══ MATTER VIEW ═══ */
-  .matter-view-header { max-width: 860px; margin: 0 auto; padding: 28px 40px 0; display: flex; align-items: center; gap: 10px; font-family: 'Inter Tight', sans-serif; font-size: 11px; color: var(--ink-3); }
+  .matter-view-header { max-width: 860px; margin: 0 auto; padding: 28px 40px 0; display: flex; align-items: flex-start; gap: 10px; flex-wrap: wrap; font-family: 'Inter Tight', sans-serif; font-size: 11px; color: var(--ink-3); }
+  .matter-view-header > * { min-width: 0; }
   .back-link { cursor: pointer; color: var(--ink-2); display: flex; align-items: center; gap: 5px; padding: 5px 10px; border-radius: 6px; transition: all 0.12s; }
   .back-link:hover { background: var(--paper-deep); color: var(--ink); }
+  .matter-header-dot { color: var(--ink-4); }
+  .matter-header-badge {
+    display: inline-flex;
+    align-items: center;
+    background: var(--paper-deep);
+    color: var(--ink-3);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 3px 9px;
+    border-radius: 10px;
+    max-width: 100%;
+    white-space: normal;
+    line-height: 1.35;
+  }
+  .matter-header-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+  .matter-header-actions .doc-tool {
+    max-width: 100%;
+    min-width: 0;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  .matter-header-actions .doc-tool.primary {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .files-chip {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    color: var(--ink-2);
+    border-radius: 8px;
+    padding: 2px 8px;
+    cursor: pointer;
+    white-space: normal;
+    line-height: 1.3;
+  }
+  .files-chip:hover { background: var(--paper-deep); color: var(--ink); }
 
   .brief { max-width: 860px; margin: 0 auto; padding: 20px 40px 180px; }
   .matter-header-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 8px; }
-  .matter-type-badge { font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; white-space: nowrap; }
+  .matter-type-badge { font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0.8px; text-transform: uppercase; padding: 3px 10px; border-radius: 3px; white-space: normal; max-width: 100%; line-height: 1.3; }
   .badge-litigation { background: var(--oxblood-soft); color: var(--oxblood); }
   .badge-transactional { background: var(--amber-soft); color: var(--amber); }
   .badge-ma { background: var(--sage-soft); color: var(--sage); }
   .badge-new { background: var(--paper-deep); color: var(--ink-3); }
-  .matter-action-chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
-  .action-chip { font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 500; padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); transition: all 0.12s; display: flex; align-items: center; gap: 5px; }
+  .matter-action-chips { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; max-width: 100%; }
+  .action-chip { font-family: 'Inter Tight', sans-serif; font-size: 11px; font-weight: 500; padding: 6px 12px; border-radius: 6px; cursor: pointer; border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); transition: all 0.12s; display: flex; align-items: center; gap: 5px; max-width: 100%; white-space: normal; line-height: 1.3; }
   .action-chip:hover { background: var(--paper-deep); color: var(--ink); border-color: var(--ink-4); }
   .action-chip.primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
   .action-chip.primary:hover { background: #3a352d; }
@@ -325,9 +449,9 @@
   .fresh-badge { font-family: 'Inter Tight', sans-serif; font-size: 9px; background: var(--paper-deep); color: var(--ink-3); padding: 1px 5px; border-radius: 3px; margin-left: 6px; letter-spacing: 0; text-transform: none; font-weight: 500; border: 1px solid var(--rule-soft); }
   .issue { padding: 18px 0 20px; border-bottom: 1px solid var(--rule-soft); }
   .issue:last-child { border-bottom: none; }
-  .issue-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 16px; }
+  .issue-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; gap: 16px; flex-wrap: wrap; }
   .issue-title { font-family: 'Fraunces', serif; font-size: 18px; font-weight: 500; color: var(--ink); line-height: 1.3; }
-  .issue-tag { font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0; text-transform: none; padding: 2px 8px; border-radius: 4px; white-space: nowrap; background: var(--paper-deep); color: var(--ink-3); border: 1px solid var(--rule-soft); }
+  .issue-tag { font-family: 'Inter Tight', sans-serif; font-size: 10px; font-weight: 500; letter-spacing: 0; text-transform: none; padding: 2px 8px; border-radius: 4px; white-space: normal; max-width: 100%; line-height: 1.25; background: var(--paper-deep); color: var(--ink-3); border: 1px solid var(--rule-soft); }
   .issue-tag.critical { background: var(--paper-deep); color: var(--ink-2); font-weight: 600; border-color: var(--rule); }
   .issue-tag.active-tag { background: transparent; color: var(--ink-3); border-color: var(--rule-soft); }
   .issue-body { font-family: 'Fraunces', serif; font-size: 15px; line-height: 1.65; color: var(--ink-2); margin-bottom: 10px; }
@@ -451,7 +575,8 @@
 
   /* ═══ DRAWERS ═══ */
   .drawer-backdrop { position: fixed; inset: 0; background: rgba(28,26,21,0.05); z-index: 60; display: none; }
-  .drawer-backdrop.open { display: block; }
+  .drawer-backdrop.open,
+  .drawer-backdrop.active { display: block; }
   .drawer { position: fixed; top: 0; right: -360px; height: 100vh; background: var(--paper); border-left: 1px solid var(--rule); z-index: 61; display: flex; flex-direction: column; transition: right 0.25s ease-out; box-shadow: -20px 0 60px -20px rgba(28,26,21,0); overflow: hidden; max-width: calc(100vw - 48px); }
   .drawer.open { right: 0; box-shadow: -16px 0 40px -12px rgba(28,26,21,0.1); }
   .drawer.files { width: 290px; }
@@ -703,16 +828,262 @@
 
   /* Responsive */
   @media (max-width: 900px) {
-    .home { padding: 32px 24px 200px; }
-    .greeting-title { font-size: 36px; }
-    .home-hero { grid-template-columns: 1fr; gap: 28px; }
-    .hero-side { border-left: none; padding-left: 0; border-top: 1px solid var(--rule); padding-top: 20px; }
-    .overnight-grid { grid-template-columns: 1fr; }
-    .matter-row { grid-template-columns: 40px 1fr; }
-    .matter-row-next, .matter-row-meta { display: none; }
-    .doc-pages-wrap { grid-template-columns: 1fr; }
+    .mobile-topbar { display: flex; }
+    .mobile-nav-backdrop.open { display: block; opacity: 1; }
+    body.mobile-menu-open { overflow: hidden; }
+    body.mobile-menu-open .mobile-menu-btn span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+    body.mobile-menu-open .mobile-menu-btn span:nth-child(2) { opacity: 0; }
+    body.mobile-menu-open .mobile-menu-btn span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+    .layout { padding-top: 60px; }
+    #railTooltip, .priority-legend { display: none !important; }
+
+    .matters-rail,
+    .matters-rail.expanded,
+    .matters-rail.compact {
+      position: fixed;
+      top: 60px;
+      left: -264px;
+      bottom: 0;
+      width: 252px !important;
+      min-width: 252px !important;
+      align-items: stretch;
+      padding: 12px 10px;
+      border-right: 1px solid var(--rule);
+      box-shadow: none;
+      transition: left 0.24s ease-out;
+      z-index: 130;
+      overflow-y: auto;
+    }
+    .matters-rail.mobile-open { left: 0; box-shadow: 0 14px 44px rgba(28,26,21,0.22); }
+    .matters-rail .rail-collapse-btn { display: none; }
+    .matters-rail .brand-mark {
+      width: auto;
+      height: auto;
+      padding: 6px 10px;
+      justify-content: flex-start;
+      margin-bottom: 8px;
+    }
+    .matters-rail .brand-mark::after {
+      content: 'ssociate';
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .matters-rail .rail-separator { width: 100%; margin: 8px 0; }
+    .matters-rail .matter-dot {
+      width: 100%;
+      height: auto;
+      padding: 8px 10px;
+      justify-content: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      margin-bottom: 2px;
+      border-radius: 6px;
+    }
+    .matters-rail .matter-dot .dot-initials {
+      font-weight: 700;
+      min-width: 20px;
+      text-align: center;
+    }
+    .matters-rail .matter-dot .matter-name {
+      display: block;
+      font-weight: 400;
+      opacity: 0.9;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      font-size: 11px;
+    }
+    .matters-rail .new-matter-btn { width: 100%; justify-content: center; margin-top: 8px; }
+    .matters-rail .rail-playbook { align-self: flex-start; margin-left: 10px; }
+    .matters-rail .rail-user { align-self: flex-start; margin: 0 0 6px 10px; }
+
+    .workspace { overflow-x: hidden; }
+    .home { padding: 22px 16px 160px; }
+    .home-masthead {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+    }
+    .home-masthead-right, .proactive-sub { display: none; }
+    .greeting-title { font-size: 30px; line-height: 1.08; letter-spacing: -1.1px; }
+    .home-hero { grid-template-columns: 1fr; gap: 20px; padding-bottom: 28px; margin-bottom: 28px; }
+    .hero-headline { font-size: 28px; line-height: 1.1; }
+    .hero-subhead { font-size: 15px; line-height: 1.55; }
+    .hero-actions { flex-wrap: wrap; margin-top: 14px; }
+    .hero-side {
+      border-left: none;
+      border-top: 1px solid var(--rule);
+      padding: 16px 0 0;
+      gap: 14px;
+    }
+    .next-event { gap: 10px; }
+    .next-event-time { min-width: 48px; }
+    .next-event-time .hour { font-size: 18px; }
+
+    .home-section { margin-bottom: 36px; }
+    .section-kicker { margin-bottom: 10px; gap: 8px; }
+    .section-kicker .rule-line { display: none; }
+    .overnight-grid { grid-template-columns: 1fr; gap: 18px; }
+    .matter-row { grid-template-columns: 34px 1fr; gap: 12px; padding: 12px 8px; margin: 0 -8px; }
+    .matter-row-name { font-size: 15px; line-height: 1.28; }
+    .matter-row-status { font-size: 12px; line-height: 1.5; }
+    .matter-row-next, .matter-row-meta, .compliance-link, .cal-tag { display: none; }
+    .compliance-strip { margin-bottom: 24px; padding: 12px 14px; }
+    .compliance-strip-head { font-size: 9px; margin-bottom: 8px; }
+    .compliance-strip-item { flex-direction: column; align-items: flex-start; gap: 5px; font-size: 12.5px; }
+    .cal-strip { padding: 12px 12px; border-radius: 10px; }
+    .cal-head { margin-bottom: 10px; }
+    .cal-item { grid-template-columns: 50px 1fr; gap: 10px; padding: 7px 8px; margin: 0 -8px; }
+    .cal-time { font-size: 12px; }
+    .cal-event { font-size: 13px; }
+    .cal-meta { font-size: 10px; }
+    
+    .matter-view-header { padding: 16px 16px 0; gap: 8px; }
+    .matter-header-dot { display: none; }
+    .matter-header-badge { max-width: 100%; }
+    .matter-header-actions {
+      margin-left: 0;
+      width: 100%;
+      justify-content: flex-start;
+      gap: 6px;
+    }
+    .matter-header-actions .doc-tool {
+      padding: 5px 9px;
+      font-size: 10px;
+    }
+    .brief { padding: 16px 16px 140px; }
+    .matter-header-row { flex-direction: column; gap: 10px; }
+    .matter-title { font-size: 30px; line-height: 1.08; letter-spacing: -0.8px; margin-bottom: 8px; }
+    .matter-subtitle { font-size: 15px; }
+    .masthead { margin-bottom: 20px; }
+    .intro { margin-bottom: 26px; padding: 16px 0 20px; }
+    .intro-body { font-size: 15.5px; line-height: 1.62; }
+    .section { margin-bottom: 32px; }
+    .chron-item { gap: 12px; }
+    .chron-date { min-width: 64px; font-size: 11px; }
+    .chron-body, .issue-body { font-size: 14px; }
+    .issue-title { font-size: 16px; }
+    .issue-head { gap: 8px; }
+    .masthead-line .sep { display: none; }
+    .people-grid { grid-template-columns: 1fr; gap: 10px; }
+    .agent-aside { margin: 20px 0; padding-left: 14px; font-size: 14px; }
+    .sugg-card { width: 88vw; max-width: 310px; }
+
+    .doc-editor {
+      left: 0 !important;
+      top: 60px;
+      right: 0;
+      bottom: 0;
+    }
+    .doc-top {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px 12px;
+    }
+    .doc-top-right {
+      width: 100%;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      scrollbar-width: thin;
+      gap: 6px;
+    }
+    .doc-top-right .mobile-hide { display: none; }
+    .doc-crumb { font-size: 11px; width: 100%; }
+    .doc-crumb-name { font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .doc-format-bar {
+      padding: 8px 10px;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .doc-body-area { padding: 14px 0 82px; }
+    .doc-pages-wrap { grid-template-columns: 1fr; gap: 14px; padding: 0 10px; }
+    .doc-page {
+      min-height: auto;
+      padding: 26px 18px;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(28,26,21,0.09);
+    }
+    .doc-page-label { margin-bottom: 14px; }
+    .doc-h1 { font-size: 20px; }
+    .doc-h1-sub { margin-bottom: 24px; font-size: 11px; }
+    .doc-h2 { margin: 20px 0 10px; }
+    .doc-p { font-size: 13px; line-height: 1.62; text-align: left; }
     .doc-margin { position: static; }
-    .translate-grid { grid-template-columns: 1fr; }
+    .margin-note { padding: 10px 12px; }
+    .margin-actions { flex-wrap: wrap; }
+    .doc-form-bar { padding: 0 10px; overflow-x: auto; }
+    .form-doc-row { grid-template-columns: 1fr; gap: 8px; padding: 8px 0; }
+
+    .drawer-backdrop {
+      top: 60px;
+      z-index: 180;
+    }
+    .drawer {
+      top: 60px;
+      height: calc(100vh - 60px);
+      z-index: 190;
+      max-width: calc(100vw - 12px);
+    }
+    .drawer.files, .drawer.playbook, .drawer.compliance { width: min(100vw - 12px, 360px); }
+    .drawer-head { padding: 14px 14px 10px; }
+    .drawer-body { padding: 12px 14px 24px; }
+    .translate-panel {
+      width: 100vw;
+      max-width: 100vw;
+      right: -100vw;
+      top: 60px;
+      height: calc(100vh - 60px);
+    }
+    .translate-head, .translate-pickers { padding-left: 14px; padding-right: 14px; }
+    .translate-body { padding: 12px 14px 34px; }
+    .translate-grid { grid-template-columns: 1fr; gap: 12px; }
+
+    .chat-pill { right: 12px; bottom: 12px; }
+    .chat-window {
+      right: 8px;
+      left: 8px;
+      bottom: 8px;
+      top: 68px;
+      width: auto;
+      max-width: none;
+      height: auto;
+      max-height: none;
+      border-radius: 12px;
+    }
+    .chat-head { padding: 12px 14px; }
+    .chat-head-title { font-size: 13px; }
+    .chat-messages { padding: 12px 14px; gap: 10px; }
+    .chat-input-wrap { padding: 10px 12px 12px; }
+
+    .modal { padding: 18px 16px; border-radius: 12px; }
+    .modal-title { font-size: 23px; }
+    .demo-banner {
+      bottom: 58px;
+      max-width: calc(100vw - 22px);
+      padding: 8px 12px;
+      font-size: 10px;
+      letter-spacing: 0.2px;
+      opacity: 0.88;
+    }
+    .ai-transparency-overlay {
+      top: 60px;
+      right: 0;
+      border-radius: 0 0 0 10px;
+      padding: 7px 10px;
+      font-size: 10px;
+      z-index: 175;
+    }
+    .toast {
+      bottom: 78px;
+      max-width: calc(100vw - 24px);
+      white-space: normal;
+      text-align: center;
+      line-height: 1.4;
+    }
   }
 
   /* ═══ SOUL LAYER ═══ */
@@ -1746,6 +2117,18 @@
 </head>
 <body>
 <div class="app-shell">
+  <div class="mobile-topbar" id="mobileTopbar">
+    <button class="mobile-menu-btn" id="mobileMenuBtn" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <button class="mobile-topbar-brand" onclick="goHome()">Associate</button>
+    <div class="mobile-topbar-actions">
+      <button class="mobile-topbar-action" onclick="openChat()">Ask AI</button>
+    </div>
+  </div>
+  <div class="mobile-nav-backdrop" id="mobileNavBackdrop" onclick="closeMobileMenu()"></div>
 
 <div class="layout">
 
@@ -2068,15 +2451,15 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 8l6 6"/><path d="M4 14l6-6 2-3"/><path d="M2 5h12"/><path d="M7 2h1"/><path d="M22 22l-5-10-5 10"/><path d="M14 18h6"/></svg>
           Translate
         </button>
-        <button class="doc-tool" id="compareBtn" onclick="toggleCompare()">
+        <button class="doc-tool mobile-hide" id="compareBtn" onclick="toggleCompare()">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="18" rx="1"/><rect x="14" y="3" width="7" height="18" rx="1"/></svg>
           Compare v2
         </button>
-        <button class="doc-tool" onclick="toast('Exporting document…')">Export</button>
-        <button class="doc-tool" onclick="openDrawer('share')">Share</button>
+        <button class="doc-tool mobile-hide" onclick="toast('Exporting document…')">Export</button>
+        <button class="doc-tool mobile-hide" onclick="openDrawer('share')">Share</button>
         
         <!-- AI Comments Toggle -->
-        <button class="doc-tool ai-comments-toggle" id="aiCommentsToggle" onclick="toggleAIComments()">
+        <button class="doc-tool ai-comments-toggle mobile-hide" id="aiCommentsToggle" onclick="toggleAIComments()">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
             <line x1="9" y1="9" x2="15" y2="9"></line>
@@ -3133,7 +3516,69 @@ function renderTimeline() {
 // ═══════════════════════════════════════════════════
 // NAVIGATION
 // ═══════════════════════════════════════════════════
+const MOBILE_BREAKPOINT = 900;
+
+function isMobileView() {
+  return window.innerWidth <= MOBILE_BREAKPOINT;
+}
+
+function openMobileMenu() {
+  if (!isMobileView()) return;
+  const rail = document.getElementById('mattersRail');
+  const backdrop = document.getElementById('mobileNavBackdrop');
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  if (rail) rail.classList.add('mobile-open');
+  if (backdrop) backdrop.classList.add('open');
+  document.body.classList.add('mobile-menu-open');
+  if (menuBtn) menuBtn.setAttribute('aria-expanded', 'true');
+}
+
+function closeMobileMenu() {
+  const rail = document.getElementById('mattersRail');
+  const backdrop = document.getElementById('mobileNavBackdrop');
+  const menuBtn = document.getElementById('mobileMenuBtn');
+  if (rail) rail.classList.remove('mobile-open');
+  if (backdrop) backdrop.classList.remove('open');
+  document.body.classList.remove('mobile-menu-open');
+  if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
+}
+
+function toggleMobileMenu() {
+  if (!isMobileView()) return;
+  if (document.body.classList.contains('mobile-menu-open')) {
+    closeMobileMenu();
+  } else {
+    openMobileMenu();
+  }
+}
+
+function syncMobileLayout() {
+  const rail = document.getElementById('mattersRail');
+  const docEditor = document.getElementById('docEditor');
+  if (isMobileView()) {
+    if (rail) {
+      rail.classList.add('expanded');
+      rail.classList.remove('compact');
+    }
+    if (docEditor) docEditor.style.left = '0px';
+    return;
+  }
+
+  closeMobileMenu();
+  initSidebar();
+  if (docEditor) {
+    if (docEditor.classList.contains('open') && rail) {
+      docEditor.style.left = rail.classList.contains('expanded') ? '220px' : '48px';
+    } else {
+      docEditor.style.left = '';
+    }
+  }
+}
+
+window.addEventListener('resize', syncMobileLayout);
+
 function goHome() {
+  closeMobileMenu();
   state.activeMatter = null;
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   document.getElementById('view-home').classList.add('active');
@@ -3146,6 +3591,7 @@ function goHome() {
 
 function openMatter(matterKey) {
   if (!matterKey || !matters[matterKey]) return;
+  closeMobileMenu();
   state.activeMatter = matterKey;
   const m = matters[matterKey];
 
@@ -3222,16 +3668,16 @@ function renderMatterView(m) {
   brief.innerHTML = `
     <div class="matter-view-header">
       <span class="back-link" onclick="goHome()">← All matters</span>
-      <span style="color:var(--ink-4)">·</span>
-      <span style="background:${badgeColor}1a; color:${badgeColor}; font-family:'Inter Tight',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.5px; padding:3px 9px; border-radius:10px;">${m.badgeText}</span>
-      <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+      <span class="matter-header-dot">·</span>
+      <span class="matter-header-badge" style="background:${badgeColor}1a; color:${badgeColor};">${m.badgeText}</span>
+      <div class="matter-header-actions">
         <button class="doc-tool" onclick="openDrawer('files')">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
           ${m.files}
         </button>
         <button class="doc-tool" onclick="openDrawer('playbook')">Playbook</button>
         ${m.id === 'ip' ? `<button class="doc-tool" onclick="openWaitlistFor('Specification Generator')">✦ Spec Generator</button><button class="doc-tool" onclick="openWaitlistFor('Drawing Generator')">✦ Drawing Generator</button>` : ''}
-        <button class="doc-tool" style="background:var(--ink);color:var(--paper);border-color:var(--ink);" onclick="openFormBuilder()">✦ Forms</button>
+        <button class="doc-tool primary" onclick="openFormBuilder()">✦ Forms</button>
         <button class="doc-tool" onclick="openDocument('${m.id}')">Open document →</button>
       </div>
     </div>
@@ -3307,8 +3753,8 @@ function renderNITWithAnimation(m) {
   brief.innerHTML = `
     <div class="matter-view-header">
       <span class="back-link" onclick="goHome()">← All matters</span>
-      <span style="color:var(--ink-4)">·</span>
-      <span style="background:var(--ink-3)1a; color:var(--ink-3); font-family:'Inter Tight',sans-serif; font-size:10px; font-weight:600; letter-spacing:0.5px; padding:3px 9px; border-radius:10px;">${m.badgeText}</span>
+      <span class="matter-header-dot">·</span>
+      <span class="matter-header-badge" style="background:var(--ink-3)1a; color:var(--ink-3);">${m.badgeText}</span>
     </div>
     <article class="brief">
       <header class="masthead">
@@ -3667,6 +4113,7 @@ function filterFiles(query) {
 // DRAWERS
 // ═══════════════════════════════════════════════════
 function openDrawer(which) {
+  closeMobileMenu();
   closeDrawer();
   state.openDrawer = which;
   const drawerMap = { files: 'filesDrawer', playbook: 'playbookDrawer', compliance: 'complianceDrawer', share: 'shareModal' };
@@ -3705,6 +4152,7 @@ function closeAllDrawers() { closeDrawer(); }
 // DOCUMENT EDITOR
 // ═══════════════════════════════════════════════════
 function openDocument(matterKey) {
+  closeMobileMenu();
   const key = matterKey || state.activeMatter || 'varma';
   const needsSwitch = !state.activeMatter || state.activeMatter !== key;
   if (needsSwitch) {
@@ -4166,6 +4614,7 @@ const chatWindow = document.getElementById('chatWindow');
 const chatMessages = document.getElementById('chatMessages');
 
 function openChat(preset) {
+  closeMobileMenu();
   if (chatPill) chatPill.classList.add('hidden');
   if (chatWindow) chatWindow.classList.add('open');
   setTimeout(() => { const inp = document.getElementById('chatInput'); if (inp) inp.focus(); }, 100);
@@ -4284,7 +4733,10 @@ function submitWaitlist() {
 // NEW MATTER MODAL
 // ═══════════════════════════════════════════════════
 const newMatterModal = document.getElementById('newMatterModal');
-function openNewMatter() { if (newMatterModal) newMatterModal.classList.add('open'); }
+function openNewMatter() {
+  closeMobileMenu();
+  if (newMatterModal) newMatterModal.classList.add('open');
+}
 function closeNewMatter() { if (newMatterModal) { newMatterModal.classList.remove('open'); resetVoice(); } }
 
 const micBtn = document.getElementById('micBtn');
@@ -5002,6 +5454,7 @@ function createNITMatterDirect(cardEl) {
 document.addEventListener('keydown', e => {
   if ((e.metaKey || e.ctrlKey) && e.key === 'k') { e.preventDefault(); openChat(); }
   if (e.key === 'Escape') {
+    closeMobileMenu();
     closeChat();
     closeDocument();
     closeNewMatter();
@@ -5176,6 +5629,12 @@ function dismissRedlinesOnboarding() {
 function initSidebar() {
   const rail = document.getElementById('mattersRail');
   if (!rail) return;
+
+  if (isMobileView()) {
+    rail.classList.add('expanded');
+    rail.classList.remove('compact');
+    return;
+  }
   
   // Set initial state from localStorage or default to expanded
   const isExpanded = localStorage.getItem('sidebarExpanded') !== 'false';
@@ -5191,6 +5650,11 @@ function initSidebar() {
 function toggleSidebar() {
   const rail = document.getElementById('mattersRail');
   if (!rail) return;
+
+  if (isMobileView()) {
+    toggleMobileMenu();
+    return;
+  }
   
   const isExpanded = rail.classList.contains('expanded');
   
@@ -5223,6 +5687,7 @@ function toggleSidebar() {
 document.addEventListener('DOMContentLoaded', () => {
   initAITransparency();
   initPrivacyNotice();
+  syncMobileLayout();
   
   // Show redlines onboarding when document editor opens
   const observer = new MutationObserver((mutations) => {
@@ -6009,6 +6474,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ═══════════════════════════════════════════════════
 renderTimeline();
 initSidebar();
+syncMobileLayout();
 initDocMode();
 initAICommentsToggle();
 
@@ -6032,3 +6498,4 @@ document.head.appendChild(langTabStyle);
 </script>
 </body>
 </html>
+
