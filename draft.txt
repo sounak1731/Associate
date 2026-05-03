@@ -1,0 +1,573 @@
+# Associate Demo Matter
+## Mehra Exports Pvt. Ltd. v. CloudServ Technologies Pvt. Ltd.
+
+---
+
+## THE FLOW — WHAT IS HAPPENING IN EACH SCREEN
+
+| Screen | What the lawyer is doing | What Associate does |
+|---|---|---|
+| Chat | Asks: what is this case, what do I do next | Reads all 7 docs, classifies the matter, gives next steps |
+| Research | Asks: is the arbitration clause enforceable | Finds 3 real judgments, verifies, gives a sourced answer |
+| Redline | Reviews the **executed MSA** before filing anything | Flags the liability cap in Clause 9 as a risk to the recovery claim |
+| Draft | Types one prompt → generates the **Legal Notice** | Pulls all facts from the matter — names, amounts, dates, relief |
+| Export | Exports the matter brief as a newsletter/PDF | Auto-formats everything, one click to send |
+
+**The plaint comes later — only if CloudServ ignores the notice. The demo ends at the notice because that is where the lawyer is today.**
+
+---
+
+## COMPLETE DOCUMENT 1 — MASTER SERVICES AGREEMENT
+**Filename:** `Mehra-CloudServ_MSA_Executed_12Jan2024.pdf`
+**Associate auto-tag:** Contract — Executed
+
+---
+
+```
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement ("Agreement") is entered into as of
+12th January 2024 ("Effective Date") by and between:
+
+Mehra Exports Pvt. Ltd.
+A company incorporated under the Companies Act, 2013
+CIN: [<!-- FILL: Mehra Exports CIN for demo -->]
+Registered office: 14-B, Nehru Place, New Delhi – 110019
+(hereinafter referred to as "Client")
+
+                              AND
+
+CloudServ Technologies Pvt. Ltd.
+A company incorporated under the Companies Act, 2013
+CIN: [<!-- FILL: CloudServ CIN for demo -->]
+Registered office: 402, Prestige Tower, MG Road,
+Bengaluru – 560001
+(hereinafter referred to as "Service Provider")
+
+Client and Service Provider are hereinafter individually referred
+to as "Party" and collectively as "Parties."
+
+
+RECITALS
+
+WHEREAS, the Client desires to engage the Service Provider to
+provide certain cloud migration and managed infrastructure services;
+
+WHEREAS, the Service Provider represents that it has the expertise,
+personnel, and capacity to provide such services;
+
+NOW THEREFORE, in consideration of the mutual covenants herein,
+the Parties agree as follows:
+
+
+CLAUSE 1 — DEFINITIONS
+
+1.1 "Services" means the cloud migration, infrastructure setup,
+and managed services described in Schedule A to this Agreement.
+
+1.2 "Milestones" means the four project phases set out in
+Schedule A, completion of each being a condition precedent to
+the payment instalment associated with that phase.
+
+1.3 "Deliverables" means all work product, configurations,
+documentation, and outputs to be produced by the Service Provider
+under each Milestone.
+
+1.4 "Project Manager" means the person designated by the Client
+to review Deliverables and issue or withhold Milestone sign-off.
+<!-- FILL: Client's project manager name — Rajiv Anand -->
+
+1.5 "Intellectual Property" means all patents, copyrights,
+trademarks, trade secrets, and other proprietary rights in the
+Deliverables created under this Agreement.
+
+
+CLAUSE 2 — SCOPE OF SERVICES
+
+2.1 The Service Provider shall provide the Services as described
+in Schedule A in accordance with the timeline set out therein.
+
+2.2 Total project value: ₹48,00,000 (Rupees Forty-Eight Lakhs),
+payable in four equal instalments of ₹12,00,000 each upon
+completion and sign-off of each Milestone.
+
+2.3 Any change in scope must be agreed in writing by both Parties
+prior to commencement of the changed scope. Unilateral changes
+by either Party shall not give rise to additional payment
+obligations.
+
+
+CLAUSE 3 — PAYMENT TERMS
+
+3.1 The Client shall pay each Milestone instalment within 30 days
+of receipt of the corresponding invoice, subject to the Client's
+Project Manager issuing written sign-off confirming satisfactory
+completion of the relevant Milestone.
+
+3.2 The Service Provider shall not raise an invoice for any
+Milestone unless and until the Deliverables for that Milestone
+have been completed and submitted to the Client for sign-off.
+
+3.3 In the event the Client's Project Manager withholds sign-off,
+the Client shall provide written reasons within 7 days. The
+Service Provider shall rectify the deficiencies and resubmit.
+
+3.4 No payment shall be deemed overdue unless a valid invoice has
+been raised in accordance with Clauses 3.1 and 3.2 above.
+
+
+CLAUSE 4 — MILESTONES AND SCHEDULE
+
+As per Schedule A:
+
+Milestone 1: Infrastructure Assessment & Architecture Design
+             Value: ₹12,00,000 | Timeline: 30 days from Effective Date
+
+Milestone 2: Cloud Migration (ERP module + core systems)
+             Value: ₹12,00,000 | Timeline: 60 days from Milestone 1
+
+Milestone 3: Data Sync & Handover
+             Value: ₹12,00,000 | Timeline: 30 days from Milestone 2
+
+Milestone 4: Managed Services Setup & Documentation
+             Value: ₹12,00,000 | Timeline: 30 days from Milestone 3
+
+
+CLAUSE 5 — INTELLECTUAL PROPERTY
+
+5.1 All Deliverables created specifically for the Client under
+this Agreement shall vest in the Client upon full payment.
+
+5.2 The Service Provider retains ownership of all pre-existing
+tools, frameworks, and methodologies used in providing
+the Services.
+
+
+CLAUSE 6 — CONFIDENTIALITY
+
+6.1 Each Party shall keep the other's Confidential Information
+strictly confidential and shall not disclose it to any third
+party without prior written consent.
+
+6.2 This obligation shall survive termination of this Agreement
+for a period of three (3) years.
+
+
+CLAUSE 7 — WARRANTIES
+
+7.1 The Service Provider warrants that the Services shall be
+performed with reasonable skill and care, in accordance with
+industry standards.
+
+7.2 The Service Provider warrants that the Deliverables shall
+materially conform to the specifications set out in Schedule A.
+
+7.3 In the event of a breach of warranty, the Service Provider
+shall, at no additional charge, remedy the non-conformance
+within 14 days of written notice from the Client.
+
+
+CLAUSE 8 — LIMITATION OF LIABILITY
+
+8.1 Neither Party shall be liable for any indirect, incidental,
+special, or consequential loss or damage.
+
+8.2 CloudServ's total aggregate liability to the Client under
+or in connection with this Agreement, whether in contract,
+tort, or otherwise, shall not exceed the amounts paid by
+the Client in the three (3) months immediately preceding
+the event giving rise to the claim.
+
+<!-- ⚠ DEMO FLAG — THIS IS THE CLAUSE THAT GETS REDLINED.
+     Cap = 3 months' fees = ~₹14.16L.
+     Claim = ₹28.32L. Cap would cut recovery by 50%.
+     Invoice 003 counter-argument: cap applies to
+     service defects only, not work never commenced. -->
+
+
+CLAUSE 9 — DISPUTE RESOLUTION
+
+9.1 The Parties shall first attempt to resolve any dispute
+through good faith discussions between senior management
+within thirty (30) days of written notice of the dispute.
+
+9.2 Failing resolution under Clause 9.1, any dispute shall
+be finally resolved by arbitration under the Arbitration
+and Conciliation Act, 1996.
+
+9.3 The arbitral tribunal shall consist of a sole arbitrator
+appointed by mutual consent of the Parties. Failing
+agreement within 15 days, either Party may apply to the
+appropriate court under Section 11 of the A&C Act, 1996.
+
+9.4 The seat of arbitration shall be New Delhi.
+The language of arbitration shall be English.
+
+9.5 The award of the arbitral tribunal shall be final and
+binding on the Parties.
+
+
+CLAUSE 10 — GOVERNING LAW
+
+This Agreement shall be governed by and construed in
+accordance with the laws of India. Subject to Clause 9,
+the courts at New Delhi shall have exclusive jurisdiction.
+
+
+CLAUSE 11 — TERM AND TERMINATION
+
+11.1 This Agreement shall commence on the Effective Date and
+shall continue until completion of all Milestones, unless
+terminated earlier in accordance with this Clause.
+
+11.2 Either Party may terminate this Agreement by giving 30 days'
+written notice to the other Party.
+
+11.3 Termination shall not affect any rights or obligations that
+have accrued prior to the date of termination.
+
+
+CLAUSE 12 — GENERAL
+
+12.1 Entire Agreement. This Agreement constitutes the entire
+agreement between the Parties and supersedes all prior
+discussions and understandings.
+
+12.2 Amendments. Any amendment must be in writing and signed
+by authorised representatives of both Parties.
+
+12.3 Waiver. Failure to exercise any right shall not constitute
+a waiver of that right.
+
+12.4 Severability. If any provision is held invalid, the
+remaining provisions shall continue in full force.
+
+12.5 Notices. All notices shall be in writing and delivered by
+email with read receipt, or by registered post to the
+registered offices above.
+
+
+IN WITNESS WHEREOF, the Parties have executed this Agreement
+as of the Effective Date.
+
+For Mehra Exports Pvt. Ltd.          For CloudServ Technologies Pvt. Ltd.
+
+Signature: ___________________       Signature: ___________________
+Name:      Rahul Mehra               Name:      Vikram Sinha
+Title:     Director                  Title:     Chief Executive Officer
+Date:      12 January 2024           Date:      12 January 2024
+Place:     New Delhi                 Place:     Bengaluru
+
+
+SCHEDULE A — SCOPE OF SERVICES AND DELIVERABLES
+
+[Summary of Milestones 1–4 as per Clause 4 above.
+Detailed technical specifications to be appended.]
+```
+
+---
+
+## COMPLETE DOCUMENT 2 — LEGAL NOTICE
+**Filename:** `LegalNotice_MehraExports_to_CloudServ_Draft.docx`
+**Associate auto-tag:** Draft — Legal Notice
+**Generated by:** Associate from matter context in one prompt
+
+**The prompt the lawyer types in the demo:**
+```
+Draft a legal notice to CloudServ Technologies demanding
+payment of ₹28,32,000 for Invoices 002 and 003, with a
+15-day deadline before we initiate arbitration under
+the MSA.
+```
+
+**Associate's output — complete drafted notice:**
+
+---
+
+```
+                                        <!-- FILL: Advocate letterhead -->
+                        [ADVOCATE NAME AND DESIGNATION]
+                           [CHAMBER ADDRESS, LINE 1]
+                          [CHAMBER ADDRESS, LINE 2]
+                         [CITY — PIN] | [PHONE NUMBER]
+                              [EMAIL ADDRESS]
+
+                        Enrolment No.: [BAR ENROLMENT NO.]
+                        Bar Council of Delhi
+
+                                            Date: [<!-- FILL: Date of notice -->]
+                                            Ref.: [<!-- FILL: Matter ref. no. -->]
+
+BY REGISTERED POST WITH ACKNOWLEDGEMENT DUE
+AND BY EMAIL TO: vikram.sinha@cloudservtech.in
+
+To,
+The CEO / Authorised Signatory
+CloudServ Technologies Pvt. Ltd.
+402, Prestige Tower, MG Road,
+Bengaluru – 560001
+
+                           LEGAL NOTICE
+
+Dear Sir/Madam,
+
+We are the Advocates for and on behalf of our client,
+M/s Mehra Exports Pvt. Ltd., having its registered office
+at 14-B, Nehru Place, New Delhi – 110019 (hereinafter
+referred to as "our Client"), and we address you at
+their instructions and on their behalf as under:
+
+
+1.  BACKGROUND
+
+1.1 Our Client is a company duly incorporated under the
+    Companies Act, 2013, engaged in the business of exports.
+
+1.2 On 12th January 2024, our Client entered into a Master
+    Services Agreement ("MSA") with your company
+    (CloudServ Technologies Pvt. Ltd., hereinafter "you"
+    or "your company") for the provision of cloud migration,
+    infrastructure setup, and managed services, at a total
+    contract value of ₹48,00,000 (Rupees Forty-Eight Lakhs),
+    payable in four equal milestone-linked instalments.
+
+1.3 In accordance with the MSA, our Client duly paid the
+    first instalment of ₹14,16,000 (including GST) upon
+    satisfactory completion of Milestone 1 (Infrastructure
+    Assessment & Architecture Design), vide payment dated
+    8th March 2024.
+
+
+2.  BREACH AND FAILURE TO PERFORM
+
+2.1 You raised Invoice No. CSTPL/2024/002 dated 3rd April
+    2024 for ₹14,16,000 towards Milestone 2 (Cloud Migration).
+    However, at the time of raising the said invoice, Milestone
+    2 deliverables were incomplete — specifically, the migration
+    of the ERP module, which constitutes the core deliverable
+    under Milestone 2, was only approximately 40% complete.
+
+2.2 In accordance with Clause 3.1 of the MSA, payment of any
+    milestone instalment is subject to sign-off by our Client's
+    designated Project Manager confirming satisfactory completion.
+    Our Client's Project Manager withheld sign-off and
+    communicated the reasons in writing vide email dated
+    22nd March 2024, a copy of which is enclosed herewith
+    as Annexure A.
+
+2.3 Despite the above, you neither completed the outstanding
+    Milestone 2 deliverables nor provided a revised timeline
+    as requested.
+
+2.4 You further raised Invoice No. CSTPL/2024/003 dated 1st July
+    2024 for ₹14,16,000 towards Milestone 3 (Data Sync &
+    Handover). As of the date of this notice, no work has
+    been commenced on Milestone 3, as evidenced by our Client's
+    project tracker. The said invoice was raised unilaterally
+    and in violation of Clause 3.2 of the MSA, which expressly
+    prohibits the raising of invoices prior to commencement
+    and submission of Deliverables.
+
+2.5 Our Client addressed a formal written demand to your company
+    vide email dated 15th August 2024, calling upon you to
+    complete the outstanding deliverables or respond within
+    14 days. Your company's sole response, vide email dated
+    16th August 2024, was that your team had been "occupied
+    with other projects" and would "revert shortly." No
+    substantive response has been received since.
+
+2.6 Your conduct constitutes a clear and material breach of
+    the MSA, including but not limited to:
+
+    (a) Failure to complete Milestone 2 deliverables despite
+        receipt of prior payment for Milestone 1;
+
+    (b) Raising Invoice 002 without milestone sign-off, in
+        violation of Clause 3.2 of the MSA;
+
+    (c) Raising Invoice 003 for work not commenced, in
+        violation of Clause 3.2 of the MSA;
+
+    (d) Failure to respond substantively to our Client's
+        formal demand of 15th August 2024.
+
+
+3.  AMOUNT DUE AND PAYABLE
+
+3.1 In light of the above, our Client is entitled to the
+    following:
+
+    (a) A declaration that neither Invoice 002 nor Invoice 003
+        is payable in the absence of corresponding milestone
+        completion and sign-off;
+
+    AND / OR IN THE ALTERNATIVE
+
+    (b) Damages for partial failure of consideration in respect
+        of the contract value paid (₹14,16,000 for Milestone 1)
+        for which full contracted deliverables have not been
+        received;
+
+    (c) Without prejudice to the above, in the event this
+        dispute proceeds to arbitration, our Client will claim
+        the full sum of ₹28,32,000 (Rupees Twenty-Eight Lakhs
+        Thirty-Two Thousand) representing the aggregate of
+        Invoice 002 (₹14,16,000) and Invoice 003 (₹14,16,000)
+        which have been wrongfully raised and remain unpaid,
+        together with interest at 18% per annum from the
+        respective invoice due dates, and costs.
+
+
+4.  NOTICE AND DEMAND
+
+4.1 In light of the foregoing, we hereby call upon you to,
+    within FIFTEEN (15) DAYS of receipt of this notice:
+
+    (a) Complete all outstanding Milestone 2 deliverables
+        to the satisfaction of our Client's Project Manager
+        and resubmit for sign-off; OR
+
+    (b) Pay to our Client the sum of ₹28,32,000 (Rupees
+        Twenty-Eight Lakhs Thirty-Two Thousand) in full and
+        final settlement of all claims arising under the MSA;
+
+    failing which, our Client shall, without further notice
+    or intimation to you, initiate arbitration proceedings
+    under Clause 9 of the MSA read with Section 8 of the
+    Arbitration and Conciliation Act, 1996, and shall
+    seek recovery of the aforesaid amount together with
+    interest at 18% per annum and full costs of the
+    arbitration proceedings.
+
+4.2 Please note that this notice shall constitute the
+    written notice of dispute required under Clause 9.1
+    of the MSA, and the 30-day good faith resolution
+    period thereunder is hereby invoked. The 15-day
+    period specified above runs concurrently therewith.
+
+
+5.  RESERVATION OF RIGHTS
+
+Our Client expressly reserves all rights and remedies
+available to it under the MSA, in equity, and under
+applicable law, including the right to seek additional
+damages, interest, and costs as may be determined by
+the arbitral tribunal. Nothing in this notice shall
+be construed as a waiver of any such right.
+
+
+Issued on behalf of our Client,
+M/s Mehra Exports Pvt. Ltd.
+
+<!-- FILL: Advocate signature block -->
+[ADVOCATE NAME]
+Advocate
+[CHAMBER ADDRESS]
+Date: [DATE]
+
+ENCLOSURES:
+Annexure A — Email dated 22 March 2024 from Rahul Mehra
+             to Vikram Sinha re: Milestone 2 sign-off refusal
+Annexure B — Email dated 15 August 2024 from Rahul Mehra
+             to Vikram Sinha re: Formal demand
+Annexure C — Email dated 16 August 2024 from Vikram Sinha
+             re: Response
+Annexure D — Copy of MSA dated 12 January 2024
+Annexure E — Copy of Invoice 002 dated 3 April 2024
+Annexure F — Copy of Invoice 003 dated 1 July 2024
+```
+
+---
+
+## DEMO FLOW — CORRECTED SHOT BY SHOT
+
+### SCREEN 1 — CHAT (0:00–0:18)
+**What is happening:** Lawyer ingests all 7 documents. Asks the agent what kind of case this is and what the next steps are.
+
+**Agent responds:** B2B breach of contract. Arbitrable. Limitation safe. Next steps: (1) Review the MSA for risk before filing, (2) Draft and send legal notice, (3) File u/s 11 if no response in 15 days.
+
+**Caption:** *"The agent read 7 documents. You asked one question."*
+
+---
+
+### SCREEN 2 — RESEARCH (0:18–0:38)
+**What is happening:** Lawyer asks whether the arbitration clause is enforceable given CloudServ's silence.
+
+**Agent responds:** Yes. Verified against three live sources. Shows source cards with real Indian Kanoon and India Code links. Lawyer clicks the Vidya Drolia link live — judgment opens in a new tab.
+
+**Caption:** *"Every answer sourced. Every link real. Click any one."*
+
+---
+
+### SCREEN 3 — REDLINE THE MSA (0:38–0:54)
+**What is happening:** Lawyer opens the executed MSA in the canvas to understand the risk landscape before drafting the notice. Associate flags Clause 8 (Limitation of Liability) as a risk.
+
+**Redline card shows:**
+- The cap is ~₹14.16L (3 months' fees)
+- The claim is ₹28.32L — cap would cut recovery by 50%
+- Counter-argument ready: Invoice 003 = work never commenced = not a service defect, cap does not apply
+- Co-counsel avatar visible, cursor blinking on the clause
+
+**Lawyer clicks Modify — edits the suggested counter-argument note. Playbook updates.**
+
+**Caption:** *"The MSA was signed a year ago. Associate read it last night."*
+
+---
+
+### SCREEN 4 — DRAFT THE LEGAL NOTICE (0:54–1:12)
+**What is happening:** Lawyer types one prompt. Associate generates the complete legal notice — the one written above — with all names, dates, amounts, invoice references, and clause citations pulled from the matter.
+
+**Show the draft appearing in the canvas — key lines visible:**
+- The clause-by-clause breach analysis
+- The ₹28,32,000 demand
+- The 15-day deadline
+- The arbitration trigger
+
+**Show three placeholder fields still blank (in amber):**
+- `[ADVOCATE NAME]` — lawyer types in live
+- `[DATE]` — lawyer types in live
+- `[CHAMBER ADDRESS]` — lawyer types in live
+
+**Caption:** *"First draft of a complete legal notice. 90 seconds. Grounded in your matter."*
+
+---
+
+### SCREEN 5 — EXPORT (1:12–1:28)
+**What is happening:** Lawyer exports the matter brief as a newsletter-formatted PDF. Shows: matter name, claim, limitation status, position summary, next steps, open in Associate link.
+
+**Caption:** *"Brief ready. One click to share."*
+
+**Fade to:**
+```
+Associate.
+The first AI that doesn't wait to be told what to do.
+
+tryassociate.com
+```
+
+---
+
+## PLACEHOLDER MASTER LIST
+
+| # | Placeholder | Fill with | Appears in |
+|---|---|---|---|
+| 1 | `[ADVOCATE NAME]` | Enrolled advocate's full name | Vakalatnama, Notice letterhead, signature block |
+| 2 | `[BAR ENROLMENT NO.]` | Bar Council of Delhi number | Vakalatnama, Notice letterhead |
+| 3 | `[CHAMBER ADDRESS]` | Advocate's chamber address | Notice letterhead, signature block |
+| 4 | `[DATE OF NOTICE]` | Date of sending | Notice header |
+| 5 | `[MATTER REF. NO.]` | Internal matter reference | Notice header |
+| 6 | `[MODE OF DISPATCH]` | RPAD / email / courier | Dispatch note |
+| 7 | `[CO-COUNSEL INITIALS]` | Two letters for collab avatar | Redline screen |
+| 8 | `[MEHRA CIN]` | Any valid CIN format for demo | MSA |
+| 9 | `[CLOUDSERV CIN]` | Any valid CIN format for demo | MSA |
+| 10 | `[PROJECT MANAGER NAME]` | e.g. Rajiv Anand | MSA Clause 1.4, Chat screen |
+
+---
+
+## VERIFIED SOURCES
+
+| Judgment | Citation | Link |
+|---|---|---|
+| Vidya Drolia v. Durga Trading Corporation | (2021) 2 SCC 1 | https://indiankanoon.org/doc/147798924/ |
+| ONGC Ltd. v. Saw Pipes Ltd. | (2003) 5 SCC 705 | https://indiankanoon.org/doc/1037254/ |
+| A&C Act 1996 — Section 11 | India Code | https://www.indiacode.nic.in/handle/123456789/1978?sam_handle=123456789/1362 |

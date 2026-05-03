@@ -1,0 +1,549 @@
+# Associate Demo Matter
+## Mehra Exports Pvt. Ltd. v. CloudServ Technologies Pvt. Ltd.
+
+**Why this matter:** B2B payment default under an MSA. Every lawyer in India has seen one. It has a contract, unpaid invoices, emails, a legal notice, and a live limitation question — which means it triggers every single feature of Associate in a natural, believable sequence. It's not exotic. It's Tuesday.
+
+**One-line brief:** Mehra Exports engaged CloudServ for a ₹48L cloud migration. CloudServ delivered partial work, raised full invoices, went silent after a formal demand email. Mehra wants their ₹28.32L back. The MSA has an arbitration clause. Limitation is 3 years from breach — 21 months have elapsed.
+
+---
+
+## DOCUMENTS — EXACT FILENAMES + FULL BODY COPY
+
+---
+
+### DOC 1 — Master Services Agreement
+**Filename:** `Mehra-CloudServ_MSA_Executed_12Jan2024.pdf`
+**Associate auto-tag:** Contract — Executed
+
+```
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement ("Agreement") is entered into as of
+12th January 2024 ("Effective Date") by and between:
+
+Mehra Exports Pvt. Ltd., a company incorporated under the laws of
+India, having its registered office at 14-B, Nehru Place,
+New Delhi – 110019 ("Client")
+
+AND
+
+CloudServ Technologies Pvt. Ltd., a company incorporated under the
+laws of India, having its registered office at 402, Prestige Tower,
+MG Road, Bengaluru – 560001 ("Service Provider")
+
+SCOPE OF SERVICES
+CloudServ shall provide cloud migration, infrastructure setup, and
+managed services as detailed in Schedule A. Total project value:
+₹48,00,000 (Rupees Forty-Eight Lakhs), payable in four instalments
+upon milestone completion.
+
+PAYMENT TERMS
+Client shall pay each instalment within 30 days of receipt of
+invoice, subject to milestone sign-off by Client's designated
+project manager.
+
+LIMITATION OF LIABILITY
+CloudServ's total aggregate liability under this Agreement shall not
+exceed the amounts paid by Client in the preceding three months.
+
+DISPUTE RESOLUTION
+Any dispute shall first be referred to senior management of both
+parties for 30 days. Failing resolution, disputes shall be referred
+to arbitration under the Arbitration and Conciliation Act, 1996,
+before a sole arbitrator appointed by mutual consent, seated at
+New Delhi.
+
+GOVERNING LAW
+This Agreement shall be governed by the laws of India.
+
+Signed:
+Rahul Mehra, Director — Mehra Exports Pvt. Ltd.
+Vikram Sinha, CEO — CloudServ Technologies Pvt. Ltd.
+Date: 12 January 2024
+```
+
+---
+
+### DOC 2 — Invoice 001 (Paid)
+**Filename:** `CloudServ_Invoice_001_Feb2024.pdf`
+**Associate auto-tag:** Invoice — Paid
+
+```
+INVOICE No.: CSTPL/2024/001
+Date: 14 February 2024 | Due: 15 March 2024
+
+From: CloudServ Technologies Pvt. Ltd.
+To:   Mehra Exports Pvt. Ltd.
+
+Milestone 1 — Infrastructure Assessment & Architecture Design
+Amount:       ₹12,00,000
+GST @ 18%:    ₹2,16,000
+Total:        ₹14,16,000
+
+STATUS: PAID — 08 March 2024
+```
+
+---
+
+### DOC 3 — Invoice 002 (Disputed)
+**Filename:** `CloudServ_Invoice_002_Apr2024.pdf`
+**Associate auto-tag:** Invoice — Disputed
+
+```
+INVOICE No.: CSTPL/2024/002
+Date: 03 April 2024 | Due: 03 May 2024
+
+From: CloudServ Technologies Pvt. Ltd.
+To:   Mehra Exports Pvt. Ltd.
+
+Milestone 2 — Cloud Migration (Partial)
+Amount:       ₹12,00,000
+GST @ 18%:    ₹2,16,000
+Total:        ₹14,16,000
+
+NOTE: Milestone sign-off NOT obtained from Client project manager.
+Client has raised objections re: incomplete migration of ERP module.
+
+STATUS: UNPAID — DISPUTED
+```
+
+---
+
+### DOC 4 — Invoice 003 (Contested — work never commenced)
+**Filename:** `CloudServ_Invoice_003_Jul2024.pdf`
+**Associate auto-tag:** Invoice — Contested
+
+```
+INVOICE No.: CSTPL/2024/003
+Date: 01 July 2024 | Due: 31 July 2024
+
+From: CloudServ Technologies Pvt. Ltd.
+To:   Mehra Exports Pvt. Ltd.
+
+Milestone 3 — Data Sync & Handover
+Amount:       ₹12,00,000
+GST @ 18%:    ₹2,16,000
+Total:        ₹14,16,000
+
+NOTE: Work not commenced per Client's project tracker.
+Invoice raised unilaterally without milestone commencement.
+
+STATUS: UNPAID — CONTESTED
+```
+
+---
+
+### DOC 5 — Email Chain
+**Filename:** `Mehra_CloudServ_EmailChain_Mar_Oct2024.pdf`
+**Associate auto-tag:** Correspondence — Client
+
+```
+---------- EMAIL 1 ----------
+From:    rahul.mehra@mehraexports.com
+To:      vikram.sinha@cloudservtech.in
+Date:    22 March 2024
+Subject: Re: Milestone 2 Sign-off
+
+Vikram,
+
+As discussed on Tuesday, we cannot sign off on Milestone 2.
+The ERP module migration is 40% incomplete. Our ops team
+cannot go live on the current state.
+
+We are happy to pay once the work is done. Please share
+a revised timeline by end of this week.
+
+Rahul Mehra
+
+---------- EMAIL 2 ----------
+From:    rahul.mehra@mehraexports.com
+To:      vikram.sinha@cloudservtech.in
+         support@cloudservtech.in
+Date:    15 August 2024
+Subject: Formal Notice — Outstanding Deliverables and Invoices
+
+Vikram,
+
+Five months have passed since Milestone 2 was raised without
+sign-off. Milestone 3 work has not commenced.
+
+We have paid ₹14,16,000 in good faith for Milestone 1.
+We owe nothing further until contractual deliverables are met.
+
+We request a response within 14 days, failing which we will
+be constrained to initiate legal proceedings.
+
+Rahul Mehra
+Director, Mehra Exports Pvt. Ltd.
+
+---------- EMAIL 3 ----------
+From:    vikram.sinha@cloudservtech.in
+To:      rahul.mehra@mehraexports.com
+Date:    16 August 2024
+Subject: Re: Formal Notice
+
+Rahul,
+
+Our team has been occupied with other projects.
+We will revert shortly.
+
+Vikram
+
+[ No further response received. ]
+```
+
+---
+
+### DOC 6 — Vakalatnama
+**Filename:** `Vakalatnama_MehraExports_Signed_15Mar2025.pdf`
+**Associate auto-tag:** Instructions & Authorisation
+
+```
+VAKALATNAMA
+
+I/We, Rahul Mehra, Director, Mehra Exports Pvt. Ltd., hereby
+appoint and authorise:
+
+<!-- FILL: Advocate's full enrolled name -->
+[ADVOCATE NAME], Advocate
+<!-- FILL: Bar Council of Delhi enrolment number -->
+Enrolment No.: [BAR ENROLMENT NO.]
+
+...to act, appear, and plead on our behalf in any proceedings
+relating to:
+
+Matter:  Mehra Exports Pvt. Ltd. v. CloudServ Technologies Pvt. Ltd.
+Nature:  Recovery of money / breach of contract / arbitration
+
+I authorise the said Advocate to file, sign, verify all documents,
+make applications, withdraw proceedings, and do all acts necessary.
+
+Signed: Rahul Mehra
+Date:   15 March 2025
+Place:  New Delhi
+```
+
+---
+
+### DOC 7 — Lawyer's Open Issues Note
+**Filename:** `Matter_Note_OpenIssues_16Mar2025.docx`
+**Associate auto-tag:** Note — Lawyer
+
+```
+OPEN ISSUES — MEHRA v. CLOUDSERV
+Drafted: 16 March 2025
+<!-- FILL: Advocate's name for attribution -->
+Prepared by: [ADVOCATE NAME]
+
+1. LIMITATION
+   Breach date approx. March 2024 (Milestone 2 refusal).
+   Are we within 3 years for recovery suit? CHECK.
+   --> Associate confirms: 21/36 months elapsed. Safe.
+
+2. ARBITRATION CLAUSE
+   Clause 8 MSA — mandatory pre-arbitration cooling-off 30 days.
+   CloudServ Aug 2024 email = acknowledgement. 30 days elapsed.
+   --> Enforceable per Vidya Drolia (SC, 2021).
+
+3. LIABILITY CAP (CLAUSE 9)
+   Cap = 3 months fees = ~₹14.16L. Claim = ₹28.32L.
+   Invoice 003 = work never commenced = not a "service defect".
+   --> Cap may not apply to Invoice 003. Confirm with client.
+   <!-- FILL: Client's position on accepting cap risk -->
+   Client's position: [TO CONFIRM]
+
+4. FORUM
+   Arbitration seated New Delhi (Clause 10 MSA).
+   --> File u/s 11 A&C Act before Delhi High Court.
+
+5. PECUNIARY JURISDICTION
+   Net claim ₹28.32L. Above District Court limit for Delhi.
+   --> Delhi HC original side confirmed.
+
+6. DRAFT
+   Legal notice to be sent before filing. 15-day demand.
+   <!-- FILL: Date of sending notice -->
+   Target send date: [DATE]
+```
+
+---
+
+## VERIFIED SOURCES — REAL LINKS FOR DEMO
+
+Use these directly in the demo. All are publicly accessible, no login required.
+
+| Judgment / Statute | Citation | Live Link |
+|---|---|---|
+| Vidya Drolia & Ors. v. Durga Trading Corporation | (2021) 2 SCC 1 — SC Constitution Bench | https://indiankanoon.org/doc/147798924/ |
+| ONGC Ltd. v. Saw Pipes Ltd. | (2003) 5 SCC 705 — SC | https://indiankanoon.org/doc/1037254/ |
+| Arbitration and Conciliation Act, 1996 — Section 11 | Central Act, as amended 2021 | https://www.indiacode.nic.in/handle/123456789/1978?sam_handle=123456789/1362 |
+
+**Before recording:** Open all three tabs and keep them warm. Indian Kanoon can be slow on first load.
+
+---
+
+## PLACEHOLDER COMMENTS — MASTER LIST
+
+Every `<!-- FILL -->` in the documents above corresponds to one item below. Fill these before recording.
+
+| # | Placeholder | What to fill | Where it appears |
+|---|---|---|---|
+| 1 | `[ADVOCATE NAME]` | Full enrolled name of demo advocate | Vakalatnama, Open Issues Note, Legal Notice form |
+| 2 | `[BAR ENROLMENT NO.]` | Bar Council of Delhi enrolment number | Vakalatnama |
+| 3 | `[CO-COUNSEL INITIALS]` | Two initials for the collab avatar in the redline screen | Redline screen |
+| 4 | `[CLIENT POSITION ON CAP]` | Whether Mehra accepts the cap risk on Invoice 003 | Open Issues Note, Redline screen |
+| 5 | `[TARGET SEND DATE]` | Date of sending legal notice | Open Issues Note, Form screen |
+| 6 | `[DATE]` | Export date on newsletter | Export screen |
+| 7 | `[MODE OF DISPATCH]` | RPAD / email / courier | Legal Notice form |
+
+---
+
+## DEMO VIDEO — SHOT BY SHOT (5 SCREENS, 90 SECONDS)
+
+**Recording order:** Chat → Research → Form → Redline → Export.
+This order tells a story: understand the case → verify the law → fill the notice → negotiate the contract → share the brief.
+
+---
+
+### SCREEN 1 — CHAT (0:00–0:22)
+
+**Pre-load state:** All 7 documents already ingested. Matter timeline visible in sidebar. Agent overnight brief showing.
+
+**Opening frame — agent brief card (show for 3 seconds before any interaction):**
+```
+Good morning.
+3 things while you were away on Mehra v. CloudServ —
+→ No response from CloudServ since Aug 2024.
+  Limitation: 21 of 36 months elapsed. Safe but note.
+→ Invoice 002: no milestone sign-off on record. Strong position.
+→ Arbitration clause enforceability — answer ready when you are.
+```
+
+**User types:**
+```
+What kind of case is this, is the claim verified,
+and what are my next steps?
+```
+
+**Associate responds (show streaming in):**
+```
+Case type: Commercial dispute — breach of contract + recovery
+of money. Arbitrable under Clause 8 MSA. [VERIFIED ✓]
+
+Claim: ₹28,32,000 across Invoice 002 (disputed milestone)
+and Invoice 003 (work never commenced).
+
+Limitation: 21/36 months elapsed. No urgency but note deadline.
+
+Next steps:
+1. Send legal notice — 15-day demand. Draft ready.
+2. File u/s 11, A&C Act 1996 if no response.
+3. File statement of claim within 30 days of arbitrator
+   appointment.
+```
+
+**Caption over this screen:** *"The agent already read everything. You just asked."*
+
+---
+
+### SCREEN 2 — RESEARCH (0:22–0:42)
+
+**User types:**
+```
+Is the arbitration clause enforceable given CloudServ's
+complete silence after the Aug 2024 demand email?
+```
+
+**Associate responds — show answer first, then sources appearing below it:**
+```
+Yes. Enforceable.
+
+The 30-day cooling-off under Clause 8 is satisfied —
+CloudServ's Aug 2024 email is acknowledgement of the dispute,
+and 30+ days have elapsed without resolution.
+
+Courts must refer to arbitration unless the claim is ex-facie
+non-arbitrable. This is a pure commercial dispute. Reference
+is mandatory.
+
+Action: File u/s 11 before Delhi High Court.
+```
+
+**Then show three source cards appearing with live links:**
+
+Card 1:
+```
+Vidya Drolia & Ors. v. Durga Trading Corporation
+SC · Constitution Bench · (2021) 2 SCC 1
+Courts cannot refuse arbitration reference unless claim
+is ex-facie non-arbitrable.
+→ indiankanoon.org/doc/147798924/  [clickable]
+```
+
+Card 2:
+```
+ONGC Ltd. v. Saw Pipes Ltd.
+SC · (2003) 5 SCC 705
+Liability cap clauses construed narrowly — supports
+Invoice 003 recovery argument.
+→ indiankanoon.org/doc/1037254/  [clickable]
+```
+
+Card 3:
+```
+Arbitration and Conciliation Act, 1996 — Section 11
+India Code · Central Act · as amended 2021
+→ indiacode.nic.in/handle/123456789/1978  [clickable]
+```
+
+**Verified bar below all cards:**
+```
+✓ All sources verified against live databases.
+  No hallucinated citations. Every link opens the original.
+```
+
+**Caption:** *"Every answer sourced. Every citation real. Click any link."*
+
+**[IN DEMO: actually click the Vidya Drolia link live — show the Indian Kanoon page opening in a new tab. This is the authenticity moment.]**
+
+---
+
+### SCREEN 3 — FORM (0:42–0:55)
+
+**Show the legal notice form opening — fields auto-filling as the matter context loads in:**
+
+```
+FROM (auto-filled ✓):   Mehra Exports Pvt. Ltd.
+ADDRESS (auto-filled ✓): 14-B, Nehru Place, New Delhi – 110019
+
+TO (auto-filled ✓):     CloudServ Technologies Pvt. Ltd.
+ADDRESS (auto-filled ✓): 402, Prestige Tower, MG Road, Bengaluru
+
+CLAIM AMOUNT (auto-filled ✓): ₹28,32,000
+BREACH DATE (auto-filled ✓):  March 2024
+RELIEF (auto-filled ✓):       Payment within 15 days, failing
+                               which arbitration u/s 8 A&C Act
+
+ADVOCATE NAME:  [ type live ]
+BAR NO.:        [ type live ]
+NOTICE DATE:    [ type live ]
+MODE:           [ type live — RPAD ]
+```
+
+**Show 8 fields green-ticked as auto-filled. Then show the advocate typing into the 4 empty fields.**
+
+**Caption:** *"8 fields filled from the matter. You fill the 4 that are yours."*
+
+---
+
+### SCREEN 4 — REDLINE (0:55–1:12)
+
+**Show the MSA open in the canvas. Clause 9 (Liability) is highlighted amber.**
+
+**Collab bar at top:**
+```
+2 reviewers ● [YOUR INITIALS] ● [CO-COUNSEL INITIALS — cursor blinking]
+```
+
+**Redline suggestion card appears on the right:**
+```
+⚠ CAP RISK — Clause 9
+
+Liability cap = ~₹14.16L (3 months' fees).
+Your claim = ₹28.32L. Cap cuts recovery by 50%.
+
+Counter-argument ready:
+Cap applies to service defects only.
+Invoice 003 = work never commenced = unjust enrichment,
+not a service deficiency. Cap does not apply.
+
+Authority: ONGC v. Saw Pipes (SC, 2003)
+
+Suggested redline:
+[STRIKETHROUGH] amounts paid in preceding three months
+[INSERT] total contract value, excluding invoices for
+         work not commenced
+
+✓ Accept   ✗ Reject   ✎ Modify
+```
+
+**Show cursor blinking from co-counsel on the clause. Show the "Modify" button being clicked — advocate edits one line. Playbook updates.**
+
+**Caption:** *"Two lawyers. One document. Every change tracked and sourced."*
+
+---
+
+### SCREEN 5 — EXPORT / NEWSLETTER (1:12–1:28)
+
+**Show the export panel opening. Matter brief renders as newsletter:**
+
+```
+ASSOCIATE — MATTER BRIEF
+────────────────────────────────────────
+Mehra Exports Pvt. Ltd. v. CloudServ Technologies Pvt. Ltd.
+Commercial Dispute · Arbitration · New Delhi seat
+
+Client:        Mehra Exports Pvt. Ltd.
+Advocate:      [ADVOCATE NAME]
+Claim:         ₹28,32,000
+Limitation:    21 of 36 months elapsed
+Status:        Legal notice to be sent
+
+POSITION SUMMARY
+Strong recovery claim. Invoice 002 — no sign-off obtained.
+Invoice 003 — work never commenced. Arbitration clause
+enforceable per Vidya Drolia (SC, 2021). Cap argument
+prepared per ONGC v. Saw Pipes (SC, 2003).
+
+NEXT STEPS
+1. Send legal notice — 15-day demand
+2. File u/s 11 if no response
+3. Statement of claim within 30 days of appointment
+
+→ Open in Associate
+────────────────────────────────────────
+```
+
+**Show three export buttons: Export PDF / Send by email / Copy link**
+
+**Click Export PDF — show download animation.**
+
+**Caption:** *"Brief ready. One click to share."*
+
+---
+
+### CLOSING FRAME (1:28–1:35)
+
+**Fade to black. Associate logo. Tagline:**
+```
+Associate.
+The first AI that doesn't wait to be told what to do.
+
+tryassociate.com
+```
+
+---
+
+## PRODUCTION CHECKLIST
+
+**Before recording:**
+- [ ] All 7 documents ingested into a real matter in Associate
+- [ ] Placeholders 1–7 filled (see master list above)
+- [ ] Three source links opened and tabs kept warm
+- [ ] Co-counsel avatar set up (even a dummy second account works)
+- [ ] Legal notice form pre-loaded with matter context
+
+**Recording tools:**
+- Screen Studio (paid, best motion blur + zoom) or Loom (free)
+- Record each screen separately, cut in post
+- Speed up any loading state 4x — never show a spinner in a demo
+
+**Music:**
+- Single ambient track, 20% volume
+- Search "ambient focus no copyright" on YouTube Audio Library
+- No beats — the typing rhythm is the rhythm
+
+**Lengths:**
+- 90-second cut: investors, cold audience, YC application
+- 3-minute cut: lawyers who've already seen the 90-second version
+- The 5 screens above fit exactly into 90 seconds at the timestamps given

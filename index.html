@@ -1645,6 +1645,340 @@
   .matter-dot.urgent-medium::after { background: var(--priority-medium); }
   .matter-dot.urgent-low::after { background: var(--priority-low); }
 
+  /* Intake Mode Tabs */
+  .intake-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .intake-tab {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    background: var(--paper);
+    color: var(--ink-3);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .intake-tab:hover {
+    background: var(--paper-deep);
+    color: var(--ink);
+  }
+  .intake-tab.active {
+    background: var(--ink);
+    color: var(--paper);
+    border-color: var(--ink);
+  }
+  .intake-tab svg {
+    opacity: 0.7;
+  }
+
+  /* Upload Options */
+  .upload-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .upload-option {
+    border: 2px dashed var(--rule);
+    border-radius: 12px;
+    padding: 24px 16px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--paper-deep);
+  }
+  .upload-option:hover {
+    border-color: var(--ink-3);
+    background: var(--paper-bright);
+  }
+  .upload-option-icon {
+    color: var(--ink-3);
+    margin-bottom: 12px;
+    display: flex;
+    justify-content: center;
+  }
+  .upload-option-text {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .upload-option-hint {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    color: var(--ink-3);
+  }
+
+  /* Compact Dropzone (for drag & drop) */
+  .upload-dropzone-compact {
+    border: 2px dashed var(--rule);
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background: var(--paper-deep);
+    transition: all 0.2s;
+  }
+  .upload-dropzone-compact.drag-over {
+    border-color: var(--sage);
+    background: var(--sage-soft);
+  }
+  .upload-dropzone-text {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    color: var(--ink-3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .upload-dropzone-text svg {
+    color: var(--ink-4);
+  }
+
+  /* Legacy Upload Dropzone (kept for reference) */
+  .upload-dropzone {
+    border: 2px dashed var(--rule);
+    border-radius: 12px;
+    padding: 40px 30px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s;
+    background: var(--paper-deep);
+  }
+  .upload-dropzone:hover {
+    border-color: var(--ink-3);
+    background: var(--paper-bright);
+  }
+  .upload-icon {
+    color: var(--ink-3);
+    margin-bottom: 16px;
+  }
+  .upload-text {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .upload-hint {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    color: var(--ink-3);
+    margin-bottom: 12px;
+  }
+  .upload-formats {
+    font-family: 'Fraunces', serif;
+    font-size: 11px;
+    font-style: italic;
+    color: var(--ink-4);
+    padding: 8px 16px;
+    background: var(--paper);
+    border-radius: 20px;
+    display: inline-block;
+  }
+
+  /* Upload Progress */
+  .upload-progress {
+    background: var(--paper-deep);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--rule);
+  }
+  .upload-progress-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .upload-progress-header svg {
+    color: var(--sage);
+  }
+  .upload-progress-bar {
+    height: 6px;
+    background: var(--rule);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .upload-progress-fill {
+    height: 100%;
+    background: var(--sage);
+    border-radius: 3px;
+    width: 0%;
+    transition: width 0.3s ease-out;
+  }
+  .upload-files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .upload-file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--paper);
+    border-radius: 6px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+  }
+  .upload-file-item svg {
+    color: var(--ink-3);
+    flex-shrink: 0;
+  }
+  .upload-file-name {
+    flex: 1;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .upload-file-status {
+    color: var(--ink-3);
+    font-size: 10px;
+  }
+  .upload-file-status.done {
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  /* Selected Files Preview */
+  .selected-files-preview {
+    background: var(--paper-deep);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid var(--rule);
+    animation: fadeSlide 0.3s ease-out;
+  }
+  .selected-files-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 14px;
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .selected-files-header svg {
+    color: var(--sage);
+  }
+  .change-files-btn {
+    margin-left: auto;
+    padding: 4px 10px;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    background: var(--paper);
+    color: var(--ink-2);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .change-files-btn:hover {
+    background: var(--paper-bright);
+    border-color: var(--ink-3);
+    color: var(--ink);
+  }
+  .selected-files-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .selected-file-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--paper);
+    border-radius: 8px;
+    border: 1px solid var(--rule-soft);
+  }
+  .selected-file-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    background: var(--oxblood-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--oxblood);
+    flex-shrink: 0;
+  }
+  .selected-file-icon.paid { background: var(--sage-soft); color: var(--sage); }
+  .selected-file-icon.disputed { background: var(--priority-medium-soft); color: var(--priority-medium); }
+  .selected-file-icon.contested { background: var(--priority-high-soft); color: var(--priority-high); }
+  .selected-file-icon.docx { background: var(--paper-warm); color: var(--ink-3); }
+
+  .selected-file-info {
+    flex: 1;
+    min-width: 0;
+  }
+  .selected-file-name {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--ink);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .selected-file-meta {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 10px;
+    color: var(--ink-3);
+    margin-top: 2px;
+  }
+  .selected-file-size {
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 11px;
+    color: var(--ink-2);
+    font-weight: 500;
+  }
+  .start-processing-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Inter Tight', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .start-processing-btn:hover {
+    background: var(--oxblood);
+  }
+  .start-processing-btn svg {
+    transition: transform 0.2s;
+  }
+  .start-processing-btn:hover svg {
+    transform: translateX(3px);
+  }
+
   /* Priority Legend */
   .priority-legend {
     position: fixed;
@@ -2185,6 +2519,14 @@
       <span class="matter-name">NIT Rourkela MoU</span>
     </div>
 
+    <div class="matter-dot type-litigation urgent-high" id="dot-mehra" style="display:none;" onclick="openMatter('mehra')"
+      data-tip-name="Mehra Exports v. CloudServ"
+      data-tip-status="Arbitration · 21 months limitation elapsed"
+      data-tip-note="B2B payment default under MSA. ₹28.32L recovery claim. 7 documents ingested. Legal notice ready.">
+      <span class="dot-initials">ME</span>
+      <span class="matter-name">Mehra Exports v. CloudServ</span>
+    </div>
+
     <button class="new-matter-btn" onclick="openNewMatter()" title="New matter" style="font-size:18px; line-height:1;">+</button>
     <div class="rail-spacer"></div>
     <div class="rail-playbook" id="railPlaybook" onclick="openDrawer('playbook')" title="Firm Playbook">
@@ -2345,6 +2687,16 @@
               </div>
               <div class="matter-row-next"><strong>Created</strong>today</div>
               <div class="matter-row-meta"><span class="last">Just now</span><br/>3 files</div>
+            </div>
+
+            <div class="matter-row urgent" id="mehra-row" style="display:none;" onclick="openMatter('mehra')">
+              <div class="matter-row-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 3v18M5 6h14"/><path d="M4 8l3 6c0 0-1.5 2-3 2s-3-2-3-2L4 8z"/><path d="M20 8l3 6c0 0-1.5 2-3 2s-3-2-3-2L20 8z"/></svg></div>
+              <div class="matter-row-body">
+                <div class="matter-row-name">Mehra Exports v. CloudServ Technologies</div>
+                <div class="matter-row-status">7 documents ingested · Legal notice ready<span class="flag red">Arbitration</span></div>
+              </div>
+              <div class="matter-row-next"><strong>Limitation</strong>21/36 mo elapsed</div>
+              <div class="matter-row-meta"><span class="last">Just now</span><br/>7 files</div>
             </div>
           </div>
         </section>
@@ -2803,59 +3155,159 @@
 <!-- ══════════ NEW MATTER MODAL ══════════ -->
 <div class="modal-bg" id="newMatterModal">
   <div class="modal">
-    <div class="modal-kicker">A new matter</div>
-    <h2 class="modal-title" style="font-size:30px; margin-bottom:6px;">What are we working on?</h2>
-    <p style="font-family:'Fraunces',serif; font-size:14px; font-style:italic; color:var(--ink-3); margin-bottom:22px;">Speak or type &ndash; I'll parse the rest.</p>
-
-    <!-- Privacy Notice for Voice Recording -->
-    <div class="privacy-notice" id="privacyNotice">
-      <div class="privacy-notice-header">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-        </svg>
-        Voice Recording Privacy
-      </div>
-      <div class="privacy-notice-body">
-        Before using voice dictation, please note:
-      </div>
-      <div class="privacy-bullet">Audio is processed securely and transcribed using AI</div>
-      <div class="privacy-bullet">Recordings are stored temporarily and deleted after transcription</div>
-      <div class="privacy-bullet">Transcripts are saved to your matter for your reference</div>
-      <div class="privacy-bullet">All client information remains confidential per your retainer</div>
-      
-      <div class="privacy-checkbox-wrap">
-        <input type="checkbox" id="privacyConsent" onchange="handlePrivacyConsent()">
-        <label for="privacyConsent">I understand and consent to voice recording</label>
-      </div>
-    </div>
-
-    <div class="voice-center">
-      <button class="mic-btn" id="micBtn" onclick="toggleMicWithPrivacy()">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    <!-- Mode Switcher Tabs -->
+    <div class="intake-tabs">
+      <button class="intake-tab active" id="tab-voice" onclick="switchIntakeMode('voice')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        Voice / Type
       </button>
-      <div class="voice-label" id="voiceLabel">Press to dictate. Or type below.</div>
+      <button class="intake-tab" id="tab-upload" onclick="switchIntakeMode('upload')">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+        Upload Documents
+      </button>
     </div>
 
-    <input type="text" id="textIntake" placeholder="e.g. MoU with NIT Rourkela for AI research collaboration…" style="width:100%; font-family:'Fraunces',serif; font-size:15px; color:var(--ink); background:var(--paper-deep); border:1px solid var(--rule); border-radius:10px; padding:12px 14px; outline:none; margin-top:14px;" />
+    <!-- VOICE/TYPING MODE -->
+    <div id="voiceModeSection">
+      <div class="modal-kicker">A new matter</div>
+      <h2 class="modal-title" style="font-size:30px; margin-bottom:6px;">What are we working on?</h2>
+      <p style="font-family:'Fraunces',serif; font-size:14px; font-style:italic; color:var(--ink-3); margin-bottom:22px;">Speak or type &ndash; I'll parse the rest.</p>
 
-    <div class="transcript" id="transcript"></div>
+      <!-- Privacy Notice for Voice Recording -->
+      <div class="privacy-notice" id="privacyNotice">
+        <div class="privacy-notice-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          Voice Recording Privacy
+        </div>
+        <div class="privacy-notice-body">
+          Before using voice dictation, please note:
+        </div>
+        <div class="privacy-bullet">Audio is processed securely and transcribed using AI</div>
+        <div class="privacy-bullet">Recordings are stored temporarily and deleted after transcription</div>
+        <div class="privacy-bullet">Transcripts are saved to your matter for your reference</div>
+        <div class="privacy-bullet">All client information remains confidential per your retainer</div>
 
-    <div class="parsed-fields" id="parsedFields">
-      <div class="parsed-label">Agent parsed your intake</div>
-      <div class="parsed-row" style="animation-delay:0s;"><div class="parsed-key">Matter type</div><div class="parsed-val">MoU &ndash; Research Collaboration</div></div>
-      <div class="parsed-row" style="animation-delay:0.1s;"><div class="parsed-key">Party 1</div><div class="parsed-val">NIT Rourkela</div></div>
-      <div class="parsed-row" style="animation-delay:0.2s;"><div class="parsed-key">Party 2</div><div class="parsed-val">Lexis Foundry Pvt Ltd</div></div>
-      <div class="parsed-row" style="animation-delay:0.3s;"><div class="parsed-key">Subject</div><div class="parsed-val">AI tools for legal technology</div></div>
-      <div class="parsed-row" style="animation-delay:0.4s;"><div class="parsed-key">Term</div><div class="parsed-val">2 years (non-binding)</div></div>
-      <div class="parsed-row" style="animation-delay:0.5s;"><div class="parsed-key">Languages</div><div class="parsed-val">English · Odia · Hindi</div></div>
-      <div class="parsed-row" style="animation-delay:0.6s;"><div class="parsed-key">Consideration</div><div class="parsed-val">None</div></div>
-      <div class="parsed-row" style="animation-delay:0.7s;"><div class="parsed-key">Jurisdiction</div><div class="parsed-val">Odisha <span class="parsed-inferred">(Inferred by agent)</span></div></div>
+        <div class="privacy-checkbox-wrap">
+          <input type="checkbox" id="privacyConsent" onchange="handlePrivacyConsent()">
+          <label for="privacyConsent">I understand and consent to voice recording</label>
+        </div>
+      </div>
+
+      <div class="voice-center">
+        <button class="mic-btn" id="micBtn" onclick="toggleMicWithPrivacy()">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </button>
+        <div class="voice-label" id="voiceLabel">Press to dictate. Or type below.</div>
+      </div>
+
+      <input type="text" id="textIntake" placeholder="e.g. MoU with NIT Rourkela for AI research collaboration…" style="width:100%; font-family:'Fraunces',serif; font-size:15px; color:var(--ink); background:var(--paper-deep); border:1px solid var(--rule); border-radius:10px; padding:12px 14px; outline:none; margin-top:14px;" />
+
+      <div class="transcript" id="transcript"></div>
+
+      <div class="parsed-fields" id="parsedFields">
+        <div class="parsed-label">Agent parsed your intake</div>
+        <div class="parsed-row" style="animation-delay:0s;"><div class="parsed-key">Matter type</div><div class="parsed-val">MoU &ndash; Research Collaboration</div></div>
+        <div class="parsed-row" style="animation-delay:0.1s;"><div class="parsed-key">Party 1</div><div class="parsed-val">NIT Rourkela</div></div>
+        <div class="parsed-row" style="animation-delay:0.2s;"><div class="parsed-key">Party 2</div><div class="parsed-val">Lexis Foundry Pvt Ltd</div></div>
+        <div class="parsed-row" style="animation-delay:0.3s;"><div class="parsed-key">Subject</div><div class="parsed-val">AI tools for legal technology</div></div>
+        <div class="parsed-row" style="animation-delay:0.4s;"><div class="parsed-key">Term</div><div class="parsed-val">2 years (non-binding)</div></div>
+        <div class="parsed-row" style="animation-delay:0.5s;"><div class="parsed-key">Languages</div><div class="parsed-val">English · Odia · Hindi</div></div>
+        <div class="parsed-row" style="animation-delay:0.6s;"><div class="parsed-key">Consideration</div><div class="parsed-val">None</div></div>
+        <div class="parsed-row" style="animation-delay:0.7s;"><div class="parsed-key">Jurisdiction</div><div class="parsed-val">Odisha <span class="parsed-inferred">(Inferred by agent)</span></div></div>
+      </div>
+    </div>
+
+    <!-- UPLOAD MODE -->
+    <div id="uploadModeSection" style="display:none;">
+      <div class="modal-kicker">Document ingestion</div>
+      <h2 class="modal-title" style="font-size:30px; margin-bottom:6px;">Upload matter documents</h2>
+      <p style="font-family:'Fraunces',serif; font-size:14px; font-style:italic; color:var(--ink-3); margin-bottom:22px;">Drag & drop or click to browse. I'll extract parties, dates, and claims.</p>
+
+      <!-- Hidden file inputs for real file/folder selection -->
+      <input type="file" id="realFileInput" multiple accept=".pdf,.docx,.doc,.jpg,.jpeg,.png" style="display:none;" onchange="handleRealFileSelection(event)" />
+      <input type="file" id="folderInput" webkitdirectory directory multiple style="display:none;" onchange="handleRealFileSelection(event)" />
+
+      <!-- Upload Options (initially visible) -->
+      <div class="upload-options" id="uploadOptions">
+        <div class="upload-option" onclick="triggerFilePicker()">
+          <div class="upload-option-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+          </div>
+          <div class="upload-option-text">Select files</div>
+          <div class="upload-option-hint">Choose individual documents</div>
+        </div>
+        <div class="upload-option" onclick="triggerFolderPicker()">
+          <div class="upload-option-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+            </svg>
+          </div>
+          <div class="upload-option-text">Select folder</div>
+          <div class="upload-option-hint">Upload entire matter folder</div>
+        </div>
+      </div>
+
+      <!-- Upload Drop Zone (drag & drop area) -->
+      <div class="upload-dropzone-compact" id="uploadDropzone" style="display:none;">
+        <div class="upload-dropzone-text">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="17 8 12 3 7 8"/>
+          </svg>
+          Or drag & drop files or folders here
+        </div>
+      </div>
+
+      <!-- Selected Files Preview (shown after selection) -->
+      <div class="selected-files-preview" id="selectedFilesPreview" style="display:none;">
+        <div class="selected-files-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+          <span>Selected files</span>
+          <button class="change-files-btn" onclick="triggerFilePicker()">Change</button>
+        </div>
+        <div class="selected-files-list" id="selectedFilesList"></div>
+        <button class="start-processing-btn" id="startProcessingBtn" onclick="startDocumentProcessing()">
+          <span>Start processing</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+
+      <!-- Upload Progress (hidden initially) -->
+      <div class="upload-progress" id="uploadProgress" style="display:none;">
+        <div class="upload-progress-header">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span id="uploadProgressText">Uploading documents...</span>
+        </div>
+        <div class="upload-progress-bar">
+          <div class="upload-progress-fill" id="uploadProgressFill"></div>
+        </div>
+        <div class="upload-files-list" id="uploadFilesList"></div>
+      </div>
+
+      <!-- Parsed Results (hidden initially) -->
+      <div class="parsed-fields" id="uploadParsedFields" style="display:none;">
+        <div class="parsed-label">Agent extracted from documents</div>
+        <div class="parsed-row" style="animation-delay:0s;"><div class="parsed-key">Matter type</div><div class="parsed-val">Arbitration · Commercial Dispute</div></div>
+        <div class="parsed-row" style="animation-delay:0.1s;"><div class="parsed-key">Party 1 (Claimant)</div><div class="parsed-val">Mehra Exports Pvt Ltd</div></div>
+        <div class="parsed-row" style="animation-delay:0.2s;"><div class="parsed-key">Party 2 (Defendant)</div><div class="parsed-val">CloudServ Technologies Pvt Ltd</div></div>
+        <div class="parsed-row" style="animation-delay:0.3s;"><div class="parsed-key">Claim amount</div><div class="parsed-val">₹28,32,000</div></div>
+        <div class="parsed-row" style="animation-delay:0.4s;"><div class="parsed-key">Contract date</div><div class="parsed-val">12 January 2024</div></div>
+        <div class="parsed-row" style="animation-delay:0.5s;"><div class="parsed-key">Dispute</div><div class="parsed-val">B2B payment default · MSA breach</div></div>
+        <div class="parsed-row" style="animation-delay:0.6s;"><div class="parsed-key">Limitation</div><div class="parsed-val">21 of 36 months elapsed</div></div>
+        <div class="parsed-row" style="animation-delay:0.7s;"><div class="parsed-key">Documents</div><div class="parsed-val">7 files ingested · 84 timeline events extracted</div></div>
+      </div>
     </div>
 
     <div class="modal-actions">
       <button class="btn-ghost" onclick="closeModal('newMatterModal')">Cancel</button>
       <button class="btn-primary" id="confirmMatterBtn" style="display:none;" onclick="confirmNewMatter()">Create matter →</button>
+      <button class="btn-primary" id="confirmMehraBtn" style="display:none;" onclick="confirmMehraMatter()">Create matter →</button>
     </div>
   </div>
 </div>
@@ -2897,6 +3349,7 @@
   </div>
   <div class="chat-suggestions" id="chatSuggestions">
     <div class="chat-sugg-label">Try asking</div>
+    <div class="chat-sugg" onclick="askChat('Is the arbitration clause enforceable given CloudServ\'s silence?')">Is the arbitration clause enforceable given CloudServ's silence?</div>
     <div class="chat-sugg" onclick="askChat('What happened with the indemnity cap in Varma v3?')">What happened with the indemnity cap in Varma v3?</div>
     <div class="chat-sugg" onclick="askChat('Draft the DPDP counter-clause for §14.3')">Draft the DPDP counter-clause for §14.3</div>
     <div class="chat-sugg" onclick="askChat('Summarise yesterday\'s SC indemnity judgment')">Summarise yesterday's SC indemnity judgment</div>
@@ -3006,6 +3459,10 @@ const state = {
     ],
     krishnamurthy: [
       { id: 'k1', text: 'Limitation Act 1963 §17', verified: true, formatted: 'Limitation Act 1963, Section 17', source: 'India Code', holding: 'Where a cause of action accrues by reason of fraud or concealment, the period of limitation begins only from discovery.', appliesTo: 'Krishnamurthy v. Karnataka · Limitation argument' },
+    ],
+    mehra: [
+      { id: 'c1', text: 'Vidya Drolia & Ors. v. Durga Trading Corporation', verified: true, formatted: '(2021) 2 SCC 1', source: 'eCourts', holding: 'Courts cannot refuse arbitration reference unless claim is ex-facie non-arbitrable. Mandatory reference under §8 A&C Act.', appliesTo: 'Mehra v. CloudServ · Arbitration enforceability' },
+      { id: 'c2', text: 'ONGC Ltd. v. Saw Pipes Ltd.', verified: true, formatted: '(2003) 5 SCC 705', source: 'eCourts', holding: 'Liability cap clauses construed narrowly. Cap applies to service defects only, not to claims of unjust enrichment for work never commenced.', appliesTo: 'Mehra v. CloudServ · Invoice 003 cap argument' },
     ]
   },
 };
@@ -3479,6 +3936,124 @@ const matters = {
       <div class="pb-section-head">Inventor Management</div>
       <div class="pb-item"><div class="pb-item-head"><span class="pb-item-name">Dr. Priya Rao</span><span class="pb-status ok">IDF complete ✓</span></div></div>
       <div class="pb-item"><div class="pb-item-head"><span class="pb-item-name">Rajan M. & Sita K.</span><span class="pb-status risk">IDF pending</span></div><div class="pb-item-detail">Chase required before examination request is filed.</div></div>
+    `
+  },
+  mehra: {
+    id: 'mehra',
+    dot: 'ME',
+    title: 'Mehra Exports Pvt. Ltd. v. CloudServ Technologies Pvt. Ltd.',
+    subtitle: 'Arbitration · Commercial dispute · B2B payment default under MSA',
+    type: 'litigation',
+    badge: 'badge-litigation',
+    badgeText: 'Arbitration · Commercial Dispute',
+    status: 'Active · 21 of 36 months limitation elapsed',
+    files: '7 files',
+    docLabel: 'Master Services Agreement (Executed)',
+    docCrumb: 'Mehra Exports v. CloudServ',
+    depthCounter: '7 documents ingested · 84 timeline events · ₹28.32L claim amount',
+    narrative: `B2B payment default under an MSA. Mehra Exports engaged CloudServ for a <span class="highlight">₹48L cloud migration</span>. CloudServ delivered partial work, raised full invoices, and went silent after a formal demand email. <span class="doc-inline-ref" onclick="openDocument('mehra'); closeDrawer()"><span class="doc-inline-ref-icon"></span>MSA Executed · 12 Jan 2024</span> contains an arbitration clause. <span class="highlight">Limitation is 3 years from breach — 21 months have elapsed.</span> The agent has ingested all 7 documents overnight: <span class="doc-inline-ref" onclick="openWaitlistFor('Invoice 001')"><span class="doc-inline-ref-icon"></span>Invoice 001 (Paid)</span>, <span class="doc-inline-ref" onclick="openWaitlistFor('Invoice 002')"><span class="doc-inline-ref-icon"></span>Invoice 002 (Disputed)</span>, <span class="doc-inline-ref" onclick="openWaitlistFor('Invoice 003')"><span class="doc-inline-ref-icon"></span>Invoice 003 (Contested)</span>, and <span class="doc-inline-ref" onclick="openWaitlistFor('Email Chain')"><span class="doc-inline-ref-icon"></span>Email Chain (Mar–Oct 2024)</span>. <span class="citation-chip" onclick="openCitationCard('c1', event)">Vidya Drolia<sup>1</sup></span> confirms the arbitration clause is enforceable. A <span class="doc-inline-ref" onclick="openWaitlistFor('Legal Notice Draft')"><span class="doc-inline-ref-icon"></span>legal notice draft</span> is ready for your review.<span class="narrative-action" onclick="openWaitlistFor('Legal Notice Draft')">Open legal notice →</span>`,
+    chronology: [
+      { date: '25 Apr 2026 6:14 AM', text: '<strong>7 documents ingested · Matter created</strong>', fresh: true, agentInserted: true, agentNote: 'MSA, 3 invoices, email chain, vakalatnama, and lawyer note parsed. Legal notice draft prepared.' },
+      { date: '15 Mar 2025', text: '<strong>Vakalatnama signed</strong> – Mehra Exports authorises counsel', fresh: false, agentInserted: false },
+      { date: '16 Aug 2024', text: 'CloudServ response email – <em>"Our team has been occupied..."</em>', fresh: false, oxblood: true, agentInserted: false },
+      { date: '15 Aug 2024', text: '<strong>Formal demand email sent by Mehra</strong> – 14-day notice', fresh: false, agentInserted: false },
+      { date: '22 Mar 2024', text: 'Email – Milestone 2 sign-off refused due to incomplete ERP migration', fresh: false, agentInserted: false },
+      { date: '1 Jul 2024', text: 'Invoice 003 raised – work never commenced per client tracker', fresh: false, agentInserted: false },
+      { date: '3 Apr 2024', text: 'Invoice 002 raised – no milestone sign-off obtained', fresh: false, agentInserted: false },
+      { date: '14 Feb 2024', text: 'Invoice 001 – Milestone 1 paid 8 Mar 2024', fresh: false, agentInserted: false },
+      { date: '12 Jan 2024', text: '<strong>MSA executed</strong> – CloudServ and Mehra Exports', fresh: false, agentInserted: false },
+    ],
+    issues: [
+      { title: 'Limitation – 21 of 36 months elapsed', tag: 'Critical', tagClass: 'critical', body: 'Breach date approx. March 2024 (Milestone 2 refusal). Safe but note deadline. No urgency but track.', sources: ['Limitation Act 1963 §17', 'MSA Clause 8'] },
+      { title: 'Arbitration clause enforceability', tag: 'Verified', tagClass: 'active-tag', body: '30-day cooling-off under Clause 8 satisfied. CloudServ Aug 2024 email = acknowledgement. Enforceable per Vidya Drolia (SC, 2021).', sources: ['MSA Clause 8', 'Vidya Drolia v. Durga Trading (SC, 2021)', 'A&C Act 1996 §11'] },
+      { title: 'Liability cap – ₹14.16L vs ₹28.32L claim', tag: 'Risk', tagClass: 'critical', body: 'Cap = 3 months fees = ~₹14.16L. Claim = ₹28.32L. Invoice 003 = work never commenced = not a "service defect". Counter-argument ready.', sources: ['MSA Clause 9', 'ONGC v. Saw Pipes (SC, 2003)'] },
+      { title: 'Legal notice – 15-day demand ready', tag: 'Action', tagClass: 'active-tag', body: 'Draft prepared. Forum: Arbitration seated New Delhi. Pecuniary jurisdiction: Delhi HC original side.', sources: ['Draft Legal Notice', 'MSA Clause 10'] },
+    ],
+    people: [
+      { initials: 'SB', name: 'Sounak', role: 'Counsel for Mehra Exports', detail: 'You · Advocate on Record · Bar No. SB/2019/4821 · Sounak & Associates, New Delhi' },
+      { initials: 'RM', name: 'Rahul Mehra', role: 'Director, Mehra Exports Pvt Ltd', detail: 'Your client · 14-B, Nehru Place, New Delhi – 110019 · +91 98100 12345 · rahul@mehraexports.com' },
+      { initials: 'VS', name: 'Vikram Sinha', role: 'CEO, CloudServ Technologies', detail: 'Counterparty · 402, Prestige Tower, MG Road, Bengaluru – 560001 · vikram.sinha@cloudservtech.in' },
+      { initials: 'CS', name: 'CloudServ Technologies Pvt Ltd', role: 'Service Provider / Defendant', detail: 'Registered: Bengaluru · Lead contact: Priya Shah (VP Legal) · Last response: 16 Aug 2024' },
+      { initials: 'MM', name: 'Mehra Exports Pvt Ltd', role: 'Client / Claimant', detail: 'Registered: New Delhi · CIN U51909DL2012PTC234891 · Director: Rahul Mehra' },
+    ],
+    agentNote: '7 documents ingested. The arbitration clause is enforceable per Vidya Drolia. Limitation is safe (21/36 months). The liability cap argument for Invoice 003 is your strongest lever — work never commenced means unjust enrichment, not a service defect.',
+    suggestions: [
+      { title: 'Send legal notice', reason: '15-day demand draft ready · Auto-filled from matter data' },
+      { title: 'File u/s 11 A&C Act', reason: 'If no response to notice · Delhi HC original side' },
+      { title: 'Review liability cap argument', reason: 'ONGC v. Saw Pipes supports Invoice 003 exclusion' },
+      { title: 'Confirm client position on cap risk', reason: 'Invoice 003 strategy depends on acceptance' },
+    ],
+    filesData: `
+      <div class="file-group-label">Contract & Instructions <span class="file-group-count">3 docs</span></div>
+      <div class="file-row" onclick="openDocument('mehra'); closeDrawer()">
+        <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="file-info"><div class="file-name">Mehra-CloudServ_MSA_Executed_12Jan2024.pdf <span class="file-badge">Executed</span></div><div class="file-meta">Contract · 12 Jan 2024 · Arbitration Clause 8</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-row" onclick="toast('Opening Vakalatnama...')">
+        <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="file-info"><div class="file-name">Vakalatnama_MehraExports_Signed_15Mar2025.pdf</div><div class="file-meta">Instructions & Authorisation · 15 Mar 2025</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-row" onclick="toast('Opening Open Issues Note...')">
+        <div class="file-icon agent-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="file-info"><div class="file-name">Matter_Note_OpenIssues_16Mar2025.docx</div><div class="file-meta">Lawyer note · 6 open issues documented</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-group-label">Invoices <span class="file-group-count">3 docs</span></div>
+      <div class="file-row" onclick="toast('Opening Invoice 001...')">
+        <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="file-info"><div class="file-name">CloudServ_Invoice_001_Feb2024.pdf <span class="file-badge new">Paid</span></div><div class="file-meta">₹14,16,000 · Paid 8 Mar 2024</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-row" onclick="toast('Opening Invoice 002...')">
+        <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="file-info"><div class="file-name">CloudServ_Invoice_002_Apr2024.pdf <span class="file-badge">Disputed</span></div><div class="file-meta">₹14,16,000 · No milestone sign-off</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-row" onclick="toast('Opening Invoice 003...')">
+        <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></div>
+        <div class="file-info"><div class="file-name">CloudServ_Invoice_003_Jul2024.pdf <span class="file-badge">Contested</span></div><div class="file-meta">₹14,16,000 · Work never commenced</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-group-label">Correspondence <span class="file-group-count">1 doc</span></div>
+      <div class="file-row" onclick="toast('Opening Email Chain...')">
+        <div class="file-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        <div class="file-info"><div class="file-name">Mehra_CloudServ_EmailChain_Mar_Oct2024.pdf</div><div class="file-meta">3 emails · Mar–Oct 2024 · Formal notice</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <div class="file-group-label">Agent Drafts <span class="file-group-count">1 draft</span></div>
+      <div class="file-row" onclick="openFormInWorkspace('mehra')">
+        <div class="file-icon agent-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg></div>
+        <div class="file-info"><div class="file-name">Legal Notice Draft <span class="file-badge new">Ready</span></div><div class="file-meta">Agent-drafted · 2 pp · 15-day demand</div></div>
+        <div class="file-row-action"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+      </div>
+      <button class="file-upload-btn" onclick="openWaitlistFor('File upload')"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg> Upload file</button>
+    `,
+    playbookTitle: 'Arbitration Playbook',
+    playbookSubtitle: 'B2B Commercial Disputes · Delhi HC',
+    playbookBody: `
+      <div class="pb-section-head">Current Positions</div>
+      <div class="pb-item">
+        <div class="pb-item-head"><span class="pb-item-name">Limitation</span><span class="pb-status ok">Safe ✓</span></div>
+        <div class="pb-item-detail">21 of 36 months elapsed. Breach date: March 2024. No urgency but track.</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-item-head"><span class="pb-item-name">Arbitration clause</span><span class="pb-status ok">Enforceable ✓</span></div>
+        <div class="pb-item-detail">30-day cooling-off satisfied. CloudServ Aug 2024 email = acknowledgement. Per Vidya Drolia (SC, 2021).</div>
+      </div>
+      <div class="pb-item">
+        <div class="pb-item-head"><span class="pb-item-name">Liability cap – Invoice 003</span><span class="pb-status warn">Argument ready</span></div>
+        <div class="pb-item-detail">Cap applies to service defects only. Invoice 003 = work never commenced = unjust enrichment. ONGC v. Saw Pipes supports.</div>
+        <button class="pb-insert-btn" onclick="openWaitlistFor('Review cap argument')">Review argument →</button>
+      </div>
+      <div class="pb-section-head">Next Steps</div>
+      <div class="pb-item"><div class="pb-item-head"><span class="pb-item-name">Send legal notice</span><span class="pb-status warn">Draft ready</span></div></div>
+      <div class="pb-item"><div class="pb-item-head"><span class="pb-item-name">File u/s 11 if no response</span><span class="pb-status">Delhi HC original side</span></div></div>
+      <div class="pb-section-head">Relevant Authorities</div>
+      <div class="pb-history-item">Vidya Drolia v. Durga Trading (SC, 2021) – Arbitration reference mandatory</div>
+      <div class="pb-history-item">ONGC v. Saw Pipes (SC, 2003) – Liability cap construed narrowly</div>
+      <div class="pb-history-item">A&C Act 1996 §11 – Appointment of arbitrator</div>
     `
   }
 };
@@ -4170,6 +4745,8 @@ function openDocument(matterKey) {
       renderNITDoc();
     } else if (key === 'varma') {
       renderVarmaDoc();
+    } else if (key === 'mehra') {
+      renderMehraDoc();
     } else {
       renderGenericDoc(key);
     }
@@ -4290,6 +4867,164 @@ function renderVarmaDoc() {
         <div class="margin-note-src">← Playbook · v2 Clause 15</div>
         <div class="margin-actions">
           <button class="margin-btn primary" onclick="acceptRedline('varma','cl17'); toast('Assignment restriction inserted')">Insert →</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderMehraDoc() {
+  const page = document.getElementById('docPageContent');
+  const margin = document.getElementById('docMarginNotes');
+  if (!page) return;
+  page.className = 'doc-page';
+  page.innerHTML = `
+    <div class="doc-page-label"><span>Mehra-CloudServ_MSA_Executed_12Jan2024.pdf</span><span class="version">Executed · 12 Jan 2024</span></div>
+    <h1 class="doc-h1" style="font-size:15px; text-transform:none; letter-spacing:0;">MASTER SERVICES AGREEMENT</h1>
+    <p class="doc-h1-sub" style="margin-bottom:20px;">Mehra Exports Pvt. Ltd. · CloudServ Technologies Pvt. Ltd.</p>
+
+    <p class="doc-p" style="font-size:11px; color:var(--ink-3); margin-bottom:16px;">This Master Services Agreement ("Agreement") is entered into as of 12th January 2024 ("Effective Date") by and between:</p>
+
+    <p class="doc-p"><strong>Mehra Exports Pvt. Ltd.</strong><br/>
+    A company incorporated under the Companies Act, 2013<br/>
+    Registered office: 14-B, Nehru Place, New Delhi – 110019<br/>
+    (hereinafter referred to as "Client")</p>
+
+    <p class="doc-p" style="text-align:center; margin:12px 0;"><strong>AND</strong></p>
+
+    <p class="doc-p"><strong>CloudServ Technologies Pvt. Ltd.</strong><br/>
+    A company incorporated under the Companies Act, 2013<br/>
+    Registered office: 402, Prestige Tower, MG Road, Bengaluru – 560001<br/>
+    (hereinafter referred to as "Service Provider")</p>
+
+    <h2 class="doc-h2">CLAUSE 1 — DEFINITIONS</h2>
+    <p class="doc-p"><span class="num">1.1</span> "Services" means the cloud migration, infrastructure setup, and managed services described in Schedule A.</p>
+    <p class="doc-p"><span class="num">1.2</span> "Milestones" means the four project phases set out in Schedule A.</p>
+    <p class="doc-p"><span class="num">1.3</span> "Project Manager" means the person designated by the Client to review Deliverables and issue sign-off.</p>
+
+    <h2 class="doc-h2">CLAUSE 2 — SCOPE OF SERVICES</h2>
+    <p class="doc-p"><span class="num">2.1</span> Total project value: <strong>₹48,00,000</strong> (Rupees Forty-Eight Lakhs), payable in four equal instalments upon milestone completion.</p>
+    <p class="doc-p"><span class="num">2.2</span> Any change in scope must be agreed in writing by both Parties.</p>
+
+    <h2 class="doc-h2">CLAUSE 3 — PAYMENT TERMS</h2>
+    <p class="doc-p"><span class="num">3.1</span> Client shall pay each instalment within 30 days of receipt of invoice, subject to Project Manager sign-off.</p>
+    <p class="doc-p"><span class="num">3.2</span> Service Provider shall not raise an invoice unless Deliverables have been completed and submitted.</p>
+
+    <h2 class="doc-h2">CLAUSE 4 — MILESTONES</h2>
+    <p class="doc-p">Milestone 1: Infrastructure Assessment (₹12L) · Milestone 2: Cloud Migration (₹12L)<br/>
+    Milestone 3: Data Sync & Handover (₹12L) · Milestone 4: Managed Services (₹12L)</p>
+
+    <h2 class="doc-h2">CLAUSE 5 — INTELLECTUAL PROPERTY</h2>
+    <p class="doc-p"><span class="num">5.1</span> All Deliverables created specifically for the Client shall vest in the Client upon full payment.</p>
+
+    <h2 class="doc-h2">CLAUSE 6 — CONFIDENTIALITY</h2>
+    <p class="doc-p">Each Party shall keep the other's Confidential Information strictly confidential.</p>
+
+    <h2 class="doc-h2">CLAUSE 7 — WARRANTIES</h2>
+    <p class="doc-p"><span class="num">7.1</span> Services shall be performed with reasonable skill and care.</p>
+    <p class="doc-p"><span class="num">7.3</span> In the event of breach of warranty, Service Provider shall remedy within 14 days.</p>
+
+    <h2 class="doc-h2">CLAUSE 8 — LIMITATION OF LIABILITY</h2>
+    <div class="doc-clause-block flagged active" onclick="activateMargin(this,'mn-cap')">
+      <p class="doc-p"><span class="num">8.1</span> Neither Party shall be liable for any indirect, incidental, special, or consequential loss or damage.</p>
+      <p class="doc-p" style="margin-top:8px;"><span class="num">8.2</span> CloudServ's total aggregate liability to the Client under this Agreement <s>shall not exceed the amounts paid by the Client in the three (3) months immediately preceding the event giving rise to the claim</s>.
+        <span style="color:var(--oxblood); font-weight:500;"> ⚠ Cap = ~₹14.16L vs Claim = ₹28.32L — reduces recovery by 50%</span>
+      </p>
+    </div>
+
+    <h2 class="doc-h2">CLAUSE 9 — DISPUTE RESOLUTION</h2>
+    <div class="doc-clause-block">
+      <p class="doc-p"><span class="num">9.1</span> The Parties shall first attempt to resolve any dispute through good faith discussions within thirty (30) days.</p>
+      <p class="doc-p"><span class="num">9.2</span> Failing resolution, any dispute shall be finally resolved by arbitration under the Arbitration and Conciliation Act, 1996.</p>
+      <p class="doc-p"><span class="num">9.3</span> The arbitral tribunal shall consist of a sole arbitrator appointed by mutual consent.</p>
+      <p class="doc-p"><span class="num">9.4</span> <strong>The seat of arbitration shall be New Delhi.</strong></p>
+    </div>
+
+    <h2 class="doc-h2">CLAUSE 10 — GOVERNING LAW</h2>
+    <p class="doc-p">This Agreement shall be governed by and construed in accordance with the laws of India.</p>
+
+    <h2 class="doc-h2">CLAUSE 11 — TERM AND TERMINATION</h2>
+    <p class="doc-p">Either Party may terminate this Agreement by giving 30 days' written notice.</p>
+
+    <h2 class="doc-h2">CLAUSE 12 — GENERAL</h2>
+    <p class="doc-p">All notices shall be in writing and delivered by email with read receipt.</p>
+
+    <div style="margin-top:30px; padding-top:20px; border-top:1px solid var(--rule);">
+      <p class="doc-p" style="font-size:11px;"><strong>For Mehra Exports Pvt. Ltd.</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>For CloudServ Technologies Pvt. Ltd.</strong></p>
+      <p class="doc-p" style="font-size:11px; margin-top:12px;">
+        Signature: _______________ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Signature: _______________<br/>
+        Name: Rahul Mehra &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Name: Vikram Sinha<br/>
+        Title: Director &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Title: Chief Executive Officer<br/>
+        Date: 12 January 2024 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Date: 12 January 2024
+      </p>
+    </div>
+
+    <div class="doc-footnotes">
+      <div class="doc-footnotes-label">Footnotes & citations</div>
+      <div class="fn-item" id="fn-liability"><div class="fn-num">1</div><div class="fn-text"><em>ONGC Ltd. v. Saw Pipes Ltd.</em>, (2003) 5 SCC 705 (SC). Liability cap clauses construed narrowly — cap applies to service defects only, not claims of unjust enrichment for work never commenced. [eCourts · Verified ✓]</div></div>
+      <div class="fn-item" id="fn-arb"><div class="fn-num">2</div><div class="fn-text"><em>Vidya Drolia &amp; Ors. v. Durga Trading Corporation</em>, (2021) 2 SCC 1 (SC). Courts must refer to arbitration unless claim ex-facie non-arbitrable. <a href="https://indiankanoon.org/doc/147798924/" target="_blank" style="color:var(--sage);">indiankanoon.org/doc/147798924/</a> [Verified ✓]</div></div>
+    </div>
+  `;
+
+  if (margin) margin.innerHTML = `
+    <div class="doc-margin">
+      <div class="margin-note active" id="mn-cap">
+        <div class="margin-note-label"><span class="flag-dot"></span>§8.2 · Liability Cap — CRITICAL</div>
+        <div class="margin-note-body">
+          <strong>Cap Risk Analysis</strong><br/><br/>
+          • Cap = ₹14.16L (3 months' fees)<br/>
+          • Claim = ₹28.32L<br/>
+          • <span style="color:var(--oxblood);">Cap would cut recovery by 50%</span><br/><br/>
+          <strong>Counter-argument ready:</strong><br/>
+          Cap applies to service defects only. Invoice 003 = work never commenced = unjust enrichment, not a service defect. Cap does not apply per <em>ONGC v. Saw Pipes</em>.
+        </div>
+        <div class="margin-note-src">← ONGC v. Saw Pipes (SC, 2003) · Playbook</div>
+        <div class="margin-actions">
+          <button class="margin-btn primary" onclick="toast('Cap argument saved to playbook')">Save argument →</button>
+          <button class="margin-btn" onclick="openWaitlistFor('Discuss with co-counsel')">Flag for discussion</button>
+        </div>
+      </div>
+
+      <div class="margin-note" id="mn-arbitration">
+        <div class="margin-note-label">§9 · Arbitration Clause</div>
+        <div class="margin-note-body">
+          <strong>Enforceability: VERIFIED ✓</strong><br/><br/>
+          30-day cooling-off period under Clause 9.1 has been satisfied — CloudServ's 16 Aug 2024 email acknowledges the dispute.<br/><br/>
+          Arbitration seated at New Delhi. Delhi HC original side has pecuniary jurisdiction for ₹28.32L claim.
+        </div>
+        <div class="margin-note-src">← Vidya Drolia (SC, 2021) · A&C Act §11</div>
+      </div>
+
+      <div class="margin-note" id="mn-invoices">
+        <div class="margin-note-label">Invoices 002 &amp; 003</div>
+        <div class="margin-note-body">
+          <strong>Invoice 002 (₹14,16,000)</strong><br/>
+          Disputed — no milestone sign-off obtained. Strong position.<br/><br/>
+          <strong>Invoice 003 (₹14,16,000)</strong><br/>
+          Contested — work never commenced. This is your leverage on the cap argument.
+        </div>
+        <div class="margin-note-src">← Email 22 Mar 2024 · Client project tracker</div>
+      </div>
+
+      <div class="margin-note" id="mn-limitation">
+        <div class="margin-note-label">Limitation Status</div>
+        <div class="margin-note-body">
+          <strong>21 of 36 months elapsed — SAFE ✓</strong><br/><br/>
+          Breach date: March 2024 (Milestone 2 refusal).<br/>
+          No urgency, but track the deadline.
+        </div>
+        <div class="margin-note-src">← Limitation Act 1963 · Agent calculation</div>
+      </div>
+
+      <div class="margin-note" id="mn-next">
+        <div class="margin-note-label">Recommended Next Steps</div>
+        <div class="margin-note-body">
+          1. Review cap argument with client<br/>
+          2. Send legal notice (15-day demand)<br/>
+          3. File u/s 11 if no response
+        </div>
+        <div class="margin-actions">
+          <button class="margin-btn primary" onclick="openFormInWorkspace('mehra')">Open notice draft →</button>
         </div>
       </div>
     </div>
@@ -4652,6 +5387,22 @@ function askChat(q) {
 
 function getReplyFor(q) {
   const ql = q.toLowerCase();
+  // Hardcoded: Arbitration clause enforceability (Mehra matter)
+  if (ql.includes('arbitration') && (ql.includes('enforceable') || ql.includes('silence') || ql.includes('cloudserv'))) {
+    return `<div class="chat-bubble">Yes. The arbitration clause is enforceable despite CloudServ's silence. I've verified this against three live sources.</div>
+    <div class="chat-research">
+      <div class="chat-research-label">Research · Arbitration Enforceability · 3 sources verified</div>
+      <div class="chat-research-a"><strong>Key holding:</strong> Courts cannot refuse arbitration reference unless the claim is <em>ex facie</em> non-arbitrable. The 30-day cooling-off period under Clause 9.1 of your MSA has been satisfied — CloudServ's 16 August 2024 email acknowledging the dispute constitutes sufficient engagement for Section 8 purposes.</div>
+      <div class="chat-research-cites">
+        <div class="chat-research-cite"><span class="chat-research-cite-num">[1]</span><span class="chat-research-cite-title"><a href="https://indiankanoon.org/doc/147798924/" target="_blank" style="color:var(--sage); text-decoration:underline;">Vidya Drolia v. Durga Trading Corp. · (2021) 2 SCC 1</a></span></div>
+        <div class="chat-research-cite"><span class="chat-research-cite-num">[2]</span><span class="chat-research-cite-title"><a href="https://www.indiacode.nic.in/handle/123456789/1978?sam_handle=123456789/1362" target="_blank" style="color:var(--sage); text-decoration:underline;">Arbitration Act 1996 · Section 8</a></span></div>
+        <div class="chat-research-cite"><span class="chat-research-cite-num">[3]</span><span class="chat-research-cite-title">MSA Clause 9 · Cooling-off period satisfied</span></div>
+      </div>
+      <div style="margin-top:10px; padding:8px 10px; background:var(--paper-deep); border-radius:6px; font-size:11px; color:var(--ink-3);">
+        <strong>Next step:</strong> The 30-day cooling-off period is complete. You may proceed directly to Section 11 filing at Delhi HC if no response to the legal notice.
+      </div>
+    </div>`;
+  }
   if (ql.includes('dpdp') || ql.includes('14.3') || ql.includes('counter-clause')) {
     return `<div class="chat-bubble">I've already drafted this overnight. The counter-clause is grounded in DPDP §16 and your Razorpay-2024 accepted position.</div>
     <div class="chat-research">
@@ -4792,6 +5543,131 @@ function resetVoice() {
   parsedFields.classList.remove('show');
   confirmBtn.style.display = 'none';
   textIntake.value = '';
+
+  // Reset upload mode state
+  selectedUserFiles = [];
+  mehraUploadComplete = false;
+  document.getElementById('uploadOptions').style.display = '';
+  document.getElementById('uploadDropzone').style.display = 'none';
+  document.getElementById('selectedFilesPreview').style.display = 'none';
+  document.getElementById('uploadProgress').style.display = 'none';
+  document.getElementById('uploadParsedFields').style.display = 'none';
+  document.getElementById('uploadProgressFill').style.width = '0%';
+  document.getElementById('realFileInput').value = '';
+  document.getElementById('folderInput').value = '';
+  document.getElementById('confirmMehraBtn').style.display = 'none';
+
+  // Reset to voice mode
+  switchIntakeMode('voice');
+}
+
+// Drag and drop support
+function setupDragAndDrop() {
+  const dropzone = document.getElementById('uploadDropzone');
+  if (!dropzone) return;
+
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropzone.addEventListener(eventName, preventDefaults, false);
+  });
+
+  function preventDefaults(e) {
+    e.preventDefault();
+    e.stopPropagation();
+  }
+
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropzone.addEventListener(eventName, () => dropzone.classList.add('drag-over'), false);
+  });
+
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropzone.addEventListener(eventName, () => dropzone.classList.remove('drag-over'), false);
+  });
+
+  dropzone.addEventListener('drop', handleDrop, false);
+}
+
+function handleDrop(e) {
+  const dt = e.dataTransfer;
+  const items = dt.items;
+
+  selectedUserFiles = [];
+  let pendingItems = 0;
+
+  function checkComplete() {
+    pendingItems--;
+    if (pendingItems === 0 && selectedUserFiles.length > 0) {
+      document.getElementById('uploadOptions').style.display = 'none';
+      document.getElementById('uploadDropzone').style.display = 'none';
+      showSelectedFilesPreview();
+    }
+  }
+
+  for (let i = 0; i < items.length; i++) {
+    const item = items[i];
+    if (item.kind === 'file') {
+      const entry = item.webkitGetAsEntry();
+      if (entry) {
+        pendingItems++;
+        traverseFileTree(entry, '', () => checkComplete());
+      }
+    }
+  }
+}
+
+function traverseFileTree(item, path, callback) {
+  if (item.isFile) {
+    item.file(file => {
+      file.relativePath = path + file.name;
+      selectedUserFiles.push(file);
+      callback();
+    });
+  } else if (item.isDirectory) {
+    const dirReader = item.createReader();
+    dirReader.readEntries(entries => {
+      let pending = entries.length;
+      if (pending === 0) {
+        callback();
+        return;
+      }
+      entries.forEach(entry => {
+        traverseFileTree(entry, path + item.name + '/', () => {
+          pending--;
+          if (pending === 0) callback();
+        });
+      });
+    });
+  }
+}
+
+function showSelectedFilesPreview() {
+  const listContainer = document.getElementById('selectedFilesList');
+  listContainer.innerHTML = '';
+
+  selectedUserFiles.sort((a, b) => (a.relativePath || '').localeCompare(b.relativePath || ''));
+
+  selectedUserFiles.forEach((file, index) => {
+    const template = mehraFileTemplates[index] || mehraFileTemplates[mehraFileTemplates.length - 1];
+    const sizeFormatted = formatFileSize(file.size);
+    const sourcePath = file.relativePath || file.name;
+
+    const item = document.createElement('div');
+    item.className = 'selected-file-item';
+    item.innerHTML = `
+      <div class="selected-file-icon ${template.icon}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${getFileIconSvg(template.icon)}
+        </svg>
+      </div>
+      <div class="selected-file-info">
+        <div class="selected-file-name" title="${template.name}">${template.name}</div>
+        <div class="selected-file-meta">${template.type} · From: ${sourcePath}</div>
+      </div>
+      <div class="selected-file-size">${sizeFormatted}</div>
+    `;
+    listContainer.appendChild(item);
+  });
+
+  document.getElementById('selectedFilesPreview').style.display = '';
 }
 
 textIntake.addEventListener('input', () => {
@@ -4815,6 +5691,223 @@ function confirmNewMatter() {
   if (row) { row.style.display = ''; }
   toast('Matter created \u00b7 agent is drafting MoU in three languages');
   setTimeout(() => { openMatter('nit'); }, 1400);
+}
+
+// ═══════════════════════════════════════════════════
+// DOCUMENT UPLOAD MODE & MEHRA MATTER CREATION
+// ═══════════════════════════════════════════════════
+let currentIntakeMode = 'voice';
+let mehraUploadComplete = false;
+
+function switchIntakeMode(mode) {
+  currentIntakeMode = mode;
+  const voiceTab = document.getElementById('tab-voice');
+  const uploadTab = document.getElementById('tab-upload');
+  const voiceSection = document.getElementById('voiceModeSection');
+  const uploadSection = document.getElementById('uploadModeSection');
+
+  if (mode === 'voice') {
+    voiceTab.classList.add('active');
+    uploadTab.classList.remove('active');
+    voiceSection.style.display = '';
+    uploadSection.style.display = 'none';
+    // Show NIT confirm button if parsed
+    if (parsedFields.classList.contains('show')) {
+      confirmBtn.style.display = 'inline-block';
+    }
+    document.getElementById('confirmMehraBtn').style.display = 'none';
+  } else {
+    voiceTab.classList.remove('active');
+    uploadTab.classList.add('active');
+    voiceSection.style.display = 'none';
+    uploadSection.style.display = '';
+    // Hide both buttons until upload complete
+    confirmBtn.style.display = 'none';
+    document.getElementById('confirmMehraBtn').style.display = mehraUploadComplete ? 'inline-block' : 'none';
+    // Initialize drag and drop
+    setTimeout(() => setupDragAndDrop(), 100);
+  }
+}
+
+// Store selected files
+let selectedUserFiles = [];
+
+const mehraFileTemplates = [
+  { name: 'Mehra-CloudServ_MSA_Executed_12Jan2024.pdf', type: 'Contract', icon: 'contract' },
+  { name: 'CloudServ_Invoice_001_Feb2024.pdf', type: 'Invoice — Paid', icon: 'paid' },
+  { name: 'CloudServ_Invoice_002_Apr2024.pdf', type: 'Invoice — Disputed', icon: 'disputed' },
+  { name: 'CloudServ_Invoice_003_Jul2024.pdf', type: 'Invoice — Contested', icon: 'contested' },
+  { name: 'Mehra_CloudServ_EmailChain_Mar_Oct2024.pdf', type: 'Correspondence', icon: 'email' },
+  { name: 'Vakalatnama_MehraExports_Signed_15Mar2025.pdf', type: 'Vakalatnama', icon: 'contract' },
+  { name: 'Matter_Note_OpenIssues_16Mar2025.docx', type: 'Internal Note', icon: 'docx' }
+];
+
+function triggerFilePicker() {
+  document.getElementById('realFileInput').click();
+}
+
+function triggerFolderPicker() {
+  document.getElementById('folderInput').click();
+}
+
+function handleRealFileSelection(event) {
+  const files = event.target.files;
+  if (!files || files.length === 0) return;
+
+  // Store selected files (flatten folder structure)
+  selectedUserFiles = Array.from(files).filter(f => {
+    // Filter out system files and non-document types
+    const name = f.name.toLowerCase();
+    return !name.startsWith('.') && (
+      name.endsWith('.pdf') ||
+      name.endsWith('.docx') ||
+      name.endsWith('.doc') ||
+      name.endsWith('.jpg') ||
+      name.endsWith('.jpeg') ||
+      name.endsWith('.png') ||
+      name.endsWith('.txt') ||
+      name.endsWith('.eml') ||
+      name.endsWith('.msg')
+    );
+  });
+
+  if (selectedUserFiles.length === 0) {
+    toast('No valid documents found. Please select PDF, DOCX, or image files.');
+    return;
+  }
+
+  // Show preview, hide options
+  document.getElementById('uploadOptions').style.display = 'none';
+  showSelectedFilesPreview();
+
+  // Populate selected files list with mapped names
+  const listContainer = document.getElementById('selectedFilesList');
+  listContainer.innerHTML = '';
+
+  selectedUserFiles.forEach((file, index) => {
+    const template = mehraFileTemplates[index] || mehraFileTemplates[mehraFileTemplates.length - 1];
+    const sizeFormatted = formatFileSize(file.size);
+
+    const item = document.createElement('div');
+    item.className = 'selected-file-item';
+    item.innerHTML = `
+      <div class="selected-file-icon ${template.icon}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          ${getFileIconSvg(template.icon)}
+        </svg>
+      </div>
+      <div class="selected-file-info">
+        <div class="selected-file-name" title="${template.name}">${template.name}</div>
+        <div class="selected-file-meta">${template.type} · From: ${file.name}</div>
+      </div>
+      <div class="selected-file-size">${sizeFormatted}</div>
+    `;
+    listContainer.appendChild(item);
+  });
+}
+
+function formatFileSize(bytes) {
+  if (bytes === 0) return '0 B';
+  const k = 1024;
+  const sizes = ['B', 'KB', 'MB'];
+  const i = Math.floor(Math.log(bytes) / Math.log(k));
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(1)) + ' ' + sizes[i];
+}
+
+function getFileIconSvg(iconType) {
+  const icons = {
+    contract: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/>',
+    paid: '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+    disputed: '<path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/>',
+    contested: '<circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/>',
+    email: '<path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>',
+    docx: '<path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="12" y2="17"/>'
+  };
+  return icons[iconType] || icons.contract;
+}
+
+function startDocumentProcessing() {
+  // Hide preview, show progress
+  document.getElementById('selectedFilesPreview').style.display = 'none';
+  document.getElementById('uploadProgress').style.display = '';
+
+  const progressFill = document.getElementById('uploadProgressFill');
+  const progressText = document.getElementById('uploadProgressText');
+  const filesList = document.getElementById('uploadFilesList');
+  const parsedResults = document.getElementById('uploadParsedFields');
+  const confirmMehra = document.getElementById('confirmMehraBtn');
+
+  let currentFile = 0;
+  const totalFiles = mehraFileTemplates.length;
+
+  // Clear and populate files list
+  filesList.innerHTML = '';
+
+  function uploadNextFile() {
+    if (currentFile >= totalFiles) {
+      // All files uploaded
+      setTimeout(() => {
+        progressText.textContent = 'Processing documents...';
+        setTimeout(() => {
+          progressText.textContent = 'Extracting parties, dates, claims...';
+          setTimeout(() => {
+            document.getElementById('uploadProgress').style.display = 'none';
+            parsedResults.style.display = '';
+            parsedResults.classList.add('show');
+            mehraUploadComplete = true;
+            confirmMehra.style.display = 'inline-block';
+            toast('7 documents ingested · Matter ready to create');
+          }, 1000);
+        }, 1000);
+      }, 400);
+      return;
+    }
+
+    const file = mehraFileTemplates[currentFile];
+    const percent = ((currentFile + 1) / totalFiles) * 100;
+
+    // Add file to list
+    const fileRow = document.createElement('div');
+    fileRow.className = 'upload-file-item';
+    fileRow.id = `file-${currentFile}`;
+    fileRow.innerHTML = `
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <span class="upload-file-name">${file.name}</span>
+      <span class="upload-file-status">Ingesting...</span>
+    `;
+    filesList.appendChild(fileRow);
+
+    // Animate progress
+    setTimeout(() => {
+      progressFill.style.width = `${percent}%`;
+      fileRow.querySelector('.upload-file-status').textContent = 'Ingested ✓';
+      fileRow.querySelector('.upload-file-status').classList.add('done');
+      currentFile++;
+      uploadNextFile();
+    }, 400 + Math.random() * 300);
+  }
+
+  uploadNextFile();
+}
+
+function confirmMehraMatter() {
+  closeNewMatter();
+  state.mehraCreated = true;
+
+  // Show Mehra dot and row
+  const dot = document.getElementById('dot-mehra');
+  if (dot) { dot.style.display = ''; dot.classList.add('new-glow'); }
+  const row = document.getElementById('mehra-row');
+  if (row) { row.style.display = ''; }
+
+  // Add to timeline events
+  timelineEvents.unshift(
+    { time: 'Just now', text: '7 documents ingested – Mehra Exports v. CloudServ matter created', matters: ['mehra'], fresh: true }
+  );
+  renderTimeline();
+
+  toast('Matter created · 7 documents ingested · Legal notice ready');
+  setTimeout(() => { openMatter('mehra'); }, 1400);
 }
 
 if (newMatterModal) {
@@ -5041,12 +6134,12 @@ function openFormInWorkspace(matterKey) {
 }
 
 function getFormDocName(key) {
-  const names = { krishnamurthy: 'Court Forms', varma: 'Statutory Forms', ip: 'Patent Forms', sharma: 'Forms', nit: 'Forms' };
+  const names = { krishnamurthy: 'Court Forms', varma: 'Statutory Forms', ip: 'Patent Forms', sharma: 'Forms', nit: 'Forms', mehra: 'Legal Documents' };
   return names[key] || 'Forms';
 }
 
 function getDefaultFormTab(key) {
-  const tabs = { krishnamurthy: 'rejoinder', varma: 'mgt7', ip: 'form1', sharma: null, nit: null };
+  const tabs = { krishnamurthy: 'rejoinder', varma: 'mgt7', ip: 'form1', sharma: null, nit: null, mehra: 'legalnotice' };
   return tabs[key] || null;
 }
 
@@ -5282,6 +6375,83 @@ function renderFormDoc(key, activeTab) {
             ]}
           ],
           note: 'PCT window opens 12 months from Indian filing. Budget and jurisdictions to be confirmed by Jun 2026.'
+        }
+      }
+    },
+    mehra: {
+      kicker: 'Legal Documents · Mehra Exports v. CloudServ',
+      title: 'Draft Legal Documents',
+      subtitle: 'Agent-drafted from matter data · Review before sending',
+      tabs: [
+        { id: 'legalnotice', label: 'Legal Notice' },
+        { id: 'vakalatnama', label: 'Vakalatnama' }
+      ],
+      forms: {
+        legalnotice: {
+          label: 'Legal Notice · Demand under MSA · Clause 9 Arbitration',
+          sections: [
+            { heading: 'Letterhead & Filing', fields: [
+              { label: 'Advocate name', value: '', pending: true, placeholder: '[ADVOCATE NAME]' },
+              { label: 'Bar Enrolment No.', value: '', pending: true, placeholder: '[BAR ENROLMENT NO.]' },
+              { label: 'Chamber address', value: '', pending: true, placeholder: '[CHAMBER ADDRESS, LINE 1]' },
+              { label: 'Date of notice', value: '', pending: true, placeholder: '[DATE OF NOTICE]' },
+              { label: 'Matter reference', value: '', pending: true, placeholder: '[MATTER REF. NO.]' }
+            ]},
+            { heading: 'Parties', fields: [
+              { label: 'Client (Claimant)', value: 'Mehra Exports Pvt. Ltd.' },
+              { label: 'Client address', value: '14-B, Nehru Place, New Delhi – 110019' },
+              { label: 'Counterparty', value: 'CloudServ Technologies Pvt. Ltd.' },
+              { label: 'Counterparty address', value: '402, Prestige Tower, MG Road, Bengaluru – 560001' },
+              { label: 'Counterparty contact', value: 'Vikram Sinha, CEO · vikram.sinha@cloudservtech.in' }
+            ]},
+            { heading: 'Background & Breach', fields: [
+              { label: 'Contract date', value: '12 January 2024 · MSA Executed' },
+              { label: 'Contract value', value: '₹48,00,000 (4 milestones × ₹12L each)' },
+              { label: 'Milestone 1', value: 'Paid ₹14,16,000 · 8 March 2024 ✓' },
+              { label: 'Invoice 002', value: '₹14,16,000 · Disputed · No sign-off · 3 Apr 2024' },
+              { label: 'Invoice 003', value: '₹14,16,000 · Contested · Work never commenced · 1 Jul 2024' },
+              { label: 'Demand email', value: 'Sent 15 Aug 2024 · 14-day deadline' },
+              { label: 'Response', value: '16 Aug 2024: "Our team has been occupied..."' }
+            ]},
+            { heading: 'Demand & Relief', fields: [
+              { label: 'Amount claimed', value: '₹28,32,000 (Invoices 002 + 003)' },
+              { label: 'Interest', value: '18% per annum from respective due dates' },
+              { label: 'Deadline', value: 'FIFTEEN (15) DAYS from receipt of notice' },
+              { label: 'Forum', value: 'Arbitration · New Delhi seat · Sole arbitrator' },
+              { label: 'Alternative relief sought', value: 'Complete Milestone 2 deliverables + sign-off' }
+            ]},
+            { heading: 'Enclosures', fields: [
+              { label: 'Annexure A', value: 'Email 22 Mar 2024 · Sign-off refusal' },
+              { label: 'Annexure B', value: 'Email 15 Aug 2024 · Formal demand' },
+              { label: 'Annexure C', value: 'Email 16 Aug 2024 · CloudServ response' },
+              { label: 'Annexure D', value: 'MSA dated 12 January 2024' },
+              { label: 'Annexure E', value: 'Invoice 002 dated 3 April 2024' },
+              { label: 'Annexure F', value: 'Invoice 003 dated 1 July 2024' }
+            ]}
+          ],
+          note: 'Complete legal notice drafted — 2 pages addressing: (1) Background & breach, (2) Amount due, (3) 15-day demand before arbitration, (4) Reservation of rights. Fill advocate details in amber fields before sending.'
+        },
+        vakalatnama: {
+          label: 'Vakalatnama · Order III Rule 4 CPC · Delhi Courts',
+          sections: [
+            { heading: 'Client Details', fields: [
+              { label: 'Client name', value: 'Mehra Exports Pvt. Ltd.' },
+              { label: 'Client address', value: '14-B, Nehru Place, New Delhi – 110019' },
+              { label: 'Authorised signatory', value: 'Rahul Mehra, Director' }
+            ]},
+            { heading: 'Counsel Appointment', fields: [
+              { label: 'Advocate appointed', value: '', pending: true, placeholder: '[ADVOCATE NAME]' },
+              { label: 'Bar enrolment', value: '', pending: true, placeholder: '[BAR ENROLMENT NO.]' },
+              { label: 'Address for service', value: '', pending: true, placeholder: '[CHAMBER ADDRESS]' },
+              { label: 'Matter', value: 'Mehra Exports v. CloudServ Technologies · Arbitration u/s 8 A&C Act' },
+              { label: 'Powers', value: 'Full powers to act, appear, file pleadings, receive payments' }
+            ]},
+            { heading: 'Execution', fields: [
+              { label: 'Date of execution', value: '15 March 2025' },
+              { label: 'Status', value: 'Signed · On record' }
+            ]}
+          ],
+          note: 'Vakalatnama already signed and on record. This generates a reference copy for the arbitration filing if required.'
         }
       }
     }
